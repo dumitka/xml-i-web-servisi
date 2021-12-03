@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Sertifikat xmlns="http://www.baklavice.com/digitalni_sertifikati"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.baklavice.com/digitalni_sertifikati DigitalniSertifikat.xsd"
+    xmlns:kompleksni_tipovi="http://www.baklavice.com/kompleksni_tipovi">
+    <Zaglavlje>
+        <Grb>putanja_grba.jpg</Grb>
+        <Naslov>
+        DIGITALNI ZELENI SERTIFIKAT
+        Potvrda o izvrsenoj vakcinaciji protiv
+        COVID-19 i peyultatima testiranja
+        DIGITAL GREEN CERTIFICATE
+        Certificate of vaccination against COVID-19
+        and test results
+        </Naslov>
+        <Qr_code>putanja_qr_koda.jpg</Qr_code>
+    </Zaglavlje>
+    <Info_sertifikat>
+        <Broj_sertifikata>123456</Broj_sertifikata>
+        <Datum_stampanja>2018-12-24T12:36:58</Datum_stampanja>
+        <Izdavac>
+            <Grb>putanja_grba.jpg</Grb>
+            <Grb>putanja_grba.jpg</Grb>
+            <Adresa_institucije>
+                <kompleksni_tipovi:Grad>BEOGRAD</kompleksni_tipovi:Grad>
+                <kompleksni_tipovi:Ulica>Nemanjina</kompleksni_tipovi:Ulica>
+                <kompleksni_tipovi:Broj>11</kompleksni_tipovi:Broj>
+            </Adresa_institucije>
+            <Datum_izdavanja>2021-05-12</Datum_izdavanja>
+        </Izdavac>
+    </Info_sertifikat>
+    <Info_korisnika>
+        <kompleksni_tipovi:Ime>Pera</kompleksni_tipovi:Ime>
+        <kompleksni_tipovi:Prezime>Peric</kompleksni_tipovi:Prezime>
+        <kompleksni_tipovi:Pol><kompleksni_tipovi:Zenski>ZENSKI</kompleksni_tipovi:Zenski></kompleksni_tipovi:Pol>
+        <kompleksni_tipovi:Jmbg>1234567890123</kompleksni_tipovi:Jmbg>
+        <kompleksni_tipovi:Broj_pasosa>123456789</kompleksni_tipovi:Broj_pasosa>
+    </Info_korisnika>
+    <Info_vakcinacije>
+        <Vakcinacije Doza="1">
+            <Tip>Fajzer</Tip>
+            <Proizvodjac>BioNToch</Proizvodjac>
+            <Serija>123</Serija>
+            <Zdravsvena_ustanova>
+                <Adresa_ustanove>
+                    <kompleksni_tipovi:Grad>Novi Sad</kompleksni_tipovi:Grad>
+                    <kompleksni_tipovi:Ulica>Ulica Modene</kompleksni_tipovi:Ulica>
+                    <kompleksni_tipovi:Broj>2</kompleksni_tipovi:Broj>
+                </Adresa_ustanove>
+                <Ustanova>Zdravstvena unstanova NS</Ustanova>
+            </Zdravsvena_ustanova>
+        </Vakcinacije>
+    </Info_vakcinacije>
+    <Info_testovi></Info_testovi>
+</Sertifikat>

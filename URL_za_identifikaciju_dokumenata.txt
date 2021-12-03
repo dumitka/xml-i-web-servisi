@@ -1,0 +1,3 @@
+URL za identifikaciju svih tipova dokumenata
+
+- Digitalni sertifikat: http://www.baklavice.com/digitalni_sertifikati/234567		(identifikator je Broj_sertifikata)
