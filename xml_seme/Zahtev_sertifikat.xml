@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zahtev_za_sertifikat xmlns="http://www.baklavice.com/zahtev_sertifikat"
+    xmlns:kompleksni_tipovi="http://www.baklavice.com/kompleksni_tipovi"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.baklavice.com/zahtev_sertifikat file:/C:/Users/Tatjana%20Gavrilovi%C4%87/Documents/SIIT4.1/XML/Projekat/Git/xml-i-web-servisi/xml_seme/Zahtev_sertifikat.xsd"
+    ime_dokumenta="Zahtev za izdavanje digitalnog zelenog sertifikata">
+    <izjava_podnosenja_zahteva>
+        U skladu sa odredbom Republike Srbije o izdavanju digitalnog zelenog sertifikata kao potvrde o 
+        izvršenoj vakcinaciji protiv COVID-19, rezultatima testiranja na zaraznu bolest SARS-CoV-2 ili oporavku 
+        od bolesti COVID-19 podnosim zahtev za izdavanje digitalnog zelenog sertifikata.
+    </izjava_podnosenja_zahteva>
+    <podaci_o_podnosiocu>
+        <kompleksni_tipovi:Ime>Pera</kompleksni_tipovi:Ime>
+        <kompleksni_tipovi:Prezime>Peric</kompleksni_tipovi:Prezime>
+        <kompleksni_tipovi:Pol><kompleksni_tipovi:Muski>MUSKI</kompleksni_tipovi:Muski></kompleksni_tipovi:Pol>
+        <kompleksni_tipovi:Jmbg>1312995123456</kompleksni_tipovi:Jmbg>
+        <kompleksni_tipovi:Datum_rodjenja>1995-12-13</kompleksni_tipovi:Datum_rodjenja>
+        <kompleksni_tipovi:Broj_pasosa>123456789</kompleksni_tipovi:Broj_pasosa>
+    </podaci_o_podnosiocu>
+    <razlog_podnosenja_zahteva>Putovanje</razlog_podnosenja_zahteva>
+    <mesto_podnosenja_zahteva>Novi Sad</mesto_podnosenja_zahteva>
+    <datum_podnosenja_zahteva>2021-11-10</datum_podnosenja_zahteva>
+</zahtev_za_sertifikat>

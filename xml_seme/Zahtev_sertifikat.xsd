@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
+    vc:minVersion="1.1" attributeFormDefault="unqualified"
+    targetNamespace="http://www.baklavice.com/zahtev_sertifikat"
+    xmlns:kompleksni_tipovi="http://www.baklavice.com/kompleksni_tipovi"
+    xmlns:projekat="http://www.baklavice.com/zahtev_sertifikat">
+    <xs:import namespace="http://www.baklavice.com/kompleksni_tipovi"
+        schemaLocation="KompleksniTipovi.xsd"/>
+    <xs:element name="zahtev_za_sertifikat">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="izjava_podnosenja_zahteva" type="xs:string"/>
+                <xs:element name="podaci_o_podnosiocu" type="kompleksni_tipovi:Korisnicke_info"/>
+                <xs:element name="razlog_podnosenja_zahteva">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="1"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="mesto_podnosenja_zahteva" type="xs:string"/>
+                <xs:element name="datum_podnosenja_zahteva" type="xs:date"/>
+            </xs:sequence>
+            <xs:attribute name="ime_dokumenta" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

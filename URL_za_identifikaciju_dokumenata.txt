@@ -1,3 +1,4 @@
 URL za identifikaciju svih tipova dokumenata
 
 - Digitalni sertifikat: http://www.baklavice.com/digitalni_sertifikati/234567		(identifikator je Broj_sertifikata)
+- Zahtev za digitalni zeleni sertifikat: http://www.baklavice.com/zahtev_sertifikat/1312995123456/2021-11-10  (identifikator je jmbg podnosioca/datum podnosenja zahteva)	
