@@ -42,6 +42,31 @@
                     <xs:element name="Mesto_rodjenja" type="xs:string"/>
                     <xs:element name="Adresa" type="tipovi:TAdresa"/>
                     <xs:element name="Kontakt" type="tipovi:TKontakt"/>
+                    <xs:element name="Radni_status">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="Zaposlen"/>
+                                <xs:enumeration value="Nezaposlen"/>
+                                <xs:enumeration value="Penzioner"/>
+                                <xs:enumeration value="Ucenik"/>
+                                <xs:enumeration value="Student"/>
+                                <xs:enumeration value="Dete"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Zanimanje_zaposlenog">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="Zdravstvena zastita"/>
+                                <xs:enumeration value="Socijalna zastita"/>
+                                <xs:enumeration value="Prosveta"/>
+                                <xs:enumeration value="MUP"/>
+                                <xs:enumeration value="Vojska RS"/>
+                                <xs:enumeration value="Drugo"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="Socijalna_zastita" type="xs:boolean"/>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
