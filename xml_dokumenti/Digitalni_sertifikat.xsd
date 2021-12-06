@@ -2,12 +2,10 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
     vc:minVersion="1.1" attributeFormDefault="unqualified"
-    targetNamespace="http://www.baklavice.com/digitalni_sertifikati"
-    xmlns:kompleksni_tipovi="http://www.baklavice.com/kompleksni_tipovi"
-    xmlns:projaket="http://www.baklavice.com/digitalni_sertifikati">
-
-    <xs:import namespace="http://www.baklavice.com/kompleksni_tipovi"
-        schemaLocation="KompleksniTipovi.xsd"/>
+    targetNamespace="http://www.baklavice.com/digitalni_sertifikat"
+    xmlns:sertifikat="http://www.baklavice.com/digitalni_sertifikat"
+    xmlns:tipovi="http://www.baklavice.com/tipovi">
+    <xs:import namespace="http://www.baklavice.com/tipovi" schemaLocation="Tipovi.xsd"/>
     <xs:element name="Sertifikat">
         <xs:complexType>
             <xs:sequence>
@@ -16,7 +14,7 @@
                         <xs:sequence>
                             <xs:element name="Grb" type="xs:string"/>
                             <xs:element name="Naslov" type="xs:string"/>
-                            <xs:element name="Qr_code" type="xs:string"/>
+                            <xs:element name="QR_kod" type="xs:string"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -30,14 +28,13 @@
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
-                            <xs:element name="Datum_stampanja" type="xs:dateTime"/>
+                            <xs:element name="Datum_izdavanja" type="xs:dateTime"/>
                             <xs:element name="Izdavac">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element maxOccurs="2" minOccurs="2" name="Grb"
                                             type="xs:string"/>
-                                        <xs:element name="Adresa_institucije"
-                                            type="kompleksni_tipovi:Adresa"/>
+                                        <xs:element name="Adresa_institucije" type="tipovi:TAdresa"/>
                                         <xs:element name="Datum_izdavanja" type="xs:date"/>
                                     </xs:sequence>
                                 </xs:complexType>
@@ -45,7 +42,7 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="Info_korisnika" type="kompleksni_tipovi:Korisnicke_info"/>
+                <xs:element name="Info_korisnika" type="tipovi:TKorisnikOpste"/>
                 <xs:element name="Info_vakcinacije">
                     <xs:complexType>
                         <xs:sequence>
@@ -55,18 +52,17 @@
                                         <xs:element minOccurs="1" name="Tip" type="xs:string"/>
                                         <xs:element minOccurs="1" name="Proizvodjac"
                                             type="xs:string"/>
-                                        <xs:element minOccurs="1" name="Serija" type="xs:string"/>
-                                        <xs:element minOccurs="1" name="Zdravsvena_ustanova">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                  <xs:element name="Adresa_ustanove"
-                                                  type="kompleksni_tipovi:Adresa"/>
-                                                  <xs:element name="Ustanova" type="xs:string"/>
-                                                </xs:sequence>
-                                            </xs:complexType>
+                                        <xs:element minOccurs="1" name="Serija">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                  <xs:pattern value="\d{1,10}"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
                                         </xs:element>
+                                        <xs:element minOccurs="1" name="Zdravsvena_ustanova"
+                                            type="xs:string"> </xs:element>
                                     </xs:sequence>
-                                    <xs:attribute name="Doza" type="xs:int"/>
+                                    <xs:attribute name="Doza" type="xs:positiveInteger"/>
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
@@ -97,14 +93,14 @@
                                                   <xs:element minOccurs="0" name="Opis"
                                                   type="xs:string"/>
                                                   <xs:element minOccurs="0" name="Laboratorija"
-                                                  type="kompleksni_tipovi:Adresa"> </xs:element>
+                                                  type="tipovi:TAdresa"> </xs:element>
                                                   <xs:element minOccurs="0" name="Datum_rezultata"
                                                   type="xs:dateTime"/>
                                                 </xs:sequence>
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>
-                                    <xs:attribute name="Broj" type="xs:int"/>
+                                    <xs:attribute name="Broj" type="xs:positiveInteger"/>
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.baklavice.com/izvestaj"
+    xmlns:izvestaj="http://www.baklavice.com/izvestaj">
+    <xs:element name="Izvestaj">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Period">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Datum_od" type="xs:date"/>
+                            <xs:element name="Datum_do" type="xs:date"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Broj_interesovanja" type="xs:positiveInteger"/>
+                <xs:element name="Zahtevi_za_sertifikat" type="xs:positiveInteger"/>
+                <xs:element name="Izdati_sertifikati" type="xs:positiveInteger"/>
+                <xs:element name="Doze_vakcine">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Ukupno_datih_doza" type="xs:positiveInteger"/>
+                            <xs:element maxOccurs="unbounded" name="Doza">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Broj_datih_doza" type="xs:positiveInteger"
+                                        />
+                                    </xs:sequence>
+                                    <xs:attribute name="Redni_broj" type="xs:positiveInteger"
+                                        use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Raspodela_proizvodjaca">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Proizvodjac" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="Broj_doza" type="xs:positiveInteger"
+                                                use="required"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Datum_izdavanja" type="xs:date"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

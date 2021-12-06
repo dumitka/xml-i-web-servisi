@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
+    vc:minVersion="1.1" attributeFormDefault="unqualified"
+    targetNamespace="http://www.baklavice.com/potvrda"
+    xmlns:potvrda="http://www.baklavice.com/potvrda" xmlns:tipovi="http://www.baklavice.com/tipovi">
+
+    <xs:import namespace="http://www.baklavice.com/tipovi" schemaLocation="Tipovi.xsd"/>
+    <xs:element name="Potvrda">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Sifra_potvrde">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="\d{5}-\d{5}"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="Info_korisnika" type="tipovi:TKorisnikOpste"/>
+                <xs:element name="Doze_vakcine">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="Doza">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Datum_davanja" type="xs:date"/>
+                                        <xs:element name="Serija">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                  <xs:pattern value="\d{1,10}"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="Broj_doze" type="xs:positiveInteger"
+                                        use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Zdravstvena_ustanova" type="xs:string"/>
+                <xs:element name="Naziv_vakcine" type="xs:string"/>
+                <xs:element name="Datum_izdavanja" type="xs:date"/>
+                <xs:element name="QR_kod" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
