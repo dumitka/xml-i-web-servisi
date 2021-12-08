@@ -7,29 +7,28 @@
     
     <Deo_za_pacijenta>
         <Licni_podaci>
-            <tipovi:JMBG>1107999815033</tipovi:JMBG>
-            <tipovi:Naziv_stranog_drzavljanstva></tipovi:Naziv_stranog_drzavljanstva>
-            <tipovi:Broj_pasosa>014563857</tipovi:Broj_pasosa>
-            <tipovi:Prezime>Markovic</tipovi:Prezime>
             <tipovi:Ime>Marko</tipovi:Ime>
-            <tipovi:Ime_roditelja>Branko</tipovi:Ime_roditelja>
+            <tipovi:Prezime>Markovic</tipovi:Prezime>
             <tipovi:Pol>Muski</tipovi:Pol>
             <tipovi:Datum_rodjenja>1999-04-05</tipovi:Datum_rodjenja>
+            <tipovi:JMBG>1107999815033</tipovi:JMBG>
+            <tipovi:Ime_roditelja>Branko</tipovi:Ime_roditelja>
             <tipovi:Mesto_rodjenja>Kula</tipovi:Mesto_rodjenja>
-            <tipovi:Ulica></tipovi:Ulica>
-            <tipovi:Broj></tipovi:Broj>
-            <tipovi:Mesto></tipovi:Mesto>
-            <tipovi:Opstina></tipovi:Opstina>
+            <tipovi:Adresa>
+                <tipovi:Opstina></tipovi:Opstina>
+                <tipovi:Mesto></tipovi:Mesto>
+                <tipovi:Ulica></tipovi:Ulica>
+                <tipovi:Broj></tipovi:Broj>
+            </tipovi:Adresa>
             <tipovi:Kontakt>
                 <tipovi:Broj_fiksnog>021958689</tipovi:Broj_fiksnog>
                 <tipovi:Broj_mobilnog>063847586</tipovi:Broj_mobilnog>
                 <tipovi:Email>marko@gmail.com</tipovi:Email>
             </tipovi:Kontakt>
-            
             <tipovi:Radni_status>Zaposlen</tipovi:Radni_status>
             <tipovi:Zanimanje_zaposlenog>Drugo</tipovi:Zanimanje_zaposlenog>
             <tipovi:Socijalna_zastita>true</tipovi:Socijalna_zastita>
-            <tipovi:Sediste_socijalne_zastite></tipovi:Sediste_socijalne_zastite>
+            <tipovi:Drzavljanstvo/>
         </Licni_podaci>
         
         <Pacijent_je_saglasan>true</Pacijent_je_saglasan>

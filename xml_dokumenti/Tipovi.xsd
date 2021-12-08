@@ -17,7 +17,7 @@
             </xs:element>
             <xs:element name="Datum_rodjenja" type="xs:date"/>
             <xs:choice>
-                <xs:element name="JMBG">
+                <xs:element name="JMBG" minOccurs="1">
                     <xs:simpleType>
                         <xs:restriction base="xs:string">
                             <xs:pattern value="\d{13}"/>
@@ -67,39 +67,18 @@
                         </xs:simpleType>
                     </xs:element>
                     <xs:element name="Socijalna_zastita" type="xs:boolean"/>
+                    <xs:element default="&quot;Republika Srbija&quot;" name="Drzavljanstvo"
+                        type="xs:string"/>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="TKorisnikSrednje">
-        <xs:sequence>
-            <xs:element name="Poreklo_lica">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:enumeration value="Državljanin Republike Srbije"/>
-                        <xs:enumeration value="Strani državljanin sa boravkom u RS"/>
-                        <xs:enumeration value="Strani državljanin bez boravka u RS"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element minOccurs="0" name="JMBG">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:pattern value="\d{13}"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element name="Ime" type="xs:string"/>
-            <xs:element name="Prezime" type="xs:string"/>
-            <xs:element name="Kontakt" type="tipovi:TKontakt"/>
-        </xs:sequence>
     </xs:complexType>
     <xs:complexType name="TAdresa">
         <xs:sequence>
             <xs:element name="Opstina" type="xs:string"/>
             <xs:element name="Mesto" type="xs:string"/>
             <xs:element name="Ulica" type="xs:string"/>
-            <xs:element name="Broj" type="xs:positiveInteger"/>
+            <xs:element name="Broj" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="TKontakt">
