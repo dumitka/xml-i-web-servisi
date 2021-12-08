@@ -5,6 +5,8 @@
     xmlns:tipovi="http://www.baklavice.com/tipovi">
     <xs:complexType name="TKorisnikOpste">
         <xs:sequence>
+            <xs:element default="Republika Srbija" name="Drzavljanstvo" type="xs:string"/>
+            <xs:element default="Republika Srbija" name="Boraviste" type="xs:string"/>
             <xs:element name="Ime" type="xs:string"/>
             <xs:element name="Prezime" type="xs:string"/>
             <xs:element name="Pol">
@@ -67,8 +69,7 @@
                         </xs:simpleType>
                     </xs:element>
                     <xs:element name="Socijalna_zastita" type="xs:boolean"/>
-                    <xs:element default="&quot;Republika Srbija&quot;" name="Drzavljanstvo"
-                        type="xs:string"/>
+                    <xs:element minOccurs="0" name="Sediste_socijalne_zastite" type="xs:string"/>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -83,17 +84,17 @@
     </xs:complexType>
     <xs:complexType name="TKontakt">
         <xs:all>
-            <xs:element minOccurs="0" name="Broj_fiksnog">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:pattern value="0[0-9]{8,10}"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
             <xs:element minOccurs="0" name="Broj_mobilnog">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
                         <xs:pattern value="06[0-9]{7,8}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="Broj_fiksnog">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="0[0-9]{8,10}"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
@@ -106,16 +107,14 @@
             </xs:element>
         </xs:all>
     </xs:complexType>
-    <xs:element name="Tip_vakcine">
-        <xs:simpleType>
-            <xs:restriction base="xs:string">
-                <xs:enumeration value="Pfizer-BioNTech"/>
-                <xs:enumeration value="Sputnik V(Gameleya istraživački centar)"/>
-                <xs:enumeration value="Sinopharm"/>
-                <xs:enumeration value="AstraZeneca"/>
-                <xs:enumeration value="Moderna"/>
-                <xs:enumeration value="Bilo koja"/>
-            </xs:restriction>
-        </xs:simpleType>
-    </xs:element>
+    <xs:simpleType name="TVakcina">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Pfizer-BioNTech"/>
+            <xs:enumeration value="Sputnik V"/>
+            <xs:enumeration value="Sinopharm"/>
+            <xs:enumeration value="AstraZeneca"/>
+            <xs:enumeration value="Moderna"/>
+            <xs:enumeration value="Bilo koja"/>
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>

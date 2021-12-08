@@ -34,8 +34,8 @@
                                     <xs:sequence>
                                         <xs:element maxOccurs="2" minOccurs="2" name="Grb"
                                             type="xs:string"/>
-                                        <xs:element name="Adresa_institucije" type="tipovi:TAdresa"/>
-                                        <xs:element name="Datum_izdavanja" type="xs:date"/>
+                                        <xs:element name="Adresa_institucije" type="tipovi:TAdresa"
+                                        />
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
@@ -49,7 +49,7 @@
                             <xs:element maxOccurs="unbounded" name="Vakcinacije">
                                 <xs:complexType>
                                     <xs:sequence minOccurs="1">
-                                        <xs:element minOccurs="1" name="Tip" type="xs:string"/>
+                                        <xs:element minOccurs="1" name="Tip" type="tipovi:TVakcina"/>
                                         <xs:element minOccurs="1" name="Proizvodjac"
                                             type="xs:string"/>
                                         <xs:element minOccurs="1" name="Serija">

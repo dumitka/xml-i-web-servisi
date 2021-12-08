@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="http://www.baklavice.com/izvestaj"
-    xmlns:izvestaj="http://www.baklavice.com/izvestaj">
+    targetNamespace="http://www.baklavice.com/izvestaj" vc:minVersion="1.1"
+    attributeFormDefault="unqualified" xmlns:izvestaj="http://www.baklavice.com/izvestaj"
+    xmlns:tipovi="http://www.baklavice.com/tipovi"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
+    <xs:import namespace="http://www.baklavice.com/tipovi" schemaLocation="Tipovi.xsd"/>
     <xs:element name="Izvestaj">
         <xs:complexType>
             <xs:sequence>
@@ -39,7 +42,7 @@
                             <xs:element name="Proizvodjac" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:simpleContent>
-                                        <xs:extension base="xs:string">
+                                        <xs:extension base="tipovi:TVakcina">
                                             <xs:attribute name="Broj_doza" type="xs:positiveInteger"
                                                 use="required"/>
                                         </xs:extension>

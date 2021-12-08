@@ -5,6 +5,8 @@
     xmlns:tipovi="http://www.baklavice.com/tipovi">
     <Sifra_potvrde>12345-54321</Sifra_potvrde>
     <Info_korisnika>
+        <tipovi:Drzavljanstvo></tipovi:Drzavljanstvo>
+        <tipovi:Boraviste></tipovi:Boraviste>
         <tipovi:Ime>Nikola</tipovi:Ime>
         <tipovi:Prezime>Nikolić</tipovi:Prezime>
         <tipovi:Pol>Muski</tipovi:Pol>

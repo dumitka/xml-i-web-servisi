@@ -15,7 +15,7 @@
     </Zaglavlje>
     <Info_sertifikat>
         <Broj_sertifikata>234567</Broj_sertifikata>
-        <Datum_izdavanja>2018-12-24T12:36:58</Datum_izdavanja>
+        <Datum_izdavanja>2021-12-24T12:36:58</Datum_izdavanja>
         <Izdavac>
             <Grb>putanja_grba.jpg</Grb>
             <Grb>putanja_grba.jpg</Grb>
@@ -25,10 +25,11 @@
                 <tipovi:Ulica>Nemanjina</tipovi:Ulica>
                 <tipovi:Broj>15</tipovi:Broj>
             </Adresa_institucije>
-            <Datum_izdavanja>2021-05-12</Datum_izdavanja>
         </Izdavac>
     </Info_sertifikat>
     <Info_korisnika>
+        <tipovi:Drzavljanstvo></tipovi:Drzavljanstvo>
+        <tipovi:Boraviste></tipovi:Boraviste>
         <tipovi:Ime>Mika</tipovi:Ime>
         <tipovi:Prezime>Mikić</tipovi:Prezime>
         <tipovi:Pol>Muski</tipovi:Pol>
@@ -37,8 +38,8 @@
     </Info_korisnika>
     <Info_vakcinacije>
         <Vakcinacije Doza="1">
-            <Tip>Phizer</Tip>
-            <Proizvodjac>BioNToch</Proizvodjac>
+            <Tip>AstraZeneca</Tip>
+            <Proizvodjac>AstraZeneca, Oxford</Proizvodjac>
             <Serija>123845</Serija>
             <Zdravsvena_ustanova>Zdravstvena unstanova Novi Sad</Zdravsvena_ustanova>
         </Vakcinacije>

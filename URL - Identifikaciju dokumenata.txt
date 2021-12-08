@@ -5,16 +5,16 @@ URL za identifikaciju svih tipova dokumenata
 	Identifikator je Broj_sertifikata
 2) Zahtev za digitalni zeleni sertifikat
 	http://www.baklavice.com/zahtev_za_sertifikat/1805999112233/2021-11-10
-	Identifikator je JMBG_podnosioca/Datum_podnošenja_zahteva
+	Identifikator je JMBG_podnosioca/Datum_podnošenja_zahteva ili Broj_pasoša_podnosioca/Datum_podnošenja_zahteva
 3) Izveštaj o imunizaciji
 	http://www.baklavice.com/izvestaj/2021-10-01/2021-11-01
 	Identifikator je Datum_od/Datum_do
 4) Interesovanje
-	
-	
+	http://www.baklavice.com/interesovanje/1111999815055
+	Identifikator je JMBG_podnosioca ili Broj_pasoša_podnosioca
 5) Obrazac saglasnosti za imunizaciju
-	
-	
+	http://www.baklavice.com/saglasnost
+	Identifikator je JMBG_podnosioca ili Broj_pasoša_podnosioca
 6) Potvrda o vakcinaciji
 	http://www.baklavice.com/potvrda/12345-54321
 	Identifikator je Sifra_potvrde

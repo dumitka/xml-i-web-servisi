@@ -10,6 +10,8 @@
         od bolesti COVID-19 podnosim zahtev za izdavanje digitalnog zelenog sertifikata.
     </Izjava_podnosenja_zahteva>
     <Podaci_o_podnosiocu>
+        <tipovi:Drzavljanstvo></tipovi:Drzavljanstvo>
+        <tipovi:Boraviste></tipovi:Boraviste>
         <tipovi:Ime>Pera</tipovi:Ime>
         <tipovi:Prezime>Perić</tipovi:Prezime>
         <tipovi:Pol>Muski</tipovi:Pol>

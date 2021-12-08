@@ -4,37 +4,24 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.baklavice.com/interesovanje Interesovanje.xsd"
     xmlns:tipovi="http://www.baklavice.com/tipovi">
-    
     <Podaci_o_licu>
+        <tipovi:Drzavljanstvo>Republika Srbija</tipovi:Drzavljanstvo>
+        <tipovi:Boraviste>Republika Srbija</tipovi:Boraviste>
         <tipovi:Ime>Ivana</tipovi:Ime>
-        <tipovi:Prezime>Ivanovic</tipovi:Prezime>
-        <tipovi:Pol>Muski</tipovi:Pol>
-        <tipovi:Datum_rodjenja>2021-12-31</tipovi:Datum_rodjenja>
+        <tipovi:Prezime>Ivanović</tipovi:Prezime>
+        <tipovi:Pol>Zenski</tipovi:Pol>
+        <tipovi:Datum_rodjenja>1999-11-11</tipovi:Datum_rodjenja>
         <tipovi:JMBG>1111999815055</tipovi:JMBG>
-        <tipovi:Ime_roditelja>Ana</tipovi:Ime_roditelja>
-        <tipovi:Mesto_rodjenja>Palic</tipovi:Mesto_rodjenja>
-        <tipovi:Adresa>
-            <tipovi:Opstina></tipovi:Opstina>
-            <tipovi:Mesto></tipovi:Mesto>
-            <tipovi:Ulica></tipovi:Ulica>
-            <tipovi:Broj></tipovi:Broj>
-        </tipovi:Adresa>
-        <tipovi:Kontakt>
-            <tipovi:Email>ivanaa@gmail.com</tipovi:Email>
-            <tipovi:Broj_mobilnog>063560560</tipovi:Broj_mobilnog>
-            <tipovi:Broj_fiksnog>021778777</tipovi:Broj_fiksnog>
-        </tipovi:Kontakt>
-        <tipovi:Radni_status>Nezaposlen</tipovi:Radni_status>
-        <tipovi:Socijalna_zastita>false</tipovi:Socijalna_zastita>
-        <tipovi:Drzavljanstvo/>
     </Podaci_o_licu>
-    
+    <Kontakt>
+        <tipovi:Email>ivanaa@gmail.com</tipovi:Email>
+        <tipovi:Broj_mobilnog>063560560</tipovi:Broj_mobilnog>
+        <tipovi:Broj_fiksnog>021778777</tipovi:Broj_fiksnog>
+    </Kontakt>
     <Podaci_o_vakcinaciji>
         <Opstina_ustanove>Novi Sad</Opstina_ustanove>
-        <tipovi:Tip_vakcine>Sinopharm</tipovi:Tip_vakcine>
-        <Lice_je_davalac_krvi>Da</Lice_je_davalac_krvi>
+        <Tip_vakcine>Sinopharm</Tip_vakcine>
+        <Davalac_krvi>true</Davalac_krvi>
     </Podaci_o_vakcinaciji>
-    
-    
-    <Datum_izdavanja>2021-12-01</Datum_izdavanja>
+    <Datum_interesovanja>2021-12-01</Datum_interesovanja>    
 </Interesovanje>

@@ -40,7 +40,7 @@
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="Zdravstvena_ustanova" type="xs:string"/>
-                <xs:element name="Naziv_vakcine" type="xs:string"/>
+                <xs:element name="Naziv_vakcine" type="tipovi:TVakcina"/>
                 <xs:element name="Datum_izdavanja" type="xs:date"/>
                 <xs:element name="QR_kod" type="xs:string"/>
             </xs:sequence>
