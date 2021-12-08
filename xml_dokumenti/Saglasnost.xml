@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Saglasnost
+    xmlns="http://www.baklavice.com/saglasnost"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.baklavice.com/saglasnost Saglasnost.xsd"
+    xmlns:tipovi="http://www.baklavice.com/tipovi">
+    
+    <Deo_za_pacijenta>
+        <Licni_podaci>
+            <tipovi:JMBG>1107999815033</tipovi:JMBG>
+            <tipovi:Naziv_stranog_drzavljanstva></tipovi:Naziv_stranog_drzavljanstva>
+            <tipovi:Broj_pasosa>014563857</tipovi:Broj_pasosa>
+            <tipovi:Prezime>Markovic</tipovi:Prezime>
+            <tipovi:Ime>Marko</tipovi:Ime>
+            <tipovi:Ime_roditelja>Branko</tipovi:Ime_roditelja>
+            <tipovi:Pol>Muski</tipovi:Pol>
+            <tipovi:Datum_rodjenja>1999-04-05</tipovi:Datum_rodjenja>
+            <tipovi:Mesto_rodjenja>Kula</tipovi:Mesto_rodjenja>
+            <tipovi:Ulica></tipovi:Ulica>
+            <tipovi:Broj></tipovi:Broj>
+            <tipovi:Mesto></tipovi:Mesto>
+            <tipovi:Opstina></tipovi:Opstina>
+            <tipovi:Kontakt>
+                <tipovi:Broj_fiksnog>021958689</tipovi:Broj_fiksnog>
+                <tipovi:Broj_mobilnog>063847586</tipovi:Broj_mobilnog>
+                <tipovi:Email>marko@gmail.com</tipovi:Email>
+            </tipovi:Kontakt>
+            
+            <tipovi:Radni_status>Zaposlen</tipovi:Radni_status>
+            <tipovi:Zanimanje_zaposlenog>Drugo</tipovi:Zanimanje_zaposlenog>
+            <tipovi:Socijalna_zastita>true</tipovi:Socijalna_zastita>
+            <tipovi:Sediste_socijalne_zastite></tipovi:Sediste_socijalne_zastite>
+        </Licni_podaci>
+        
+        <Pacijent_je_saglasan>true</Pacijent_je_saglasan>
+        <tipovi:Tip_vakcine>Sinopharm</tipovi:Tip_vakcine>
+        <Datum_saglasnosti>2021-12-05</Datum_saglasnosti>
+    </Deo_za_pacijenta>
+    
+    <Deo_za_radnika>
+        <Zdravstvena_ustanova></Zdravstvena_ustanova>
+        <Vakcinacijski_punkt></Vakcinacijski_punkt>
+        <Podaci_o_lekaru></Podaci_o_lekaru>
+        
+        <Podaci_o_vakcinaciji>
+            <tipovi:Tip_vakcine>Sinopharm</tipovi:Tip_vakcine>
+            <Datum_davanja_vakcine>2021-04-05</Datum_davanja_vakcine>
+            <Nacin_davanja_vakcine_je_IM>true</Nacin_davanja_vakcine_je_IM>
+            <Ekstremitet>LR</Ekstremitet>
+            <Serija_vakcine>120</Serija_vakcine>
+            <Proizvodjac></Proizvodjac>
+            <Nezeljena_reakcija></Nezeljena_reakcija>
+        </Podaci_o_vakcinaciji>
+        
+        <Privremene_kontraindikacije></Privremene_kontraindikacije>
+        <Odluka_komisije_o_kontraindikacijama></Odluka_komisije_o_kontraindikacijama>
+        
+    </Deo_za_radnika>
+    
+</Saglasnost>
