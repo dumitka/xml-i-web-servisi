@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.baklavice.com/interesovanje" vc:minVersion="1.1"
+    xmlns="http://www.baklavice.com/interesovanje" xmlns:tipovi="http://www.baklavice.com/tipovi"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
+
+    <xs:import namespace="http://www.baklavice.com/tipovi" schemaLocation="Tipovi.xsd"/>
+    <xs:element name="Interesovanje">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Podaci_o_licu" type="tipovi:TKorisnikSrednje"/>
+                <xs:element name="Podaci_o_vakcinaciji">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Opstina_ustanove"/>
+                            <xs:element ref="tipovi:Tip_vakcine"/>
+                            <xs:element name="Lice_je_davalac_krvi">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="Da"/>
+                                        <xs:enumeration value="Ne"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Datum_izdavanja" type="xs:date"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

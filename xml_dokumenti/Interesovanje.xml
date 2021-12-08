@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interesovanje
+    xmlns="http://www.baklavice.com/interesovanje"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.baklavice.com/interesovanje Interesovanje.xsd"
+    xmlns:tipovi="http://www.baklavice.com/tipovi">
+    
+    <Podaci_o_licu>
+        <tipovi:Poreklo_lica>Državljanin Republike Srbije</tipovi:Poreklo_lica> 
+        <tipovi:JMBG>1111999815055</tipovi:JMBG>
+        <tipovi:Ime>Ivana</tipovi:Ime>
+        <tipovi:Prezime>Ivanovic</tipovi:Prezime>
+        <tipovi:Kontakt>
+            <tipovi:Email>ivanaa@gmail.com</tipovi:Email>
+            <tipovi:Broj_mobilnog>063560560</tipovi:Broj_mobilnog>
+            <tipovi:Broj_fiksnog>021778777</tipovi:Broj_fiksnog>
+        </tipovi:Kontakt>
+    </Podaci_o_licu>
+    
+    <Podaci_o_vakcinaciji>
+        <Opstina_ustanove>Novi Sad</Opstina_ustanove>
+        <tipovi:Tip_vakcine>Sinopharm</tipovi:Tip_vakcine>
+        <Lice_je_davalac_krvi>Da</Lice_je_davalac_krvi>
+    </Podaci_o_vakcinaciji>
+    
+    
+    <Datum_izdavanja>2021-12-01</Datum_izdavanja>
+</Interesovanje>

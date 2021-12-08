@@ -71,6 +71,29 @@
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
+    <xs:complexType name="TKorisnikSrednje">
+        <xs:sequence>
+            <xs:element name="Poreklo_lica">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Državljanin Republike Srbije"/>
+                        <xs:enumeration value="Strani državljanin sa boravkom u RS"/>
+                        <xs:enumeration value="Strani državljanin bez boravka u RS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="JMBG">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="\d{13}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Ime" type="xs:string"/>
+            <xs:element name="Prezime" type="xs:string"/>
+            <xs:element name="Kontakt" type="tipovi:TKontakt"/>
+        </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="TAdresa">
         <xs:sequence>
             <xs:element name="Opstina" type="xs:string"/>
@@ -80,7 +103,7 @@
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="TKontakt">
-        <xs:sequence>
+        <xs:all>
             <xs:element minOccurs="0" name="Broj_fiksnog">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -98,10 +121,22 @@
             <xs:element name="Email">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
-                        <xs:pattern value="[a-zA-Z]+@[a-zA-Z].com"/>
+                        <xs:pattern value="[a-zA-Z]+@[a-zA-Z]+.com"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-        </xs:sequence>
+        </xs:all>
     </xs:complexType>
+    <xs:element name="Tip_vakcine">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="Pfizer-BioNTech"/>
+                <xs:enumeration value="Sputnik V(Gameleya istraživački centar)"/>
+                <xs:enumeration value="Sinopharm"/>
+                <xs:enumeration value="AstraZeneca"/>
+                <xs:enumeration value="Moderna"/>
+                <xs:enumeration value="Bilo koja"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
 </xs:schema>
