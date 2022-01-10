@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:pred="http://www.baklavice.com/rdf/predikati/">
+
+  <rdf:Description rdf:about="http://www.baklavice.com/rdf/izvestaj/123">
+    <pred:datum_izdavanja>2021-12-01</pred:datum_izdavanja>
+    <pred:broj_interesovanja>2758</pred:broj_interesovanja>
+    <pred:zahtevi_za_sertifikat>456</pred:zahtevi_za_sertifikat>
+    <pred:izdati_sertifikati>412</pred:izdati_sertifikati>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.baklavice.com/rdf/izvestaj/321">
+    <pred:datum_izdavanja>2021-12-11</pred:datum_izdavanja>
+    <pred:broj_interesovanja>8572</pred:broj_interesovanja>
+    <pred:zahtevi_za_sertifikat>654</pred:zahtevi_za_sertifikat>
+    <pred:izdati_sertifikati>214</pred:izdati_sertifikati>
+  </rdf:Description>
+
+</rdf:RDF>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:pred="http://www.baklavice.com/rdf/predikati/">
+
+  <rdf:Description rdf:about="http://www.baklavice.com/rdf/potvrda/12345-54321">
+    <pred:korisnik rdf:resource="http://www.ftn.uns.ac.rs/rdf/korisnik/1212956942571"/>
+    <pred:datum_izdavanja>2021-11-20</pred:datum_izdavanja>
+    <pred:naziv_vakcine>Sputnik V</pred:naziv_vakcine>
+    <pred:zdravstvena_ustanova>Zdravstvena ustanova Novi Sad</pred:zdravstvena_ustanova>
+    <pred:qr_kod>qr_kod_3</pred:qr_kod>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.baklavice.com/rdf/potvrda/54321-12345">
+    <pred:korisnik rdf:resource="http://www.ftn.uns.ac.rs/rdf/korisnik/1010956942571"/>
+    <pred:datum_izdavanja>2021-11-31</pred:datum_izdavanja>
+    <pred:naziv_vakcine>Fajzer</pred:naziv_vakcine>
+    <pred:zdravstvena_ustanova>Zdravstvena ustanova Novi Sad</pred:zdravstvena_ustanova>
+    <pred:qr_kod>qr_kod_4</pred:qr_kod>
+  </rdf:Description>
+
+</rdf:RDF>
