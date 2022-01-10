@@ -3,7 +3,7 @@
          xmlns:pred="http://www.baklavice.com/rdf/predikati/">
 
   <rdf:Description rdf:about="http://www.baklavice.com/rdf/saglasnost/951">
-    <pred:korisnik rdf:resource="http://www.ftn.uns.ac.rs/rdf/korisnik/0504999815033"/>
+    <pred:korisnik rdf:resource="http://www.baklavice.com/rdf/korisnik/0504999815033"/>
     <pred:datum_saglasnosti>2021-12-05</pred:datum_saglasnosti>
     <pred:tip_vakcine>AstraZeneca</pred:tip_vakcine>
     <pred:zdravstvena_ustanova>Zdravstvena ustanova Novi Sad</pred:zdravstvena_ustanova>
@@ -13,7 +13,7 @@
   </rdf:Description>
 
   <rdf:Description rdf:about="http://www.baklavice.com/rdf/saglasnost/159">
-    <pred:korisnik rdf:resource="http://www.ftn.uns.ac.rs/rdf/korisnik/1010956942571"/>
+    <pred:korisnik rdf:resource="http://www.baklavice.com/rdf/korisnik/1010999942571"/>
     <pred:datum_saglasnosti>2021-12-12</pred:datum_saglasnosti>
     <pred:tip_vakcine>Fajzer</pred:tip_vakcine>
     <pred:zdravstvena_ustanova>Zdravstvena ustanova Novi Sad</pred:zdravstvena_ustanova>
