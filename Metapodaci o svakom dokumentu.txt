@@ -1,0 +1,32 @@
+Metapodaci za svaki tip dokumenata
+
+1) Digitalni sertifikat
+	- korisnik
+	- datum_izdavanja
+	- qr_kod
+2) Zahtev za digitalni zeleni sertifikat
+	- korisnik
+	- datum_podnosenja_zahteva
+3) Izveštaj o imunizaciji
+	- datum_izdavanja
+	- broj_interesovanja
+	- zahtevi_za_sertifikat
+	- izdati_sertifikati
+4) Interesovanje
+	- korisnik
+	- datum_interesovanja
+	- tip_vakcine
+5) Obrazac saglasnosti za imunizaciju
+	- korisnik
+	- datum_saglasnosti
+	- tip_vakcine
+	- zdravstvena_ustanova
+	- pacijent_je_saglasan
+	- podaci_o_lekaru
+	- datum_davanja_vakcine
+6) Potvrda o vakcinaciji
+	- korisnik
+	- datum_izdavanja
+	- naziv_vakcine
+	- zdravstvena_ustanova
+	- qr_kod
