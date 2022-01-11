@@ -1,5 +1,11 @@
 package com.immunisation.officials.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,7 +17,17 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "", propOrder = {
+    "coatOfArms",
+    "institutionAdress"
+})
+@XmlRootElement(name = "Izdavac")
 public class Publisher {
+	@XmlElement(name = "Grb")
 	private String coatOfArms; //grb
-	private String institutionAdress;
+	
+	@XmlElement(name = "Adresa_institucije")
+	private Address institutionAdress;
 }

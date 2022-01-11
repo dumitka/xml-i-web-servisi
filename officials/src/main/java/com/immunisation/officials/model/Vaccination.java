@@ -1,5 +1,12 @@
 package com.immunisation.officials.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,10 +18,29 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "", propOrder = {
+    "type",
+    "manufacturer",
+    "series",
+    "healthFacility",
+})
+@XmlRootElement(name = "Vakcinacije")
 public class Vaccination {
-	private Vaccine type;
-	private String manufacturer;
-	private String series;
-	private String healthFacility;
+	@XmlAttribute(name = "Doza", required = true)
 	private int dose;
+	
+	@XmlElement(name = "Tip")
+	private Vaccine type;
+	
+	@XmlElement(name = "Proizvodjac")
+	private String manufacturer;
+	
+	@XmlElement(name = "Serija")
+	private String series;
+	
+	@XmlElement(name = "Zdravsvena_ustanova")
+	private String healthFacility;
+	
 }

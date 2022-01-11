@@ -10,7 +10,7 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@SuperBuilder
+//@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Patient extends ExtendUser{
