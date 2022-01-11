@@ -1,6 +1,5 @@
 package com.immunisation.officials.model;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -24,17 +23,16 @@ import lombok.Setter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "vaccineDosesForReport",
-    "period",
-    "distributionOfManufacturer",
+	"period",
     "numberOfInterests",
     "requestDigitalGreenCertificate",
-    "DigitalGreenCertificate",
+    "digitalGreenCertificate",
+    "vaccineDosesForReport",
+    "distributionOfManufacturer",
     "dateOfIssue"
 })
 @XmlRootElement(name = "Izvestaj")
 public class Report {
-	
 	@XmlElement(name = "Period")
 	private Period period;
 	

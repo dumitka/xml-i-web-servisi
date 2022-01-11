@@ -1,6 +1,6 @@
 package com.immunisation.officials.model;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -30,9 +30,9 @@ import lombok.Setter;
 public class Period {
 	@XmlElement(name = "Datum_od")
 	@XmlJavaTypeAdapter(DateAdapter.class)
-	private LocalDateTime dateFrom;
+	private Date dateFrom;
 	
 	@XmlElement(name = "Datum_do")
 	@XmlJavaTypeAdapter(DateAdapter.class)
-	private LocalDateTime dateTo;
+	private Date dateTo;
 }

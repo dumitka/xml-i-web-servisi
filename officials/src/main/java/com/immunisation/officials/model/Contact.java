@@ -3,12 +3,10 @@ package com.immunisation.officials.model;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 //@Builder
@@ -16,13 +14,13 @@ import lombok.Setter;
 @Setter
 //@AllArgsConstructor
 //@NoArgsConstructor
-
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TKontakt", propOrder = {
+@XmlType(namespace = "http://www.baklavice.com/tipovi", name = "TKontakt", propOrder = {
     "cellphone",
     "landline",
     "email"
 })
+@XmlRootElement(name = "Kontakt")
 public class Contact {
 	@XmlElement(name = "Broj_mobilnog")
 	private String cellphone;

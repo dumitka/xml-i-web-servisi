@@ -1,3 +1,14 @@
+//@javax.xml.bind.annotation.XmlSchema(namespace = "http://www.baklavice.com/interesovanje", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+//package com.immunisation.officials.parsers.requestVaccinationParser;
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://www.ftn.uns.ac.rs/jaxb/example3", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@XmlSchema( 
+		   namespace = "http://www.baklavice.com/interesovanje",
+		   elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED,
+		   xmlns = {
+        			@javax.xml.bind.annotation.XmlNs(prefix="xs", namespaceURI="http://www.w3.org/2001/XMLSchema"),
+        			@javax.xml.bind.annotation.XmlNs(prefix="tipovi", namespaceURI="http://www.baklavice.com/tipovi")
+        	})
+
 package com.immunisation.officials.model;
+
+import javax.xml.bind.annotation.XmlSchema;

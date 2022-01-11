@@ -5,15 +5,13 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElements;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
-
 
 @Getter
 @Setter
@@ -22,16 +20,16 @@ import lombok.experimental.SuperBuilder;
 //@NoArgsConstructor
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TKorisnikOpste", propOrder = {
+@XmlType(namespace = "http://www.baklavice.com/tipovi", name = "TKorisnikOpste", propOrder = {
     "citizenship",
     "residence",
     "name",
     "lastName",
     "gender",
     "birthdate",
-    "UPIN",
-    "passportNumber"
+    "document"
 })
+@XmlRootElement(name = "Podaci_o_licu")
 public class GeneralUser {
 	@XmlElement(name = "Drzavljanstvo")
 	private String citizenship;
@@ -52,11 +50,10 @@ public class GeneralUser {
 	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date birthdate;
 	
-	@XmlElement(name = "JMBG")
-	private String UPIN; //Unique Personal Identification Number il' ti JMBG
-	
-	@XmlElement(name = "Broj_pasosa")
-	private String passportNumber;
-	
-	
+	@XmlElements(value = { 
+			@XmlElement(name="JMBG", 
+                        type=String.class),
+            @XmlElement(name="Broj_pasosa", 
+                        type=String.class)})
+	private String document;
 }

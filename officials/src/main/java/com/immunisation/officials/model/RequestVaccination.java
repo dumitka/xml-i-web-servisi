@@ -9,10 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 //@Builder
@@ -20,7 +17,6 @@ import lombok.Setter;
 @Setter
 //@AllArgsConstructor
 //@NoArgsConstructor
-
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "patient",
@@ -42,6 +38,4 @@ public class RequestVaccination {
 	@XmlElement(name = "Datum_interesovanja")
 	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date date; //datum interesovanja
-	
-	
 }

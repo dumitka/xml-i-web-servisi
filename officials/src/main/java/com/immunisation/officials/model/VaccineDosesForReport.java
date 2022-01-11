@@ -30,5 +30,4 @@ public class VaccineDosesForReport {
 	
 	@XmlElement(name = "Doza")
 	private DosesForReport dose;
-
 }
