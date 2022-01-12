@@ -2,6 +2,13 @@ package com.immunisation.officials.model;
 
 import java.util.List;
 
+import com.immunisation.officials.model.digitalni_sertifikat.DigitalGreenCertificate;
+import com.immunisation.officials.model.interesovanje.RequestVaccination;
+import com.immunisation.officials.model.izvestaj.Report;
+import com.immunisation.officials.model.potvrda.VaccineConfirmation;
+import com.immunisation.officials.model.saglasnost.ConsentForVaccination;
+import com.immunisation.officials.model.zahtev_za_sertifikat.RequestDigitalGreenCertificate;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

@@ -4,6 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.baklavice.com/saglasnost Saglasnost.xsd"
     xmlns:tipovi="http://www.baklavice.com/tipovi">
+    <Sifra_saglasnosti>951</Sifra_saglasnosti>
     <Deo_za_pacijenta>
         <Licni_podaci>
             <tipovi:Drzavljanstvo>Republika Srbija</tipovi:Drzavljanstvo>

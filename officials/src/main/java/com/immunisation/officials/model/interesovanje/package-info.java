@@ -1,0 +1,1 @@
+package com.immunisation.officials.model.interesovanje;

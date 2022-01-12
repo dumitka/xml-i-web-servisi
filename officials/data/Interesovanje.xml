@@ -4,6 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.baklavice.com/interesovanje Interesovanje.xsd"
     xmlns:tipovi="http://www.baklavice.com/tipovi">
+    <Sifra_interesovanja>578</Sifra_interesovanja>
     <Podaci_o_licu>
         <tipovi:Drzavljanstvo>Republika Srbija</tipovi:Drzavljanstvo>
         <tipovi:Boraviste>Republika Srbija</tipovi:Boraviste>
