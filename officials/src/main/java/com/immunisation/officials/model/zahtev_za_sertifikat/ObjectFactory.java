@@ -1,7 +1,10 @@
 package com.immunisation.officials.model.zahtev_za_sertifikat;
 
+import javax.xml.bind.annotation.XmlRegistry;
 
+import com.immunisation.officials.model.tipovi.GeneralUser;
 
+@XmlRegistry
 public class ObjectFactory {
 	
 	public ObjectFactory() {}

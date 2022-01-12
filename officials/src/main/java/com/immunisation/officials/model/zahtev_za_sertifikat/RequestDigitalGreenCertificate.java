@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.immunisation.officials.model.DateAdapter;
+import com.immunisation.officials.model.tipovi.GeneralUser;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -14,7 +14,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.xml.sax.SAXException;
 
-import com.immunisation.officials.model.zahtev_za_sertifikat.GeneralUser;
+import com.immunisation.officials.model.tipovi.GeneralUser;
 import com.immunisation.officials.model.zahtev_za_sertifikat.RequestDigitalGreenCertificate;
 import com.immunisation.officials.print.GeneralUserPrint;
 import com.immunisation.officials.print.RequestDigitalGreenCertificatePrint;
@@ -50,13 +50,14 @@ public class OfficialsApplication {
 	
 	public static void parseRequestDigitalGreenCertificate() throws JAXBException, SAXException {
 		JAXBContext context = JAXBContext.newInstance("com.immunisation.officials.model.zahtev_za_sertifikat");
+	
 		Unmarshaller unmarshaller = context.createUnmarshaller();		
 		SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 		Schema schema = schemaFactory.newSchema(new File("./data/Zahtev_za_sertifikat.xsd"));      
 		unmarshaller.setSchema(schema);
 		
 		//RequestDigitalGreenCertificate request = (RequestDigitalGreenCertificate)unmarshaller.unmarshal(new File("./data/Zahtev_za_sertifikat.xml"));
-		RequestDigitalGreenCertificate r = unmarshaller.unmarshal(new StreamSource(new File("./data/Interesovanje.xml")), RequestDigitalGreenCertificate.class).getValue();
+		RequestDigitalGreenCertificate r = unmarshaller.unmarshal(new StreamSource(new File("./data/Zahtev_za_sertifikat.xml")), RequestDigitalGreenCertificate.class).getValue();
 		print(r);
 		
 	}
