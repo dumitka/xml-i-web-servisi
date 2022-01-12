@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.baklavice.com/saglasnost" vc:minVersion="1.1"
+    xmlns="http://www.baklavice.com/saglasnost" xmlns:tipovi="http://www.baklavice.com/tipovi"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
+
+    <xs:import id="tipovi" namespace="http://www.baklavice.com/tipovi" schemaLocation="Tipovi.xsd"/>
+    <xs:element name="Saglasnost">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Sifra_saglasnosti">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="\d{1,10}"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="Deo_za_pacijenta">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Licni_podaci" type="tipovi:TKorisnikSire"/>
+                            <xs:element name="Pacijent_je_saglasan" type="xs:boolean"/>
+                            <xs:element name="Tip_vakcine" type="tipovi:TVakcina"/>
+                            <xs:element name="Datum_saglasnosti" type="xs:date"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Deo_za_radnika">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Zdravstvena_ustanova" type="xs:string"/>
+                            <xs:element name="Vakcinacijski_punkt" type="xs:string"/>
+                            <xs:element name="Podaci_o_lekaru" type="xs:string"/>
+                            <xs:sequence maxOccurs="unbounded">
+                                <xs:element name="Naziv_vakcine" type="tipovi:TVakcina"/>
+                                <xs:element name="Datum_davanja_vakcine" type="xs:date"/>
+                                <xs:element name="Nacin_davanja_vakcine" type="xs:string"
+                                    default="IM"/>
+                                <xs:element name="Ekstremitet">
+                                    <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                            <xs:enumeration value="LR"/>
+                                            <xs:enumeration value="DR"/>
+                                        </xs:restriction>
+                                    </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="Serija_vakcine">
+                                    <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                            <xs:pattern value="\d{1,10}"/>
+                                        </xs:restriction>
+                                    </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="Proizvodjac" type="xs:string"/>
+                                <xs:element name="Nezeljena_reakcija" type="xs:string" minOccurs="0"
+                                />
+                            </xs:sequence>
+                            <xs:element minOccurs="0" name="Privremene_kontraindikacije"
+                                type="xs:string"/>
+                            <xs:element minOccurs="0" name="Trajne_kontraindikacije"
+                                type="xs:boolean"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

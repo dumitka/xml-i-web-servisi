@@ -2,7 +2,9 @@
 <Sertifikat xmlns="http://www.baklavice.com/digitalni_sertifikat"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.baklavice.com/digitalni_sertifikati Digitalni_sertifikat.xsd"
-    xmlns:tipovi="http://www.baklavice.com/tipovi">
+    xmlns:tipovi="http://www.baklavice.com/tipovi"
+    xmlns:pred="http://www.baklavice.com/rdf/predikati/"
+    vocab="http://www.baklavice.com/rdf/predikati/">
     <Zaglavlje>
         <Grb>putanja_grba.jpg</Grb>
         <Naslov>
@@ -15,7 +17,7 @@
     </Zaglavlje>
     <Info_sertifikat>
         <Broj_sertifikata>234567</Broj_sertifikata>
-        <Datum_izdavanja>2021-12-24T12:36:58</Datum_izdavanja>
+        <Datum_izdavanja property="pred:datum_izdavanja" datatype="xsi:dateTime">2021-12-24T12:36:58</Datum_izdavanja>
         <Izdavac>
             <Grb>putanja_grba.jpg</Grb>
             <Grb>putanja_grba.jpg</Grb>
@@ -30,10 +32,10 @@
     <Info_korisnika>
         <tipovi:Drzavljanstvo></tipovi:Drzavljanstvo>
         <tipovi:Boraviste></tipovi:Boraviste>
-        <tipovi:Ime>Mika</tipovi:Ime>
-        <tipovi:Prezime>Mikić</tipovi:Prezime>
-        <tipovi:Pol>Muski</tipovi:Pol>
-        <tipovi:Datum_rodjenja>1975-08-18</tipovi:Datum_rodjenja>
+        <tipovi:Ime property="pred:ime" datatype="xsi:string">Mika</tipovi:Ime>
+        <tipovi:Prezime property="pred:prezime" datatype="xsi:string">Mikić</tipovi:Prezime>
+        <tipovi:Pol property="pred:pol" datatype="xsi:string">Muski</tipovi:Pol>
+        <tipovi:Datum_rodjenja property="pred:datum_rodjenja" datatype="xs:date">1975-08-18</tipovi:Datum_rodjenja>
         <tipovi:Broj_pasosa>001542836</tipovi:Broj_pasosa>
     </Info_korisnika>
     <Info_vakcinacije>
