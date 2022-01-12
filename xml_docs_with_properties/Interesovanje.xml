@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Interesovanje
+    xmlns="http://www.baklavice.com/interesovanje"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.baklavice.com/interesovanje Interesovanje.xsd"
+    xmlns:tipovi="http://www.baklavice.com/tipovi"
+    xmlns:pred="http://www.baklavice.com/rdf/predikati/"
+    vocab="http://www.baklavice.com/rdf/predikati/">
+    <Sifra_interesovanja>578</Sifra_interesovanja>
+    <Podaci_o_licu>
+        <tipovi:Drzavljanstvo>Republika Srbija</tipovi:Drzavljanstvo>
+        <tipovi:Boraviste>Republika Srbija</tipovi:Boraviste>
+        <tipovi:Ime property="pred:ime" datatype="xsi:string">Ivana</tipovi:Ime>
+        <tipovi:Prezime property="pred:prezime" datatype="xsi:string">Ivanović</tipovi:Prezime>
+        <tipovi:Pol property="pred:pol" datatype="xsi:string">Zenski</tipovi:Pol>
+        <tipovi:Datum_rodjenja property="pred:datum_rodjenja" datatype="xs:date">1999-11-11</tipovi:Datum_rodjenja>
+        <tipovi:JMBG>1111999815055</tipovi:JMBG>
+    </Podaci_o_licu>
+    <Kontakt>
+        <tipovi:Email>ivanaa@gmail.com</tipovi:Email>
+        <tipovi:Broj_mobilnog>063560560</tipovi:Broj_mobilnog>
+        <tipovi:Broj_fiksnog>021778777</tipovi:Broj_fiksnog>
+    </Kontakt>
+    <Podaci_o_vakcinaciji>
+        <Opstina_ustanove>Novi Sad</Opstina_ustanove>
+        <Tip_vakcine property="pred:tip_vakcine" datatype="xs:string">Sinopharm</Tip_vakcine>
+        <Davalac_krvi>true</Davalac_krvi>
+    </Podaci_o_vakcinaciji>
+    <Datum_interesovanja property="pred:datum_interesovanja" datatype="xs:date">2021-12-01</Datum_interesovanja>    
+</Interesovanje>
