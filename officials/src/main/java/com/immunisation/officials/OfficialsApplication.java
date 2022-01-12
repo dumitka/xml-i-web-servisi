@@ -14,8 +14,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.xml.sax.SAXException;
 
+import com.immunisation.officials.model.digitalni_sertifikat.DigitalGreenCertificate;
 import com.immunisation.officials.model.tipovi.GeneralUser;
 import com.immunisation.officials.model.zahtev_za_sertifikat.RequestDigitalGreenCertificate;
+import com.immunisation.officials.print.DigitalGreenCertificatePrint;
 import com.immunisation.officials.print.GeneralUserPrint;
 import com.immunisation.officials.print.RequestDigitalGreenCertificatePrint;
 
@@ -63,10 +65,24 @@ public class OfficialsApplication {
 	}
 	
 	
+	public static void parseDigitalGreenCertificate() throws JAXBException, SAXException {
+		JAXBContext context = JAXBContext.newInstance("com.immunisation.officials.model.digitalni_sertifikat");
+	
+		Unmarshaller unmarshaller = context.createUnmarshaller();		
+		SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+		Schema schema = schemaFactory.newSchema(new File("./data/Digitalni_sertifikat.xsd"));      
+		unmarshaller.setSchema(schema);
+		
+		//RequestDigitalGreenCertificate request = (RequestDigitalGreenCertificate)unmarshaller.unmarshal(new File("./data/Zahtev_za_sertifikat.xml"));
+		DigitalGreenCertificate dgc = unmarshaller.unmarshal(new StreamSource(new File("./data/Digitalni_sertifikat1.xml")), DigitalGreenCertificate.class).getValue();
+		DigitalGreenCertificatePrint.print(dgc);
+		
+	}
+	
 	public static void main(String[] args) throws JAXBException, SAXException {
 		SpringApplication.run(OfficialsApplication.class, args);
 
 		//Zahtev za zeleni sertifikat xml i xsd parsiranje
-		parseRequestDigitalGreenCertificate();
+		parseDigitalGreenCertificate();
 	}
 }

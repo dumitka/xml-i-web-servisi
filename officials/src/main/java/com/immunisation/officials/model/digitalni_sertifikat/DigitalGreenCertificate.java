@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import com.immunisation.officials.model.Patient;
+import com.immunisation.officials.model.tipovi.GeneralUser;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,7 +24,7 @@ import lombok.Setter;
 @XmlType(name = "", propOrder = {
     "header",
     "certificateInfo",
-    "patient",
+    "user",
     "vaccinationInfo",
     "test"
 })
@@ -37,7 +37,7 @@ public class DigitalGreenCertificate {
 	private CertificateInfo certificateInfo;
 	
 	@XmlElement(name = "Info_korisnika")
-	private Patient patient;
+	private GeneralUser user;
 	
 	@XmlElement(name = "Info_vakcinacije")
 	private VaccinationInfo vaccinationInfo;

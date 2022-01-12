@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.immunisation.officials.enums.VaccineType;
 import com.immunisation.officials.model.tipovi.Vaccine;
 
 import lombok.AllArgsConstructor;
@@ -23,7 +24,7 @@ import lombok.Setter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "type",
+    "vaccineType",
     "manufacturer",
     "series",
     "healthFacility",
@@ -34,7 +35,7 @@ public class Vaccination {
 	private int dose;
 	
 	@XmlElement(name = "Tip")
-	private Vaccine type;
+	private VaccineType vaccineType;
 	
 	@XmlElement(name = "Proizvodjac")
 	private String manufacturer;
