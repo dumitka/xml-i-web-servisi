@@ -69,13 +69,13 @@ public class MetadataExtractor {
 	}
 	
 	
-	public void test() throws Exception {
+	public void test() throws Exception { 
 
 		System.out.println("[INFO] " + MetadataExtractor.class.getSimpleName());
 		
-		String filePath = "gen/grddl_metadata.rdf";
+		String filePath = "gen/test.rdf";
 		
-		InputStream in = new FileInputStream(new File("data/rdfa/contacts.xml")); 
+		InputStream in = new FileInputStream(new File("temp/DIgitalni_sertifikat2.xml")); 
 
 		OutputStream out = new FileOutputStream(filePath);
 		

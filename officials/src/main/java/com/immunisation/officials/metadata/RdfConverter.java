@@ -25,10 +25,11 @@ import com.immunisation.officials.metadata.AuthenticationUtilities.ConnectionPro
 
 public class RdfConverter {
 
-	private static final String SPARQL_NAMED_GRAPH_URI = "/metadataGraph";
+	private static final String SPARQL_NAMED_GRAPH_URI = "/example/sparql/metadata";
 	
-	public static void convertXmlToRdf(ConnectionProperties conn, String xmlFilePath, String rdfFilePath) throws SAXException, IOException, TransformerException {
+	public static void convertXmlToRdf(String xmlFilePath, String rdfFilePath) throws SAXException, IOException, TransformerException {
 		
+		ConnectionProperties conn = AuthenticationUtilities.loadProperties(); 
 		MetadataExtractor metadataExtractor = new MetadataExtractor();
 		
 		System.out.println("Extracting metadata from " + xmlFilePath);
@@ -61,8 +62,6 @@ public class RdfConverter {
 		UpdateProcessor processor = UpdateExecutionFactory.createRemote(update, conn.updateEndpoint);
 		processor.execute();
 		
-		//////////////////////////////////////////////////////////////////////////////////////////////////////////
-		
 
 		// Read the triples from the named graph
 		System.out.println();
@@ -79,11 +78,31 @@ public class RdfConverter {
 		ResultSetFormatter.out(System.out, results);
 		
 		query.close();
+		System.out.println("[INFO] End.");
 	}
 	
 	
 	
+	public void test() throws SAXException, IOException, TransformerException {
+		String xmlPath = "temp/Interesovanje.xml";
+//		String xmlPath = "temp/Digitalni_sertifikat1.xml";
+//		String xmlPath = "temp/Digitalni_sertifikat2.xml";
+//		String xmlPath = "temp/Izvestaj_o_imunizaciji.xml";
+//		String xmlPath = "temp/Potvrda_o_vakcinaciji.xml";
+//		String xmlPath = "temp/Saglasnost.xml";
+//		String xmlPath = "temp/Zahtev_za_sertifikat.xml";
+		
+		String rdfPath = "gen/test.rdf";
+		
+		convertXmlToRdf(xmlPath, rdfPath);
+		
+	}
 	
+	public static void main(String[] args) throws SAXException, IOException, TransformerException {
+		RdfConverter converter = new RdfConverter();
+		
+		converter.test();
+	}
 	
 	
 	
