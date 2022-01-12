@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
+    vc:minVersion="1.1" attributeFormDefault="unqualified"
+    targetNamespace="http://www.baklavice.com/zahtev_za_sertifikat"
+    xmlns:sertifikat="http://www.baklavice.com/zahtev_za_sertifikat"
+    xmlns:tipovi="http://www.baklavice.com/tipovi">
+    <xs:import namespace="http://www.baklavice.com/tipovi" schemaLocation="Tipovi.xsd"/>
+    <xs:element name="Zahtev">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Izjava_podnosenja_zahteva" type="xs:string"/>
+                <xs:element name="Podaci_o_podnosiocu" type="tipovi:TKorisnikOpste"/>
+                <xs:element name="Razlog_podnosenja_zahteva">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="1"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="Mesto_podnosenja_zahteva" type="xs:string"/>
+                <xs:element name="Datum_podnosenja_zahteva" type="xs:date"/>
+            </xs:sequence>
+            <xs:attribute name="Ime_dokumenta" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
