@@ -25,6 +25,7 @@ import lombok.Setter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
+	"code",
 	"period",
     "numberOfInterests",
     "requestDigitalGreenCertificate",
@@ -35,6 +36,9 @@ import lombok.Setter;
 })
 @XmlRootElement(name = "Izvestaj")
 public class Report {
+	@XmlElement(name = "Sifra_izvestaja", required = true)
+	private String code;
+	
 	@XmlElement(name = "Period")
 	private Period period;
 	

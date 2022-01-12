@@ -1,6 +1,5 @@
 package com.immunisation.officials.model.potvrda;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -10,9 +9,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import com.immunisation.officials.model.DateAdapter;
 import com.immunisation.officials.model.Patient;
 import com.immunisation.officials.model.tipovi.Vaccine;
-import com.immunisation.officials.model.DateAdapter;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,7 +27,7 @@ import lombok.Setter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "confirmationCode",
+    "code",
     "patient",
     "vaccineDoses",
     "healthFacility",
@@ -39,7 +38,7 @@ import lombok.Setter;
 @XmlRootElement(name = "Potvrda")
 public class VaccineConfirmation {
 	@XmlElement(name = "Sifra_potvrde")
-	private String confirmationCode; //sifra potvrde
+	private String code;
 	
 	@XmlElement(name = "Info_korisnika")
 	private Patient patient;
@@ -51,11 +50,11 @@ public class VaccineConfirmation {
 	private String healthFacility;
 	
 	@XmlElement(name = "Naziv_vakcine")
-	private Vaccine vaccine; //naziv vakcine
+	private Vaccine vaccine; 
 	
 	@XmlElement(name = "Datum_izdavanja")
 	@XmlJavaTypeAdapter(DateAdapter.class)
-	private Date dateOfIssue; //datum izdavanja
+	private Date dateOfIssue; 
 	
 	@XmlElement(name = "QR_kod")
 	private String QRCode;
