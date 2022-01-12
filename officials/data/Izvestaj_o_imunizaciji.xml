@@ -24,10 +24,22 @@
         </Doza>
     </Doze_vakcine>
     <Raspodela_proizvodjaca>
-        <Proizvodjac Broj_doza="1625">Pfizer-BioNTech</Proizvodjac>
-        <Proizvodjac Broj_doza="1100">Sinopharm</Proizvodjac>
-        <Proizvodjac Broj_doza="356">Sputnik V</Proizvodjac>
-        <Proizvodjac Broj_doza="144">AstraZeneca</Proizvodjac>
+        <Proizvodjac>
+            <Naziv_proizvodjaca>Pfizer-BioNTech</Naziv_proizvodjaca>
+            <Broj_doza>1625</Broj_doza>
+        </Proizvodjac>
+        <Proizvodjac>
+            <Naziv_proizvodjaca>Sinopharm</Naziv_proizvodjaca>
+            <Broj_doza>1100</Broj_doza>
+        </Proizvodjac>
+        <Proizvodjac>
+            <Naziv_proizvodjaca>Sputnik V</Naziv_proizvodjaca>
+            <Broj_doza>356</Broj_doza>
+        </Proizvodjac>
+        <Proizvodjac>
+            <Naziv_proizvodjaca>AstraZeneca</Naziv_proizvodjaca>
+            <Broj_doza>144</Broj_doza>
+        </Proizvodjac>
     </Raspodela_proizvodjaca>
     <Datum_izdavanja>2021-12-01</Datum_izdavanja>
 </Izvestaj>

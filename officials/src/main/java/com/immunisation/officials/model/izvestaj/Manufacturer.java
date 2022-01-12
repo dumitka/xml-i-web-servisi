@@ -1,11 +1,12 @@
 package com.immunisation.officials.model.izvestaj;
 
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+
+import com.immunisation.officials.enums.VaccineType;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,13 +20,16 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 
-
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Vaccine")
+@XmlType(name = "", propOrder = {
+		"manufecturerName",
+		"numberOfDoses"
+	})
 @XmlRootElement(name = "Proizvodjac")
 public class Manufacturer {
-	//private Vaccine vaccine;
+	@XmlElement(name = "Naziv_proizvodjaca")
+	private VaccineType manufecturerName;
 	
-	@XmlAttribute(name = "Broj_doza", required = true)
+	@XmlElement(name = "Broj_doza")
 	private int numberOfDoses;
 }

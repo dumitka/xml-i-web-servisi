@@ -13,16 +13,20 @@ import com.immunisation.officials.model.DateAdapter;
 import com.immunisation.officials.model.tipovi.Contact;
 import com.immunisation.officials.model.tipovi.GeneralUser;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-//@Builder
+@Builder
 @Getter
 @Setter
-//@AllArgsConstructor
-//@NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
+	"code",
     "patient",
     "contact",
     "vaccinationData",
@@ -30,6 +34,9 @@ import lombok.Setter;
 })
 @XmlRootElement(name = "Interesovanje")
 public class RequestVaccination {
+	@XmlElement(name = "Sifra_interesovanja")
+	private int code;
+	
 	@XmlElement(name = "Podaci_o_licu")
 	private GeneralUser patient;
 	

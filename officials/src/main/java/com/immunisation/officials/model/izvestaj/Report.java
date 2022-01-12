@@ -1,10 +1,12 @@
 package com.immunisation.officials.model.izvestaj;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -25,16 +27,20 @@ import lombok.Setter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
+	"code",
 	"period",
     "numberOfInterests",
     "requestDigitalGreenCertificate",
     "digitalGreenCertificate",
     "vaccineDosesForReport",
-    "distributionOfManufacturer",
+    "distributionOfManufacturers",
     "dateOfIssue"
 })
 @XmlRootElement(name = "Izvestaj")
 public class Report {
+	@XmlElement(name = "Sifra_izvestaja", required = true)
+	private String code;
+	
 	@XmlElement(name = "Period")
 	private Period period;
 	
@@ -50,8 +56,9 @@ public class Report {
 	@XmlElement(name = "Doze_vakcine")
 	private VaccineDosesForReport vaccineDosesForReport;
 	
-	@XmlElement(name = "Raspodela_proizvodjaca")
-	private DistributionOfManufacturer distributionOfManufacturer;
+	@XmlElementWrapper(name="Raspodela_proizvodjaca")
+	@XmlElement(name="Proizvodjac")
+	private List<Manufacturer> distributionOfManufacturers;
 	
 	@XmlElement(name = "Datum_izdavanja")
 	@XmlJavaTypeAdapter(DateAdapter.class)
