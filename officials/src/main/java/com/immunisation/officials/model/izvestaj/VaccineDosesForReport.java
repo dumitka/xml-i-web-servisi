@@ -1,5 +1,7 @@
 package com.immunisation.officials.model.izvestaj;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -21,7 +23,7 @@ import lombok.Setter;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "totalNumberOfGivenDoses",
-    "dose",
+    "doses",
 })
 @XmlRootElement(name = "Doze_vakcine")
 public class VaccineDosesForReport {
@@ -29,5 +31,5 @@ public class VaccineDosesForReport {
 	private int totalNumberOfGivenDoses;
 	
 	@XmlElement(name = "Doza")
-	private DosesForReport dose;
+	private List<DosesForReport> doses;
 }

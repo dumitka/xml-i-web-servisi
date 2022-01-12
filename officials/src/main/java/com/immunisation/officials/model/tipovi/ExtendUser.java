@@ -6,6 +6,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.immunisation.officials.enums.EmploymentStatus;
+import com.immunisation.officials.enums.Profession;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -43,10 +46,10 @@ public class ExtendUser extends GeneralUser {
 	private Contact contact;
 	
 	@XmlElement(name = "Radni_status")
-	private String employmentStatus;
+	private EmploymentStatus employmentStatus;
 	
 	@XmlElement(name = "Zanimanje_zaposlenog")
-	private String profession;
+	private Profession profession;
 	
 	@XmlElement(name = "Socijalna_zastita")
 	private boolean socialCare;

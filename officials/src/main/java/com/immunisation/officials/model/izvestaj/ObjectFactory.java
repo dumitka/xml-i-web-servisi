@@ -19,7 +19,7 @@ public class ObjectFactory {
 		return new VaccineDosesForReport();
 	}
 	
-	public DistributionOfManufacturer createDistributionOfManufacturer() {
-		return new DistributionOfManufacturer();
+	public Manufacturer createManufacturer() {
+		return new Manufacturer();
 	}
 }

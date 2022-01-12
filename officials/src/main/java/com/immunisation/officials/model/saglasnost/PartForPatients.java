@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.immunisation.officials.model.Patient;
 import com.immunisation.officials.model.tipovi.Vaccine;
+import com.immunisation.officials.enums.VaccineType;
 import com.immunisation.officials.model.DateAdapter;
 
 import lombok.AllArgsConstructor;
@@ -31,7 +32,7 @@ import lombok.Setter;
 @XmlType(name = "", propOrder = {
     "patient",
     "patientAgrees",
-    "vaccine",
+    "vaccineType",
     "date"
 })
 @XmlRootElement(name = "Deo_za_pacijenta")
@@ -43,7 +44,7 @@ public class PartForPatients {
 	private boolean patientAgrees;
 	
 	@XmlElement(name = "Tip_vakcine")
-	private Vaccine vaccine;
+	private VaccineType vaccineType;
 	
 	@XmlElement(name = "Datum_saglasnosti")
 	@XmlJavaTypeAdapter(DateAdapter.class)
