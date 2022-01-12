@@ -27,19 +27,14 @@ import lombok.Setter;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "certificateNumber",
-    "dateOfIssue",
-    "publisher"
+    "dateOfIssue"
 })
 @XmlRootElement(name = "Info_sertifikat")
 public class CertificateInfo {
-	
 	@XmlElement(name = "Broj_sertifikata")
 	private String certificateNumber;
 	
 	@XmlElement(name = "Datum_izdavanja")
 	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date dateOfIssue;
-	
-	@XmlElement(name = "Izdavac")
-	private Publisher publisher;
 }

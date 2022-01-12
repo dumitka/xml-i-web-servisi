@@ -266,6 +266,6 @@ public class OfficialsApplication {
 		//parseRequestVaccination();
 		//parseConsentForVaccination();
 		
-		parseReport();
+		//parseReport();
 	}
 }

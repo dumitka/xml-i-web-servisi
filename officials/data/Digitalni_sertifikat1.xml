@@ -3,29 +3,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.baklavice.com/digitalni_sertifikati Digitalni_sertifikat.xsd"
     xmlns:tipovi="http://www.baklavice.com/tipovi">
-    <Zaglavlje>
-        <Grb>putanja_grba.jpg</Grb>
-        <Naslov>
-            DIGITALNI ZELENI SERTIFIKAT
-            Potvrda o izvrsenoj vakcinaciji protiv COVID-19 i peyultatima testiranja
-            DIGITAL GREEN CERTIFICATE
-            Certificate of vaccination against COVID-19 and test results
-        </Naslov>
-        <QR_kod>URL do QR koda</QR_kod>
-    </Zaglavlje>
     <Info_sertifikat>
         <Broj_sertifikata>123456</Broj_sertifikata>
         <Datum_izdavanja>2021-12-24T12:36:58</Datum_izdavanja>
-        <Izdavac>
-            <Grb>putanja_grba.jpg</Grb>
-            <Grb>putanja_grba.jpg</Grb>
-            <Adresa_institucije>
-                <tipovi:Opstina>Palilula</tipovi:Opstina>
-                <tipovi:Mesto>Beograd</tipovi:Mesto>
-                <tipovi:Ulica>Nemanjina</tipovi:Ulica>
-                <tipovi:Broj>11</tipovi:Broj>
-            </Adresa_institucije>
-        </Izdavac>
     </Info_sertifikat>
     <Info_korisnika>
         <tipovi:Drzavljanstvo></tipovi:Drzavljanstvo>
@@ -44,5 +24,4 @@
             <Zdravsvena_ustanova>Zdravstvena unstanova Novi Sad</Zdravsvena_ustanova>
         </Vakcinacije>
     </Info_vakcinacije>
-    <Info_testovi></Info_testovi>
 </Sertifikat>

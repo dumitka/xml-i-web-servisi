@@ -22,17 +22,12 @@ import lombok.Setter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "header",
     "certificateInfo",
     "user",
     "vaccinationInfo",
-    "test"
 })
 @XmlRootElement(name = "Sertifikat")
 public class DigitalGreenCertificate {
-	@XmlElement(name = "Zaglavlje")
-	private Header header;
-	
 	@XmlElement(name = "Info_sertifikat")
 	private CertificateInfo certificateInfo;
 	
@@ -41,7 +36,4 @@ public class DigitalGreenCertificate {
 	
 	@XmlElement(name = "Info_vakcinacije")
 	private VaccinationInfo vaccinationInfo;
-	
-	@XmlElement(name = "Info_testovi")
-	private TestInfo test;
 }

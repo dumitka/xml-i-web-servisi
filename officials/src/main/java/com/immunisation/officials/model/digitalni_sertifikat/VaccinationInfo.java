@@ -25,7 +25,6 @@ import lombok.Setter;
 })
 @XmlRootElement(name = "Info_vakcinacije")
 public class VaccinationInfo {
-	
 	@XmlElement(name = "Vakcinacije")
 	List<Vaccination> vaccinations;
 }

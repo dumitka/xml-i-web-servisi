@@ -13,16 +13,8 @@ public class ObjectFactory {
 		return new DigitalGreenCertificate();
 	}
 	
-	public Header createHeader() {
-		return new Header();
-	}
-	
 	public CertificateInfo createCertificateInfo() {
 		return new CertificateInfo();
-	}
-	
-	public Publisher createPublisher() {
-		return new Publisher();
 	}
 	
 	public Address createAddress() {
@@ -37,33 +29,7 @@ public class ObjectFactory {
 		return new VaccinationInfo();
 	}
 	
-	
 	public Vaccination createVaccination() {
 		return new Vaccination();
 	}
-	
-	
-	public TestInfo createTestInfo() {
-		return new TestInfo();
-	}
-	
-	
-	public Test createTest() {
-		return new Test();
-	}
-	
-	
-	public Informations createInformations() {
-		return new Informations();
-	}
-	
-	
-	public static Results createResults() {
-		return new Results();
-	}
-	
-	
-	
-	
-	
 }
