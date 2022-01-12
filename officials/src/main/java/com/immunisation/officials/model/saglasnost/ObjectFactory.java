@@ -2,6 +2,8 @@ package com.immunisation.officials.model.saglasnost;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
+import com.immunisation.officials.model.Patient;
+
 @XmlRegistry
 public class ObjectFactory {
 
@@ -13,6 +15,10 @@ public class ObjectFactory {
 	
 	public PartForPatients createPartForPatients() {
 		return new PartForPatients();
+	}
+	
+	public Patient createPatient() {
+		return new Patient();//?
 	}
 	
 	public PartForPublicOfficial createPartForPublicOfficial() {

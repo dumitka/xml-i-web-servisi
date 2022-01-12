@@ -14,8 +14,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.xml.sax.SAXException;
 
+import com.immunisation.officials.model.Patient;
 import com.immunisation.officials.model.interesovanje.RequestVaccination;
 import com.immunisation.officials.model.interesovanje.VaccinationData;
+import com.immunisation.officials.model.saglasnost.ConsentForVaccination;
+import com.immunisation.officials.model.saglasnost.PartForPatients;
+import com.immunisation.officials.model.saglasnost.PartForPublicOfficial;
 import com.immunisation.officials.model.tipovi.Contact;
 import com.immunisation.officials.model.tipovi.GeneralUser;
 import com.immunisation.officials.model.zahtev_za_sertifikat.RequestDigitalGreenCertificate;
@@ -77,6 +81,52 @@ public class OfficialsApplication {
 		System.out.println("Davalac_krvi --> " + data.isBloodDonor());
 	}
 	
+	public static void print(ConsentForVaccination data) {
+		System.out.println("SAGLASNOST");
+		System.out.print("Deo_za_pacijenta --> ");
+		print(data.getPartForPatients());
+		System.out.print("Deo_za_radnika --> ");
+		print(data.getPartForPublicOfficial());
+	}
+	
+	public static void print(PartForPatients part) {
+		System.out.println("DEO ZA PACIJENTA");
+		System.out.print("Licni_podaci --> ");
+		print(part.getPatient());
+		System.out.println("Pacijent_je_saglasan --> " + part.isPatientAgrees());
+		System.out.println("Tip_vakcine --> " + part.getVaccineType());
+		System.out.println("Datum_saglasnosti --> " + part.getDate());
+	}
+	
+	public static void print(Patient data) {
+		System.out.println("PACIJENT");
+		System.out.println("Ime_roditelja --> " + data.getNameOfParent());
+		System.out.println("Mesto_rodjenja --> " + data.getBirthPlace());
+		System.out.println("Adresa --> " + data.getAddress());
+		System.out.print("Kontakt --> ");
+		print(data.getContact());
+		System.out.println("Radni_status --> " + data.getEmploymentStatus());
+		System.out.println("Zanimanje_zaposlenog --> " + data.getProfession());
+		System.out.println("Socijalna_zastita --> " + data.isSocialCare());
+		System.out.println("Sediste_socijalne_zastite --> " + data.getHeadquarterOfSocialCare());
+	}
+	
+	public static void print(PartForPublicOfficial part) {
+		System.out.println("DEO ZA RADNIKA");
+		System.out.println("Zdravstvena_ustanova --> " + part.getHealthFacility());
+		System.out.println("Vakcinacijski_punkt --> " + part.getVaccinationPoint());
+		System.out.println("Podaci_o_lekaru --> " + part.getDoctorData());
+		System.out.println("Naziv_vakcine --> " + part.getNamesOfVaccine());
+		System.out.println("Datum_davanja_vakcine --> " + part.getDatesOfVaccination());
+		System.out.println("Nacin_davanja_vakcine --> " + part.getWaysOfGivingTheVaccine());
+		System.out.println("Ekstremitet --> " + part.getLimbs());
+		System.out.println("Serija_vakcine --> " + part.getVaccineSeries());
+		System.out.println("Proizvodjac --> " + part.getManufacturers());
+		System.out.println("Nezeljena_reakcija --> " + part.getSideEffects());
+		System.out.println("Privremene_kontraindikacije --> " + part.getTemporaryContractions());
+		System.out.println("Trajne_kontraindikacije --> " + part.getPermanentContractions());
+	}
+	
 	public static void parseRequestDigitalGreenCertificate() throws JAXBException, SAXException {
 		JAXBContext context = JAXBContext.newInstance("com.immunisation.officials.model.zahtev_za_sertifikat");
 	
@@ -104,6 +154,19 @@ public class OfficialsApplication {
 		
 	}
 	
+	public static void parseConsentForVaccination() throws JAXBException, SAXException {
+		JAXBContext context = JAXBContext.newInstance("com.immunisation.officials.model.saglasnost");
+	
+		Unmarshaller unmarshaller = context.createUnmarshaller();		
+		SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+		Schema schema = schemaFactory.newSchema(new File("./data/Saglasnost.xsd"));      
+		unmarshaller.setSchema(schema);
+		
+		ConsentForVaccination r = unmarshaller.unmarshal(new StreamSource(new File("./data/Saglasnost.xml")), ConsentForVaccination.class).getValue();
+		print(r);
+		
+	}
+	
 	
 	public static void main(String[] args) throws JAXBException, SAXException {
 		SpringApplication.run(OfficialsApplication.class, args);
@@ -111,6 +174,7 @@ public class OfficialsApplication {
 		//Zahtev za zeleni sertifikat xml i xsd parsiranje
 //		parseRequestDigitalGreenCertificate();
 		
-		parseRequestVaccination();
+//		parseRequestVaccination();
+		parseConsentForVaccination();
 	}
 }
