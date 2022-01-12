@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Sertifikat xmlns="http://www.baklavice.com/digitalni_sertifikat"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.baklavice.com/digitalni_sertifikati Digitalni_sertifikat.xsd"
+    xmlns:tipovi="http://www.baklavice.com/tipovi">
+    <Info_sertifikat>
+        <Broj_sertifikata>123456</Broj_sertifikata>
+        <Datum_izdavanja>2021-12-24T12:36:58</Datum_izdavanja>
+    </Info_sertifikat>
+    <Info_korisnika>
+        <tipovi:Drzavljanstvo></tipovi:Drzavljanstvo>
+        <tipovi:Boraviste></tipovi:Boraviste>
+        <tipovi:Ime>Pera</tipovi:Ime>
+        <tipovi:Prezime>Perić</tipovi:Prezime>
+        <tipovi:Pol>Muski</tipovi:Pol>
+        <tipovi:Datum_rodjenja>1999-05-18</tipovi:Datum_rodjenja>
+        <tipovi:JMBG>1805999112233</tipovi:JMBG>
+    </Info_korisnika>
+    <Info_vakcinacije>
+        <Vakcinacije Doza="1">
+            <Tip>Pfizer-BioNTech</Tip>
+            <Proizvodjac>BIONTECH</Proizvodjac>
+            <Serija>12345</Serija>
+            <Zdravsvena_ustanova>Zdravstvena unstanova Novi Sad</Zdravsvena_ustanova>
+        </Vakcinacije>
+    </Info_vakcinacije>
+</Sertifikat>

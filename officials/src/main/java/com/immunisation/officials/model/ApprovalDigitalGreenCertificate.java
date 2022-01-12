@@ -1,6 +1,9 @@
 package com.immunisation.officials.model;
 
 
+import com.immunisation.officials.model.green_certificate.DigitalGreenCertificate;
+import com.immunisation.officials.model.request.RequestDigitalGreenCertificate;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

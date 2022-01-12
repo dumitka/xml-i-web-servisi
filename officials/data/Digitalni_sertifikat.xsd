@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
+    vc:minVersion="1.1" attributeFormDefault="unqualified"
+    targetNamespace="http://www.baklavice.com/digitalni_sertifikat"
+    xmlns:sertifikat="http://www.baklavice.com/digitalni_sertifikat"
+    xmlns:tipovi="http://www.baklavice.com/tipovi">
+    <xs:import namespace="http://www.baklavice.com/tipovi" schemaLocation="Tipovi.xsd"/>
+    <xs:element name="Sertifikat">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Info_sertifikat">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Broj_sertifikata">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="\d{1,8}"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="Datum_izdavanja" type="xs:dateTime"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Info_korisnika" type="tipovi:TKorisnikOpste"/>
+                <xs:element name="Info_vakcinacije">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="Vakcinacije">
+                                <xs:complexType>
+                                    <xs:sequence minOccurs="1">
+                                        <xs:element minOccurs="1" name="Tip" type="tipovi:TVakcina"/>
+                                        <xs:element minOccurs="1" name="Proizvodjac"
+                                            type="xs:string"/>
+                                        <xs:element minOccurs="1" name="Serija">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                  <xs:pattern value="\d{1,10}"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element minOccurs="1" name="Zdravsvena_ustanova"
+                                            type="xs:string"> </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="Doza" type="xs:positiveInteger"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

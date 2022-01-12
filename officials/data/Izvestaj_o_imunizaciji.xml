@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Izvestaj xmlns="http://www.baklavice.com/izvestaj"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.baklavice.com/izvestaj Izvestaj_o_imunizaciji.xsd"
+    xmlns:tipovi="http://www.baklavice.com/tipovi">
+    <Sifra_izvestaja>123</Sifra_izvestaja>
+    <Period>
+        <Datum_od>2021-10-01</Datum_od>
+        <Datum_do>2021-11-01</Datum_do>
+    </Period>
+    <Broj_interesovanja>2758</Broj_interesovanja>
+    <Zahtevi_za_sertifikat>456</Zahtevi_za_sertifikat>
+    <Izdati_sertifikati>412</Izdati_sertifikati>
+    <Doze_vakcine>
+        <Ukupno_datih_doza>3225</Ukupno_datih_doza>
+        <Doza Redni_broj="1">
+            <Broj_datih_doza>1789</Broj_datih_doza>
+        </Doza>
+        <Doza Redni_broj="2">
+            <Broj_datih_doza>1276</Broj_datih_doza>
+        </Doza>
+        <Doza Redni_broj="3">
+            <Broj_datih_doza>160</Broj_datih_doza>
+        </Doza>
+    </Doze_vakcine>
+    <Raspodela_proizvodjaca>
+        <Proizvodjac>
+            <Naziv_proizvodjaca>Pfizer-BioNTech</Naziv_proizvodjaca>
+            <Broj_doza>1625</Broj_doza>
+        </Proizvodjac>
+        <Proizvodjac>
+            <Naziv_proizvodjaca>Sinopharm</Naziv_proizvodjaca>
+            <Broj_doza>1100</Broj_doza>
+        </Proizvodjac>
+        <Proizvodjac>
+            <Naziv_proizvodjaca>Sputnik V</Naziv_proizvodjaca>
+            <Broj_doza>356</Broj_doza>
+        </Proizvodjac>
+        <Proizvodjac>
+            <Naziv_proizvodjaca>AstraZeneca</Naziv_proizvodjaca>
+            <Broj_doza>144</Broj_doza>
+        </Proizvodjac>
+    </Raspodela_proizvodjaca>
+    <Datum_izdavanja>2021-12-01</Datum_izdavanja>
+</Izvestaj>

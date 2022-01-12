@@ -21,7 +21,7 @@
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="Opstina_ustanove"/>
-                            <xs:element name="Tip_vakcine" type="tipovi:TVakcina"/>
+                            <xs:element name="Tip_vakcine" type="xs:string"/>
                             <xs:element name="Davalac_krvi" type="xs:boolean"> </xs:element>
                         </xs:sequence>
                     </xs:complexType>
