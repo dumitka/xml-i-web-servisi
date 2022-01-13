@@ -14,7 +14,7 @@
         <tipovi:Boraviste></tipovi:Boraviste>
         <tipovi:Ime property="pred:ime" datatype="xsi:string">Mika</tipovi:Ime>
         <tipovi:Prezime property="pred:prezime" datatype="xsi:string">Mikić</tipovi:Prezime>
-        <tipovi:Pol property="pred:pol" datatype="xsi:string">Muski</tipovi:Pol>
+        <tipovi:Pol>Muski</tipovi:Pol>
         <tipovi:Datum_rodjenja property="pred:datum_rodjenja" datatype="xs:date">1975-08-18</tipovi:Datum_rodjenja>
         <tipovi:Broj_pasosa>001542836</tipovi:Broj_pasosa>
     </Info_korisnika>
