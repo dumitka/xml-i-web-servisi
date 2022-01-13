@@ -25,7 +25,7 @@ import com.immunisation.officials.metadata.AuthenticationUtilities.ConnectionPro
 
 public class RdfConverter {
 
-	private static final String SPARQL_NAMED_GRAPH_URI = "/example/sparql/metadata";
+	private static final String SPARQL_NAMED_GRAPH_URI = "/all/documents/metadata";
 	
 	public static void convertXmlToRdf(String xmlFilePath, String rdfFilePath) throws SAXException, IOException, TransformerException {
 		
@@ -84,17 +84,23 @@ public class RdfConverter {
 	
 	
 	public void test() throws SAXException, IOException, TransformerException {
-		String xmlPath = "temp/Interesovanje.xml";
-//		String xmlPath = "temp/Digitalni_sertifikat1.xml";
-//		String xmlPath = "temp/Digitalni_sertifikat2.xml";
-//		String xmlPath = "temp/Izvestaj_o_imunizaciji.xml";
-//		String xmlPath = "temp/Potvrda_o_vakcinaciji.xml";
-//		String xmlPath = "temp/Saglasnost.xml";
-//		String xmlPath = "temp/Zahtev_za_sertifikat.xml";
+		String xmlPath1 = "./data/xml/Interesovanje.xml";
+		String xmlPath2 = "./data/xml/Digitalni_sertifikat1.xml";
+		String xmlPath3 = "./data/xml/Digitalni_sertifikat2.xml";
+		String xmlPath4 = "./data/xml/Izvestaj_o_imunizaciji.xml";
+		String xmlPath5 = "./data/xml/Potvrda_o_vakcinaciji.xml";
+		String xmlPath6 = "./data/xml/Saglasnost.xml";
+		String xmlPath7 = "./data/xml/Zahtev_za_sertifikat.xml";
 		
 		String rdfPath = "gen/test.rdf";
 		
-		convertXmlToRdf(xmlPath, rdfPath);
+		convertXmlToRdf(xmlPath1, rdfPath);
+		convertXmlToRdf(xmlPath2, rdfPath);
+		convertXmlToRdf(xmlPath3, rdfPath);
+		convertXmlToRdf(xmlPath4, rdfPath);
+		convertXmlToRdf(xmlPath5, rdfPath);
+		convertXmlToRdf(xmlPath6, rdfPath);
+		convertXmlToRdf(xmlPath7, rdfPath);
 		
 	}
 	

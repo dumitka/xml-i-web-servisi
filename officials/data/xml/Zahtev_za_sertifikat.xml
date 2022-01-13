@@ -5,7 +5,8 @@
     xsi:schemaLocation="http://www.baklavice.com/zahtev_za_sertifikat Zahtev_za_sertifikat.xsd"
     Ime_dokumenta="Zahtev za izdavanje digitalnog zelenog sertifikata"
     xmlns:pred="http://www.baklavice.com/rdf/predikati/"
-    vocab="http://www.baklavice.com/rdf/predikati/">
+    vocab="http://www.baklavice.com/rdf/predikati/"
+    about="http://www.baklavice.com/rdf/zahtev_za_sertifikat/444">
     <Sifra_zahteva>444</Sifra_zahteva>
     <Izjava_podnosenja_zahteva>
         U skladu sa odredbom Republike Srbije o izdavanju digitalnog zelenog sertifikata kao potvrde o 

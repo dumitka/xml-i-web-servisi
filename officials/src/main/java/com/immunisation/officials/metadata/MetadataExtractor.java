@@ -75,7 +75,7 @@ public class MetadataExtractor {
 		
 		String filePath = "gen/test.rdf";
 		
-		InputStream in = new FileInputStream(new File("temp/DIgitalni_sertifikat2.xml")); 
+		InputStream in = new FileInputStream(new File("./data/xml/Digitalni_Sertifikat2.xml")); 
 
 		OutputStream out = new FileOutputStream(filePath);
 		

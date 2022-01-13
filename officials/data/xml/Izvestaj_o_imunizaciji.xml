@@ -4,7 +4,8 @@
     xsi:schemaLocation="http://www.baklavice.com/izvestaj Izvestaj_o_imunizaciji.xsd"
     xmlns:tipovi="http://www.baklavice.com/tipovi"
     xmlns:pred="http://www.baklavice.com/rdf/predikati/"
-    vocab="http://www.baklavice.com/rdf/predikati/">
+    vocab="http://www.baklavice.com/rdf/predikati/"
+    about="http://www.baklavice.com/rdf/izvestaj/123">
     <Sifra_izvestaja>123</Sifra_izvestaja>
     <Period>
         <Datum_od>2021-10-01</Datum_od>

@@ -6,14 +6,12 @@
   <rdf:Description rdf:about="http://www.baklavice.com/rdf/korisnik/1805999112233">
     <pred:ime>Pera</pred:ime>
     <pred:prezime>Peric</pred:prezime>
-    <pred:pol>Muski</pred:pol>
     <pred:datum_rodjenja>1999-05-18</pred:datum_rodjenja>
   </rdf:Description>
 
   <rdf:Description rdf:about="http://www.baklavice.com/rdf/korisnik/001542836">
     <pred:ime>Mika</pred:ime>
     <pred:prezime>Mikic</pred:prezime>
-    <pred:pol>Muski</pred:pol>
     <pred:datum_rodjenja>1975-08-18</pred:datum_rodjenja>
   </rdf:Description>
 
@@ -21,14 +19,12 @@
   <rdf:Description rdf:about="http://www.baklavice.com/rdf/korisnik/1111999815055">
     <pred:ime>Ivana</pred:ime>
     <pred:prezime>Ivanovic</pred:prezime>
-    <pred:pol>Zenski</pred:pol>
     <pred:datum_rodjenja>1999-11-11</pred:datum_rodjenja>
   </rdf:Description>
 
   <rdf:Description rdf:about="http://www.baklavice.com/rdf/korisnik/2202999815055">
     <pred:ime>Ivan</pred:ime>
     <pred:prezime>Ivanovic</pred:prezime>
-    <pred:pol>Muski</pred:pol>
     <pred:datum_rodjenja>1999-02-22</pred:datum_rodjenja>
   </rdf:Description>
 
@@ -37,14 +33,12 @@
   <rdf:Description rdf:about="http://www.baklavice.com/rdf/korisnik/1212956942571">
     <pred:ime>Nikola</pred:ime>
     <pred:prezime>Nikolic</pred:prezime>
-    <pred:pol>Muski</pred:pol>
     <pred:datum_rodjenja>1956-12-12</pred:datum_rodjenja>
   </rdf:Description>
 
   <rdf:Description rdf:about="http://www.baklavice.com/rdf/korisnik/1010956942571">
     <pred:ime>Nikolina</pred:ime>
     <pred:prezime>Nikolic</pred:prezime>
-    <pred:pol>Zenski</pred:pol>
     <pred:datum_rodjenja>1956-10-10</pred:datum_rodjenja>
   </rdf:Description>
 
@@ -53,14 +47,12 @@
   <rdf:Description rdf:about="http://www.baklavice.com/rdf/korisnik/0504999815033">
     <pred:ime>Marko</pred:ime>
     <pred:prezime>Markovic</pred:prezime>
-    <pred:pol>Muski</pred:pol>
     <pred:datum_rodjenja>1999-04-05</pred:datum_rodjenja>
   </rdf:Description>
 
   <rdf:Description rdf:about="http://www.baklavice.com/rdf/korisnik/1010999942571">
     <pred:ime>Maja</pred:ime>
     <pred:prezime>Markovic</pred:prezime>
-    <pred:pol>Zenski</pred:pol>
     <pred:datum_rodjenja>1999-10-10</pred:datum_rodjenja>
   </rdf:Description>
 
@@ -69,7 +61,6 @@
   <rdf:Description rdf:about="http://www.baklavice.com/rdf/korisnik/001542111">
     <pred:ime>Svetlana</pred:ime>
     <pred:prezime>Svetlanovic</pred:prezime>
-    <pred:pol>Zenski</pred:pol>
     <pred:datum_rodjenja>1999-07-18</pred:datum_rodjenja>
   </rdf:Description>
 
