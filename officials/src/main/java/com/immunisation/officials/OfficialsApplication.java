@@ -134,10 +134,10 @@ public class OfficialsApplication {
 //		parseConsentForVaccination();
 //		
 //		// Parsiranje digitalnog sertifikata (DigitalGreenCertificate)
-		parseDigitalGreenCertificate();
+//		parseDigitalGreenCertificate();
 //		
 //		// Parsiranje interesovanja (Interest)
-//		parseInterest();
+		parseInterest();
 //		
 //		// Parsiranje izveštaja o imunizaciji (Report)
 //		parseReport();
