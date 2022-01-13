@@ -128,10 +128,10 @@ public class OfficialsApplication {
 		SpringApplication.run(OfficialsApplication.class, args);
 
 		// Parsiranje potvrde o vakcinaciji (VaccineConfirmation)
-		parseVaccineConfirmation();
+//		parseVaccineConfirmation();
 		
 		// Parsiranje saglasnosti (Consent)
-//		parseConsentForVaccination();
+		parseConsentForVaccination();
 //		
 //		// Parsiranje digitalnog sertifikata (DigitalGreenCertificate)
 //		parseDigitalGreenCertificate();

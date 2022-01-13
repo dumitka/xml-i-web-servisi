@@ -5,18 +5,27 @@ import com.immunisation.officials.model.consent.ConsentForVaccination;
 import com.immunisation.officials.model.consent.PartForPatients;
 import com.immunisation.officials.model.consent.PartForPublicOfficial;
 import com.immunisation.officials.model.consent.ReceivedVaccine;
+import com.immunisation.officials.model.types.Address;
 
 public class ConsentForVaccinationPrint {	
 	public static void print(Patient p) {
 		System.out.println("PACIJENT");
 		System.out.println("Ime_roditelja --> " + p.getNameOfParent());
 		System.out.println("Mesto_rodjenja --> " + p.getBirthPlace());
-		System.out.println("Adresa --> " + p.getAddress());
+		print(p.getAddress());
 		ContactPrint.print(p.getContact());
 		System.out.println("Radni_status --> " + p.getEmploymentStatus());
 		System.out.println("Zanimanje_zaposlenog --> " + p.getProfession());
 		System.out.println("Socijalna_zastita --> " + p.isSocialCare());
 		System.out.println("Sediste_socijalne_zastite --> " + p.getHeadquarterOfSocialCare());
+	}
+	
+	public static void print(Address a) {
+		System.out.println("ADDRESS");
+		System.out.println("Opstina --> " + a.getTownship());
+		System.out.println("Mesto --> " + a.getPlace());
+		System.out.println("Ulica --> " + a.getStreet());
+		System.out.println("Broj --> " + a.getNumber());
 	}
 	
 	public static void print(PartForPatients part) {

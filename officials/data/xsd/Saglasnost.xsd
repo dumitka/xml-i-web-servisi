@@ -19,18 +19,54 @@
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="Licni_podaci" type="tipovi:TKorisnikSire"/>
-                            <xs:element name="Pacijent_je_saglasan" type="xs:boolean"/>
+                            <xs:element name="Pacijent_je_saglasan">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:boolean">
+                                            <xs:attribute name="property"/>
+                                            <xs:attribute name="datatype"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
                             <xs:element name="Tip_vakcine" type="tipovi:TVakcina"/>
-                            <xs:element name="Datum_saglasnosti" type="xs:date"/>
+                            <xs:element name="Datum_saglasnosti">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:date">
+                                            <xs:attribute name="property"/>
+                                            <xs:attribute name="datatype"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="Deo_za_radnika">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="Zdravstvena_ustanova" type="xs:string"/>
+                            <xs:element name="Zdravstvena_ustanova">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="property"/>
+                                            <xs:attribute name="datatype"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
                             <xs:element name="Vakcinacijski_punkt" type="xs:string"/>
-                            <xs:element name="Podaci_o_lekaru" type="xs:string"/>
+                            <xs:element name="Podaci_o_lekaru">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="property"/>
+                                            <xs:attribute name="datatype"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
                             <xs:element name="Primljene_vakcine_info">
                                 <xs:complexType>
                                     <xs:sequence maxOccurs="1" minOccurs="1">
@@ -40,8 +76,16 @@
                                                 <xs:sequence>
                                                   <xs:element name="Naziv_vakcine"
                                                   type="tipovi:TVakcina"/>
-                                                  <xs:element name="Datum_davanja_vakcine"
-                                                  type="xs:date"/>
+                                                  <xs:element name="Datum_davanja_vakcine">
+                                                  <xs:complexType>
+                                                  <xs:simpleContent>
+                                                  <xs:extension base="xs:date">
+                                                  <xs:attribute name="property"/>
+                                                  <xs:attribute name="datatype"/>
+                                                  </xs:extension>
+                                                  </xs:simpleContent>
+                                                  </xs:complexType>
+                                                  </xs:element>
                                                   <xs:element name="Nacin_davanja_vakcine"
                                                   type="xs:string" default="IM"/>
                                                   <xs:element name="Ekstremitet">
@@ -76,6 +120,7 @@
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
+            <xs:attribute name="vocab"/>
         </xs:complexType>
     </xs:element>
 </xs:schema>

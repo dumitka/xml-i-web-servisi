@@ -3,6 +3,7 @@ package com.immunisation.officials.model.consent;
 import javax.xml.bind.annotation.XmlRegistry;
 
 import com.immunisation.officials.model.Patient;
+import com.immunisation.officials.model.types.Address;
 
 @XmlRegistry
 public class ObjectFactory {
@@ -27,5 +28,9 @@ public class ObjectFactory {
 	
 	public ReceivedVaccine createReceivedVaccine() {
 		return new ReceivedVaccine();
+	}
+	
+	public Address createAddress() {
+		return new Address();
 	}
 }
