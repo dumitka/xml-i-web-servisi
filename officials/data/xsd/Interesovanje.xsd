@@ -26,8 +26,19 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="Datum_interesovanja" type="xs:date"/>
+                <xs:element name="Datum_interesovanja">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:date">
+                                <xs:attribute name="property"/>
+                                <xs:attribute name="datatype"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
             </xs:sequence>
+            <xs:attribute name="vocab"/>
+            <xs:attribute name="about"/>
         </xs:complexType>
     </xs:element>
 </xs:schema>

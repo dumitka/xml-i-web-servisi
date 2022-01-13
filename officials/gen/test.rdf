@@ -1,20 +1,14 @@
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
-  <rdf:Description rdf:about="">
-    <pred:qr_kod xmlns:pred="http://www.baklavice.com/rdf/predikati/" rdf:datatype="http://www.w3.org/2001/XMLSchema-instancestring">URL do QR koda</pred:qr_kod>
-  </rdf:Description>
-  <rdf:Description rdf:about="">
-    <pred:datum_izdavanja xmlns:pred="http://www.baklavice.com/rdf/predikati/" rdf:datatype="http://www.w3.org/2001/XMLSchema-instancedateTime">2021-12-24T12:36:58</pred:datum_izdavanja>
-  </rdf:Description>
-  <rdf:Description rdf:about="">
+  <rdf:Description rdf:about="http://www.baklavice.com/rdf/zahtev_za_sertifikat/444">
     <pred:ime xmlns:pred="http://www.baklavice.com/rdf/predikati/" rdf:datatype="http://www.w3.org/2001/XMLSchema-instancestring">Pera</pred:ime>
   </rdf:Description>
-  <rdf:Description rdf:about="">
+  <rdf:Description rdf:about="http://www.baklavice.com/rdf/zahtev_za_sertifikat/444">
     <pred:prezime xmlns:pred="http://www.baklavice.com/rdf/predikati/" rdf:datatype="http://www.w3.org/2001/XMLSchema-instancestring">Perić</pred:prezime>
   </rdf:Description>
-  <rdf:Description rdf:about="">
-    <pred:pol xmlns:pred="http://www.baklavice.com/rdf/predikati/" rdf:datatype="http://www.w3.org/2001/XMLSchema-instancestring">Muski</pred:pol>
-  </rdf:Description>
-  <rdf:Description rdf:about="">
+  <rdf:Description rdf:about="http://www.baklavice.com/rdf/zahtev_za_sertifikat/444">
     <pred:datum_rodjenja xmlns:pred="http://www.baklavice.com/rdf/predikati/" rdf:datatype="date">1999-05-18</pred:datum_rodjenja>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.baklavice.com/rdf/zahtev_za_sertifikat/444">
+    <pred:datum_podnosenja_zahteva xmlns:pred="http://www.baklavice.com/rdf/predikati/" rdf:datatype="http://www.w3.org/2001/XMLSchema-instancedate">2021-11-10</pred:datum_podnosenja_zahteva>
   </rdf:Description>
 </rdf:RDF>

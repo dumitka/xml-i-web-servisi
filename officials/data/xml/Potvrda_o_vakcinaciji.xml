@@ -4,14 +4,15 @@
     xsi:schemaLocation="http://www.baklavice.com/potvrda Potvrda_o_vakcinaciji.xsd"
     xmlns:tipovi="http://www.baklavice.com/tipovi"
     xmlns:pred="http://www.baklavice.com/rdf/predikati/"
-    vocab="http://www.baklavice.com/rdf/predikati/">
+    vocab="http://www.baklavice.com/rdf/predikati/"
+    about="http://www.baklavice.com/rdf/potvrda/12345-54321">
     <Sifra_potvrde>12345-54321</Sifra_potvrde>
     <Info_korisnika>
         <tipovi:Drzavljanstvo></tipovi:Drzavljanstvo>
         <tipovi:Boraviste></tipovi:Boraviste>
         <tipovi:Ime property="pred:ime" datatype="xsi:string">Nikola</tipovi:Ime>
         <tipovi:Prezime property="pred:prezime" datatype="xsi:string">Nikolić</tipovi:Prezime>
-        <tipovi:Pol property="pred:pol" datatype="xsi:string">Muski</tipovi:Pol>
+        <tipovi:Pol>Muski</tipovi:Pol>
         <tipovi:Datum_rodjenja property="pred:datum_rodjenja" datatype="xs:date">1956-12-12</tipovi:Datum_rodjenja>
         <tipovi:JMBG>1212956942571</tipovi:JMBG>
     </Info_korisnika>
@@ -25,8 +26,7 @@
             <Serija>5742168</Serija>
         </Doza>
     </Doze_vakcine>
-    <Zdravstvena_ustanova property="pred:zdravstvena_ustanova" datatype="xsi:string">Zdravstvena ustanova Novi Sad</Zdravstvena_ustanova>
-    <Naziv_vakcine property="pred:naziv_vakcine" datatype="xsi:string">Sputnik V</Naziv_vakcine>
+    <Naziv_vakcine>Sputnik V</Naziv_vakcine>
     <Datum_izdavanja property="pred:datum_izdavanja" datatype="xsi:date">2021-11-20</Datum_izdavanja>
-    <QR_kod property="qr_kod" datatype="xsi:string">URL do QR koda</QR_kod>
+    <QR_kod property="pred:qr_kod" datatype="xsi:string">URL do QR koda</QR_kod>
 </Potvrda>
