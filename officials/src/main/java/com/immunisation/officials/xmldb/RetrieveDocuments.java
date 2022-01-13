@@ -51,6 +51,20 @@ public class RetrieveDocuments {
             	System.out.println("[INFO] Showing the document " + documentId);
             	System.out.println(res.getContent());
             }
+            
+            /*if(res == null) {
+                System.out.println("[WARNING] Document '" + documentId + "' can not be found!");
+            } else {
+            	System.out.println("[INFO] Binding XML resouce to an JAXB instance: ");
+                JAXBContext context = JAXBContext.newInstance("rs.ac.uns.ftn.examples.xmldb.bookstore");
+    			
+    			Unmarshaller unmarshaller = context.createUnmarshaller();
+    			
+    			Bookstore bookstore = (Bookstore) unmarshaller.unmarshal(res.getContentAsDOM());
+    			
+    			System.out.println("[INFO] Showing the document as JAXB instance: ");
+    			System.out.println(bookstore);
+            }*/
         } finally {
         	// Oslobađanje zauzetih resursa
             

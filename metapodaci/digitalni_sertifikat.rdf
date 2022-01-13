@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:pred="http://www.baklavice.com/rdf/predikati/">
+
+  <rdf:Description rdf:about="http://www.baklavice.com/rdf/digitalni_sertifikat/123456">
+    <pred:korisnik rdf:resource="http://www.baklavice.com/rdf/korisnik/1805999112233"/>
+    <pred:datum_izdavanja>2021-12-24T12:36:58</pred:datum_izdavanja>
+    <pred:qr_kod>qr_kod_1</pred:qr_kod>
+  </rdf:Description>
+
+   <rdf:Description rdf:about="http://www.baklavice.com/rdf/digitalni_sertifikat/234567">
+    <pred:korisnik rdf:resource="http://www.baklavice.com/rdf/korisnik/001542836"/>
+    <pred:datum_izdavanja>2021-12-24T12:36:58</pred:datum_izdavanja>
+    <pred:qr_kod>qr_kod_2</pred:qr_kod>
+  </rdf:Description>
+
+</rdf:RDF>

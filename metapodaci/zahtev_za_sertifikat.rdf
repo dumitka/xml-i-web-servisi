@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:pred="http://www.baklavice.com/rdf/predikati/">
+
+  <rdf:Description rdf:about="http://www.baklavice.com/rdf/zahtev_za_sertifikat/444">
+    <pred:korisnik rdf:resource="http://www.ftn.uns.ac.rs/rdf/korisnik/1805999112233"/>
+    <pred:datum_podnosenja_zahteva>2021-11-10</pred:datum_podnosenja_zahteva>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.baklavice.com/rdf/zahtev_za_sertifikat/555">
+    <pred:korisnik rdf:resource="http://www.ftn.uns.ac.rs/rdf/korisnik/001542111"/>
+    <pred:datum_podnosenja_zahteva>2021-11-15</pred:datum_podnosenja_zahteva>
+  </rdf:Description>
+
+</rdf:RDF>

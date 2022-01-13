@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:pred="http://www.baklavice.com/rdf/predikati/">
+
+  <rdf:Description rdf:about="http://www.baklavice.com/rdf/interesovanje/578">
+    <pred:korisnik rdf:resource="http://www.baklavice.com/rdf/korisnik/1111999815055"/>
+    <pred:datum_interesovanja>2021-12-01</pred:datum_interesovanja>
+    <pred:tip_vakcine>Sinopharm</pred:tip_vakcine>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.baklavice.com/rdf/interesovanje/875">
+    <pred:korisnik rdf:resource="http://www.baklavice.com/rdf/korisnik/2202999815055"/>
+    <pred:datum_interesovanja>2021-12-11</pred:datum_interesovanja>
+    <pred:tip_vakcine>Fajzer</pred:tip_vakcine>
+  </rdf:Description>
+
+</rdf:RDF>

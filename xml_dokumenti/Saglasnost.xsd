@@ -8,6 +8,13 @@
     <xs:element name="Saglasnost">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="Sifra_saglasnosti">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="\d{1,10}"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
                 <xs:element name="Deo_za_pacijenta">
                     <xs:complexType>
                         <xs:sequence>

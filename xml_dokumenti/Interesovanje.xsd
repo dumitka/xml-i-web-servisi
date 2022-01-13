@@ -8,6 +8,13 @@
     <xs:element name="Interesovanje">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="Sifra_interesovanja">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="\d{1,10}"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
                 <xs:element name="Podaci_o_licu" type="tipovi:TKorisnikOpste"/>
                 <xs:element name="Kontakt" type="tipovi:TKontakt"/>
                 <xs:element name="Podaci_o_vakcinaciji">
