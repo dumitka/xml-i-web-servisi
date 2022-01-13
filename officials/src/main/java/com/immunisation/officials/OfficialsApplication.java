@@ -20,7 +20,6 @@ import com.immunisation.officials.model.green_certificate.DigitalGreenCertificat
 import com.immunisation.officials.model.interest.Interest;
 import com.immunisation.officials.model.report.Report;
 import com.immunisation.officials.model.request.RequestDigitalGreenCertificate;
-import com.immunisation.officials.model.types.GeneralUser;
 import com.immunisation.officials.print.ConsentForVaccinationPrint;
 import com.immunisation.officials.print.DigitalGreenCertificatePrint;
 import com.immunisation.officials.print.InterestPrint;
@@ -30,28 +29,6 @@ import com.immunisation.officials.print.VaccineConfirmationPrint;
 
 @SpringBootApplication
 public class OfficialsApplication {
-	public static void printGeneralUser(GeneralUser user) {
-		System.out.println("GENERAL USER");
-		System.out.println("Drzavljanstvo --> " + user.getCitizenship());
-		System.out.println("Boraviste --> " + user.getResidence());
-		System.out.println("Ime --> " + user.getName());
-		System.out.println("Prezime --> " + user.getLastName());
-		System.out.println("Pol --> " + user.getGender());
-		System.out.println("Datum_rodjenja --> " + user.getBirthdate());
-		System.out.println("Licni dokument --> " + user.getDocument());
-	}
-	
-	public static void print(RequestDigitalGreenCertificate request) {
-		System.out.println("ZAHTEV ZA DIGITALNI ZELIENI SERTIFIKAT");
-		System.out.println("Sifra_zahteva --> " + request.getCode());
-		System.out.println("Ime_dokumenta --> " + request.getName());
-		System.out.print("Podaci_o_podnosiocu --> ");
-		printGeneralUser(request.getUser());
-		System.out.println("Razlog_podnosenja_zahteva --> " + request.getReasonForRequest());
-		System.out.println("Mesto_podnosenja_zahteva --> " + request.getPlace());
-		System.out.println("Datum_podnosenja_zahteva --> " + request.getDate());
-	}
-	
 	public static void parseVaccineConfirmation() throws JAXBException, SAXException {
 		JAXBContext context = JAXBContext.newInstance("com.immunisation.officials.model.confirmation");
 	
