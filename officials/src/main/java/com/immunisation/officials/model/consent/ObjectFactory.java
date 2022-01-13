@@ -18,10 +18,14 @@ public class ObjectFactory {
 	}
 	
 	public Patient createPatient() {
-		return new Patient();//?
+		return new Patient();
 	}
 	
 	public PartForPublicOfficial createPartForPublicOfficial() {
 		return new PartForPublicOfficial();
+	}
+	
+	public ReceivedVaccine createReceivedVaccine() {
+		return new ReceivedVaccine();
 	}
 }

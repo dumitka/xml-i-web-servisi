@@ -48,12 +48,10 @@
                         <xs:sequence>
                             <xs:element name="Proizvodjac" maxOccurs="unbounded">
                                 <xs:complexType>
-                                    <xs:simpleContent>
-                                        <xs:extension base="tipovi:TVakcina">
-                                            <xs:attribute name="Broj_doza" type="xs:positiveInteger"
-                                                use="required"/>
-                                        </xs:extension>
-                                    </xs:simpleContent>
+                                    <xs:sequence>
+                                        <xs:element name="Naziv_proizvodjaca" type="tipovi:TVakcina"/>
+                                        <xs:element name="Broj_doza" type="xs:positiveInteger"/>
+                                    </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>

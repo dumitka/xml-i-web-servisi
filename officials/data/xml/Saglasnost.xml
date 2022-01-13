@@ -41,11 +41,15 @@
         <Zdravstvena_ustanova property="pred:zdravstvena_ustanova" datatype="xsi:string">Zdravstvena ustanova Novi Sad</Zdravstvena_ustanova>
         <Vakcinacijski_punkt>Sajam</Vakcinacijski_punkt>
         <Podaci_o_lekaru property="pred:podaci_o_lekaru" datatype="xsi:string">Nikola Nikolić, 060123456</Podaci_o_lekaru>
-        <Naziv_vakcine>AstraZeneca</Naziv_vakcine>
-        <Datum_davanja_vakcine property="pred:datum_davanja_vakcine" datatype="xsi:date">2021-12-18</Datum_davanja_vakcine>
-        <Nacin_davanja_vakcine>IM</Nacin_davanja_vakcine>
-        <Ekstremitet>LR</Ekstremitet>
-        <Serija_vakcine>123654</Serija_vakcine>
-        <Proizvodjac>AstraZeneca, Oxford</Proizvodjac>
+        <Primljene_vakcine_info>
+            <Primljena_vakcina>
+                <Naziv_vakcine>AstraZeneca</Naziv_vakcine>
+                <Datum_davanja_vakcine property="pred:datum_davanja_vakcine" datatype="xsi:date">2021-12-18</Datum_davanja_vakcine>
+                <Nacin_davanja_vakcine>IM</Nacin_davanja_vakcine>
+                <Ekstremitet>LR</Ekstremitet>
+                <Serija_vakcine>123654</Serija_vakcine>
+                <Proizvodjac>AstraZeneca, Oxford</Proizvodjac>
+            </Primljena_vakcina>
+        </Primljene_vakcine_info>
     </Deo_za_radnika>
 </Saglasnost>

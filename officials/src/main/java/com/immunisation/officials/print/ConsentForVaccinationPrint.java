@@ -4,6 +4,7 @@ import com.immunisation.officials.model.Patient;
 import com.immunisation.officials.model.consent.ConsentForVaccination;
 import com.immunisation.officials.model.consent.PartForPatients;
 import com.immunisation.officials.model.consent.PartForPublicOfficial;
+import com.immunisation.officials.model.consent.ReceivedVaccine;
 
 public class ConsentForVaccinationPrint {	
 	public static void print(Patient p) {
@@ -32,15 +33,23 @@ public class ConsentForVaccinationPrint {
 		System.out.println("Zdravstvena_ustanova --> " + part.getHealthFacility());
 		System.out.println("Vakcinacijski_punkt --> " + part.getVaccinationPoint());
 		System.out.println("Podaci_o_lekaru --> " + part.getDoctorData());
-		System.out.println("Naziv_vakcine --> " + part.getNamesOfVaccine());
-		System.out.println("Datum_davanja_vakcine --> " + part.getDatesOfVaccination());
-		System.out.println("Nacin_davanja_vakcine --> " + part.getWaysOfGivingTheVaccine());
-		System.out.println("Ekstremitet --> " + part.getLimbs());
-		System.out.println("Serija_vakcine --> " + part.getVaccineSeries());
-		System.out.println("Proizvodjac --> " + part.getManufacturers());
-		System.out.println("Nezeljena_reakcija --> " + part.getSideEffects());
+		System.out.println("PRIMLJENE VAKCINE INFO");
+		for(ReceivedVaccine vaccine : part.getReceivedVaccines()) {
+			print(vaccine);
+		}
 		System.out.println("Privremene_kontraindikacije --> " + part.getTemporaryContractions());
 		System.out.println("Trajne_kontraindikacije --> " + part.getPermanentContractions());
+	}
+	
+	public static void print(ReceivedVaccine v) {
+		System.out.println("PRIMLJENA VAKCINA");
+		System.out.println("Naziv_vakcine --> " + v.getNameOfVaccine());
+		System.out.println("Datum_davanja_vakcine --> " + v.getDateOfVaccination());
+		System.out.println("Nacin_davanja_vakcine --> " + v.getWayOfGivingTheVaccine());
+		System.out.println("Ekstremitet --> " + v.getLimb());
+		System.out.println("Serija_vakcine --> " + v.getVaccineSerie());
+		System.out.println("Proizvodjac --> " + v.getManufacturer());
+		System.out.println("Nezeljena_reakcija --> " + v.getSideEffect());
 	}
 	
 	public static void print(ConsentForVaccination cfv) {

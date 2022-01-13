@@ -57,10 +57,10 @@ public class OfficialsApplication {
 	
 		Unmarshaller unmarshaller = context.createUnmarshaller();		
 		SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-		Schema schema = schemaFactory.newSchema(new File("./data/Potvrda_o_vakcinaciji.xsd"));      
+		Schema schema = schemaFactory.newSchema(new File("./data/xsd/Potvrda_o_vakcinaciji.xsd"));      
 		unmarshaller.setSchema(schema);
 		
-		VaccineConfirmation vc = unmarshaller.unmarshal(new StreamSource(new File("./data/Potvrda_o_vakcinaciji.xml")), VaccineConfirmation.class).getValue();
+		VaccineConfirmation vc = unmarshaller.unmarshal(new StreamSource(new File("./data/xml/Potvrda_o_vakcinaciji.xml")), VaccineConfirmation.class).getValue();
 		VaccineConfirmationPrint.print(vc);
 	}
 	
@@ -69,10 +69,10 @@ public class OfficialsApplication {
 	
 		Unmarshaller unmarshaller = context.createUnmarshaller();		
 		SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-		Schema schema = schemaFactory.newSchema(new File("./data/Saglasnost.xsd"));      
+		Schema schema = schemaFactory.newSchema(new File("./data/xsd/Saglasnost.xsd"));      
 		unmarshaller.setSchema(schema);
 		
-		ConsentForVaccination cfv = unmarshaller.unmarshal(new StreamSource(new File("./data/Saglasnost.xml")), ConsentForVaccination.class).getValue();
+		ConsentForVaccination cfv = unmarshaller.unmarshal(new StreamSource(new File("./data/xml/Saglasnost.xml")), ConsentForVaccination.class).getValue();
 		ConsentForVaccinationPrint.print(cfv);
 	}
 	
@@ -81,10 +81,10 @@ public class OfficialsApplication {
 	
 		Unmarshaller unmarshaller = context.createUnmarshaller();		
 		SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-		Schema schema = schemaFactory.newSchema(new File("./data/Digitalni_sertifikat.xsd"));      
+		Schema schema = schemaFactory.newSchema(new File("./data/xsd/Digitalni_sertifikat.xsd"));      
 		unmarshaller.setSchema(schema);
 		
-		DigitalGreenCertificate dgc = unmarshaller.unmarshal(new StreamSource(new File("./data/Digitalni_sertifikat1.xml")), DigitalGreenCertificate.class).getValue();
+		DigitalGreenCertificate dgc = unmarshaller.unmarshal(new StreamSource(new File("./data/xml/Digitalni_sertifikat1.xml")), DigitalGreenCertificate.class).getValue();
 		DigitalGreenCertificatePrint.print(dgc);
 	}
 	
@@ -93,10 +93,10 @@ public class OfficialsApplication {
 	
 		Unmarshaller unmarshaller = context.createUnmarshaller();		
 		SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-		Schema schema = schemaFactory.newSchema(new File("./data/Interesovanje.xsd"));      
+		Schema schema = schemaFactory.newSchema(new File("./data/xsd/Interesovanje.xsd"));      
 		unmarshaller.setSchema(schema);
 		
-		Interest i = unmarshaller.unmarshal(new StreamSource(new File("./data/Interesovanje.xml")), Interest.class).getValue();
+		Interest i = unmarshaller.unmarshal(new StreamSource(new File("./data/xml/Interesovanje.xml")), Interest.class).getValue();
 		InterestPrint.print(i);
 	}
 	
@@ -105,10 +105,10 @@ public class OfficialsApplication {
 	
 		Unmarshaller unmarshaller = context.createUnmarshaller();		
 		SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-		Schema schema = schemaFactory.newSchema(new File("./data/Izvestaj_o_imunizaciji.xsd"));      
+		Schema schema = schemaFactory.newSchema(new File("./data/xsd/Izvestaj_o_imunizaciji.xsd"));      
 		unmarshaller.setSchema(schema);
 		
-		Report report = unmarshaller.unmarshal(new StreamSource(new File("./data/Izvestaj_o_imunizaciji.xml")), Report.class).getValue();
+		Report report = unmarshaller.unmarshal(new StreamSource(new File("./data/xml/Izvestaj_o_imunizaciji.xml")), Report.class).getValue();
 		ReportPrint.print(report);
 	}
 	
@@ -117,10 +117,10 @@ public class OfficialsApplication {
 	
 		Unmarshaller unmarshaller = context.createUnmarshaller();		
 		SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-		Schema schema = schemaFactory.newSchema(new File("./data/Zahtev_za_sertifikat.xsd"));      
+		Schema schema = schemaFactory.newSchema(new File("./data/xsd/Zahtev_za_sertifikat.xsd"));      
 		unmarshaller.setSchema(schema);
 		
-		RequestDigitalGreenCertificate rdgc = unmarshaller.unmarshal(new StreamSource(new File("./data/Zahtev_za_sertifikat.xml")), RequestDigitalGreenCertificate.class).getValue();
+		RequestDigitalGreenCertificate rdgc = unmarshaller.unmarshal(new StreamSource(new File("./data/xml/Zahtev_za_sertifikat.xml")), RequestDigitalGreenCertificate.class).getValue();
 		RequestDigitalGreenCertificatePrint.print(rdgc);
 	}
 	
@@ -131,18 +131,18 @@ public class OfficialsApplication {
 		parseVaccineConfirmation();
 		
 		// Parsiranje saglasnosti (Consent)
-		parseConsentForVaccination();
-		
-		// Parsiranje digitalnog sertifikata (DigitalGreenCertificate)
-		parseDigitalGreenCertificate();
-		
-		// Parsiranje interesovanja (Interest)
-		parseInterest();
-		
-		// Parsiranje izveštaja o imunizaciji (Report)
-		parseReport();
-		
-		// Parsiranje zahteva za sertifikat (RequestDigitalGreenCertificate)
-		parseRequestDigitalGreenCertificate();
+//		parseConsentForVaccination();
+//		
+//		// Parsiranje digitalnog sertifikata (DigitalGreenCertificate)
+//		parseDigitalGreenCertificate();
+//		
+//		// Parsiranje interesovanja (Interest)
+//		parseInterest();
+//		
+//		// Parsiranje izveštaja o imunizaciji (Report)
+//		parseReport();
+//		
+//		// Parsiranje zahteva za sertifikat (RequestDigitalGreenCertificate)
+//		parseRequestDigitalGreenCertificate();
 	}
 }

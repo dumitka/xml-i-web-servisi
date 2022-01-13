@@ -11,7 +11,7 @@
         <tipovi:Drzavljanstvo>Republika Srbija</tipovi:Drzavljanstvo>
         <tipovi:Boraviste>Republika Srbija</tipovi:Boraviste>
         <tipovi:Ime property="pred:ime" datatype="xsi:string">Ivana</tipovi:Ime>
-        <tipovi:Prezime property="pred:prezime" datatype="xsi:string">Ivanović</tipovi:Prezime>
+        <tipovi:Prezime  property="pred:prezime" datatype="xsi:string">Ivanović</tipovi:Prezime>
         <tipovi:Pol property="pred:pol" datatype="xsi:string">Zenski</tipovi:Pol>
         <tipovi:Datum_rodjenja property="pred:datum_rodjenja" datatype="xs:date">1999-11-11</tipovi:Datum_rodjenja>
         <tipovi:JMBG>1111999815055</tipovi:JMBG>

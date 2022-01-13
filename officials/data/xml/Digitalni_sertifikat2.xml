@@ -5,29 +5,9 @@
     xmlns:tipovi="http://www.baklavice.com/tipovi"
     xmlns:pred="http://www.baklavice.com/rdf/predikati/"
     vocab="http://www.baklavice.com/rdf/predikati/">
-    <Zaglavlje>
-        <Grb>putanja_grba.jpg</Grb>
-        <Naslov>
-            DIGITALNI ZELENI SERTIFIKAT
-            Potvrda o izvrsenoj vakcinaciji protiv COVID-19 i rezultatima testiranja
-            DIGITAL GREEN CERTIFICATE
-            Certificate of vaccination against COVID-19 and test results
-        </Naslov>
-        <QR_kod>URL do QR koda</QR_kod>
-    </Zaglavlje>
     <Info_sertifikat>
         <Broj_sertifikata>234567</Broj_sertifikata>
         <Datum_izdavanja property="pred:datum_izdavanja" datatype="xsi:dateTime">2021-12-24T12:36:58</Datum_izdavanja>
-        <Izdavac>
-            <Grb>putanja_grba.jpg</Grb>
-            <Grb>putanja_grba.jpg</Grb>
-            <Adresa_institucije>
-                <tipovi:Opstina>Banjica</tipovi:Opstina>
-                <tipovi:Mesto>Beograd</tipovi:Mesto>
-                <tipovi:Ulica>Nemanjina</tipovi:Ulica>
-                <tipovi:Broj>15</tipovi:Broj>
-            </Adresa_institucije>
-        </Izdavac>
     </Info_sertifikat>
     <Info_korisnika>
         <tipovi:Drzavljanstvo></tipovi:Drzavljanstvo>
@@ -43,30 +23,7 @@
             <Tip>AstraZeneca</Tip>
             <Proizvodjac>AstraZeneca, Oxford</Proizvodjac>
             <Serija>123845</Serija>
-            <Zdravsvena_ustanova>Zdravstvena ustanova Novi Sad</Zdravsvena_ustanova>
+            <Zdravsvena_ustanova>Zdravstvena unstanova Novi Sad</Zdravsvena_ustanova>
         </Vakcinacije>
     </Info_vakcinacije>
-    <Info_testovi>
-        <Test Broj="1">
-            <Informacije>
-                <Naziv>
-                    SARS-CoV-2 RT
-                    Real-time PCR
-                </Naziv>
-                <Vrsta>N/A</Vrsta>
-                <Proizvodjac>N/A</Proizvodjac>
-                <Datum_testiranja>2018-12-26T12:36:58</Datum_testiranja>
-            </Informacije>
-            <Rezultati>
-                <Opis>N/A</Opis>
-                <Laboratorija>
-                    <tipovi:Opstina>Novi Sad</tipovi:Opstina>
-                    <tipovi:Mesto>Novi Sad</tipovi:Mesto>
-                    <tipovi:Ulica>Novosadskog Sajma</tipovi:Ulica>
-                    <tipovi:Broj>25</tipovi:Broj>
-                </Laboratorija>
-                <Datum_rezultata>2018-12-28T12:36:58</Datum_rezultata>
-            </Rezultati>
-        </Test>
-    </Info_testovi>
 </Sertifikat>
