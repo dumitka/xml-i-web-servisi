@@ -128,21 +128,21 @@ public class OfficialsApplication {
 		SpringApplication.run(OfficialsApplication.class, args);
 
 		// Parsiranje potvrde o vakcinaciji (VaccineConfirmation)
-//		parseVaccineConfirmation();
+		parseVaccineConfirmation();
 		
 		// Parsiranje saglasnosti (Consent)
-//		parseConsentForVaccination();
-//		
-//		// Parsiranje digitalnog sertifikata (DigitalGreenCertificate)
-//		parseDigitalGreenCertificate();
-//		
-//		// Parsiranje interesovanja (Interest)
-//		parseInterest();
-//		
-//		// Parsiranje izveštaja o imunizaciji (Report)
+		parseConsentForVaccination();
+		
+		// Parsiranje digitalnog sertifikata (DigitalGreenCertificate)
+		parseDigitalGreenCertificate();
+		
+		// Parsiranje interesovanja (Interest)
+		parseInterest();
+		
+		// Parsiranje izveštaja o imunizaciji (Report)
 		parseReport();
-//		
-//		// Parsiranje zahteva za sertifikat (RequestDigitalGreenCertificate)
-//		parseRequestDigitalGreenCertificate();
+		
+		// Parsiranje zahteva za sertifikat (RequestDigitalGreenCertificate)
+		parseRequestDigitalGreenCertificate();
 	}
 }

@@ -26,9 +26,19 @@
                     </xs:simpleType>
                 </xs:element>
                 <xs:element name="Mesto_podnosenja_zahteva" type="xs:string"/>
-                <xs:element name="Datum_podnosenja_zahteva" type="xs:date"/>
+                <xs:element name="Datum_podnosenja_zahteva">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:date">
+                                <xs:attribute name="property"/>
+                                <xs:attribute name="datatype"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
             </xs:sequence>
             <xs:attribute name="Ime_dokumenta" type="xs:string"/>
+            <xs:attribute name="vocab"/>
         </xs:complexType>
     </xs:element>
 </xs:schema>
