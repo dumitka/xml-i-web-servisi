@@ -7,6 +7,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -30,13 +31,7 @@ import lombok.Setter;
     "healthFacility",
     "vaccinationPoint",
     "doctorData",
-    "namesOfVaccine",
-    "datesOfVaccination",
-    "waysOfGivingTheVaccine",
-    "limbs",
-    "vaccineSeries",
-    "manufacturers",
-    "sideEffects",
+    "receivedVaccines",
     "temporaryContractions",
     "permanentContractions",
 })
@@ -52,29 +47,9 @@ public class PartForPublicOfficial {
 	@XmlElement(name = "Podaci_o_lekaru")
 	private String doctorData;
 	
-	
-	@XmlElement(name = "Naziv_vakcine")
-	private List<String> namesOfVaccine;
-	
-	@XmlElement(name = "Datum_davanja_vakcine")
-	@XmlJavaTypeAdapter(DateAdapter.class)
-	private List<Date> datesOfVaccination;
-	
-	@XmlElement(name = "Nacin_davanja_vakcine")
-	private List<String> waysOfGivingTheVaccine;
-	
-	@XmlElement(name = "Ekstremitet")
-	private List<String> limbs;
-	
-	@XmlElement(name = "Serija_vakcine")
-	private List<String> vaccineSeries;
-	
-	@XmlElement(name = "Proizvodjac")
-	private List<String> manufacturers;
-	
-	@XmlElement(name = "Nezeljena_reakcija")
-	private List<String> sideEffects;
-	
+	@XmlElementWrapper(name="Primljene_vakcine_info")
+	@XmlElement(name = "Primljena_vakcina")
+	private List<ReceivedVaccine> receivedVaccines;
 	
 	@XmlElement(name = "Privremene_kontraindikacije")
 	private String temporaryContractions; //privremene kontrakcije
