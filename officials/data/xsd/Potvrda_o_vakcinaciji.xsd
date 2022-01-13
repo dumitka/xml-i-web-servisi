@@ -39,11 +39,30 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="Zdravstvena_ustanova" type="xs:string"/>
                 <xs:element name="Naziv_vakcine" type="tipovi:TVakcina"/>
-                <xs:element name="Datum_izdavanja" type="xs:date"/>
-                <xs:element name="QR_kod" type="xs:string"/>
+                <xs:element name="Datum_izdavanja">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:date">
+                                <xs:attribute name="property"/>
+                                <xs:attribute name="datatype"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="QR_kod">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute name="datatype"/>
+                                <xs:attribute name="property"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
             </xs:sequence>
+            <xs:attribute name="vocab"/>
+            <xs:attribute name="about"/>
         </xs:complexType>
     </xs:element>
 </xs:schema>

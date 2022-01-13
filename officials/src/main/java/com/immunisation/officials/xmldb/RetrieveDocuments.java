@@ -1,5 +1,7 @@
 package com.immunisation.officials.xmldb;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.OutputKeys;
 
 import org.exist.xmldb.EXistResource;
@@ -9,6 +11,8 @@ import org.xmldb.api.base.Database;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 
+import com.immunisation.officials.model.consent.ConsentForVaccination;
+import com.immunisation.officials.print.ConsentForVaccinationPrint;
 import com.immunisation.officials.xmldb.AuthenticationUtilities.ConnectionProperties;
 
 //Klasa koja služi za dobavljanje XML i XSD dokumenata iz exist bazu
@@ -23,6 +27,7 @@ public class RetrieveDocuments {
         String collectionId = null;
 		String documentId = null; 
         
+		// Primer za dobavljanje saglasnosti
        	collectionId = "/db/immunisation/xml";
        	documentId = "Saglasnost.xml";
 
@@ -48,23 +53,14 @@ public class RetrieveDocuments {
             if(res == null) {
                 System.out.println("[WARNING] Document '" + documentId + "' can not be found!");
             } else {
-            	System.out.println("[INFO] Showing the document " + documentId);
-            	System.out.println(res.getContent());
-            }
-            
-            /*if(res == null) {
-                System.out.println("[WARNING] Document '" + documentId + "' can not be found!");
-            } else {
             	System.out.println("[INFO] Binding XML resouce to an JAXB instance: ");
-                JAXBContext context = JAXBContext.newInstance("rs.ac.uns.ftn.examples.xmldb.bookstore");
+    			JAXBContext context = JAXBContext.newInstance("com.immunisation.officials.model.consent");
     			
-    			Unmarshaller unmarshaller = context.createUnmarshaller();
+    			Unmarshaller unmarshaller = context.createUnmarshaller();	
     			
-    			Bookstore bookstore = (Bookstore) unmarshaller.unmarshal(res.getContentAsDOM());
-    			
-    			System.out.println("[INFO] Showing the document as JAXB instance: ");
-    			System.out.println(bookstore);
-            }*/
+    			ConsentForVaccination cfv = (ConsentForVaccination) unmarshaller.unmarshal(res.getContentAsDOM());
+    			ConsentForVaccinationPrint.print(cfv);
+            }
         } finally {
         	// Oslobađanje zauzetih resursa
             

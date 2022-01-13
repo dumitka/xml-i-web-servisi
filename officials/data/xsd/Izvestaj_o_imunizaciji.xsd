@@ -23,9 +23,36 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="Broj_interesovanja" type="xs:positiveInteger"/>
-                <xs:element name="Zahtevi_za_sertifikat" type="xs:positiveInteger"/>
-                <xs:element name="Izdati_sertifikati" type="xs:positiveInteger"/>
+                <xs:element name="Broj_interesovanja">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:positiveInteger">
+                                <xs:attribute name="property"/>
+                                <xs:attribute name="datatype"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Zahtevi_za_sertifikat">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:positiveInteger">
+                                <xs:attribute name="property"/>
+                                <xs:attribute name="datatype"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Izdati_sertifikati">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:positiveInteger">
+                                <xs:attribute name="property"/>
+                                <xs:attribute name="datatype"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
                 <xs:element name="Doze_vakcine">
                     <xs:complexType>
                         <xs:sequence>
@@ -48,19 +75,28 @@
                         <xs:sequence>
                             <xs:element name="Proizvodjac" maxOccurs="unbounded">
                                 <xs:complexType>
-                                    <xs:simpleContent>
-                                        <xs:extension base="tipovi:TVakcina">
-                                            <xs:attribute name="Broj_doza" type="xs:positiveInteger"
-                                                use="required"/>
-                                        </xs:extension>
-                                    </xs:simpleContent>
+                                    <xs:sequence>
+                                        <xs:element name="Naziv_proizvodjaca" type="tipovi:TVakcina"/>
+                                        <xs:element name="Broj_doza" type="xs:positiveInteger"/>
+                                    </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="Datum_izdavanja" type="xs:date"/>
+                <xs:element name="Datum_izdavanja">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:date">
+                                <xs:attribute name="property"/>
+                                <xs:attribute name="datatype"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
             </xs:sequence>
+            <xs:attribute name="vocab"/>
+            <xs:attribute name="about"/>
         </xs:complexType>
     </xs:element>
 </xs:schema>
