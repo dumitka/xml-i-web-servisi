@@ -4,6 +4,11 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
+
+export class Main {
+  public static PATH = "http://localhost:8082/";
+}
+
 if (environment.production) {
   enableProdMode();
 }

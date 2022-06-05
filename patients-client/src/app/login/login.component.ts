@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { Observable } from 'rxjs';
 // import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-login',
@@ -16,7 +18,7 @@ export class LoginComponent implements OnInit {
   RESPONSE_ERROR: number = -1;
 
   constructor(private formBulder: FormBuilder, 
-    // private service: AuthService, 
+    private service: AuthService, 
     private router: Router,
     private snackBar: MatSnackBar) { }
 
@@ -28,24 +30,16 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    if(this.loginForm.value.username === "pera" && this.loginForm.value.password === "pera"){
-      this.openSnackBar("Successfully logged in!", this.RESPONSE_OK);
-      this.router.navigate(["/dashboard"]);
-    } else {
-      this.openSnackBar("", this.RESPONSE_ERROR);
-    }
-
-    // this.service.login(this.loginForm.value).subscribe(
-    //   data => {
-    //     this.openSnackBar("Successfully logged in!", this.RESPONSE_OK);
-    //     if(this.service.getTokenData()?.role === "ROLE_ADMIN") {
-    //       this.router.navigate(["/dashboard"]);
-    //     }
-    //   },
-    //   error => {
-    //     console.log(error.error)
-    //     this.openSnackBar(error.error, this.RESPONSE_ERROR);
-    //   });
+    this.service.login(this.loginForm.value).subscribe(
+      data => {
+        this.openSnackBar("OVO JE REAKCIJA IZ LOGIN TS-A", this.RESPONSE_OK);
+        //navigate, by the role
+      },
+      error => {
+        console.log(error.error)
+        this.openSnackBar(error.error, this.RESPONSE_ERROR);
+      }
+    )
   }
 
 
