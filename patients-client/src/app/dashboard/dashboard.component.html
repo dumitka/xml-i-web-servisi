@@ -1,1 +1,25 @@
-<p>dashboard works!</p>
+<div>
+  
+  <mat-toolbar color="primary">
+    <span>Patient's dashboard</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button (click)="logout()">Log out</button>
+  </mat-toolbar>
+
+  <div class="centered">
+    <mat-card>
+      <mat-card-title >Menu</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+
+        <button mat-button  (click)="createInterest()">Interesovanje za vakcinaciju</button>
+        <button mat-button >Saglasnost za vakcinaciju</button>
+        <button mat-button >Zahtev za zeleni sertifikat</button>
+        <button mat-button >Moji dokumenti</button>
+        <button mat-button >Korisnički podaci</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+</div>
