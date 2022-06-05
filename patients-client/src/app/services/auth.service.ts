@@ -5,6 +5,7 @@ import { throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Main} from '../../main';
 import * as xml2js from 'xml2js';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -14,65 +15,85 @@ export class AuthService {
 
  
   constructor(private router: Router,
-    private http: HttpClient) {}
+    private http: HttpClient,
+    private jwtHelper: JwtHelperService) {}
 
-    private access_token = null;
-    private token_data = null;
+  private token_data = null;
 
-    login(credentials) {
-     
-      const builder = new xml2js.Builder({rootName: 'loginData'});
+  private parser = new xml2js.Parser({
+    explicitArray: false,
+    explicitRoot: false,
+  });
 
-      let loginData = builder.buildObject(credentials);
-      console.log(loginData);
+  login(credentials) {
+    const builder = new xml2js.Builder({rootName: 'loginData'});
+    let loginData = builder.buildObject(credentials);
+    console.log(loginData);
 
-      let headers = new HttpHeaders({
-        'Accept': 'application/xml',
-        'Content-Type': 'application/xml',
-      });
+    return this.http.post<any>(Main.PATH + "api/auth/login", loginData, {headers: Main.HEADERS})
+    .pipe(map((res) => {
+      console.log(res)
+      this.parser.parseString(res, (err, result) => {
+        console.log("Login successssssssssss")
+        console.log(result)
 
-      const parser = new xml2js.Parser({
-        explicitArray: false,
-        explicitRoot: false,
-      });
+        this.token_data = this.getTokenData();
+        sessionStorage.setItem("jwt", res.accessToken)
+      })
 
+    }, catchError(this.errorHandler)));
 
-      return this.http.post<any>(Main.PATH + "api/auth/login", loginData, {headers: headers})
-      .pipe(map((res) => {
-        console.log(res)
-        parser.parseString(res, (err, result) => {
-          console.log(result)
-          console.log("EVO SAD OBRADI TOKEN JEBO ME TOKEN DA ME JEBO TOKEN")
-        })
+  }
 
-      }, catchError(this.errorHandler)));
+  logout() {
+    sessionStorage.removeItem("jwt")
+    console.log("Logged out FROM AUTH SERVICE")
+  }
 
+  signup(user) {  //TODO OVO KORISTITI ZA REGISTRACIJU
+    const builder = new xml2js.Builder({rootName: 'signupData'});
+    let signupData = builder.buildObject(user);
+    console.log(signupData)
+
+    return this.http.post<any>(Main.PATH + "api/auth/signup", signupData, {headers: Main.HEADERS})
+    .pipe(map((res) => {
+      console.log(res)
+      this.parser.parseString(res, (err, user) => {
+        console.log(user)
+        // return user; //??
+      })
+    }))
+  }
+
+  tokenIsPresent() {
+    return sessionStorage.getItem("jwt") != undefined &&  sessionStorage.getItem("jwt") != null;
+  }
+
+  static getToken() {
+    return  sessionStorage.getItem("jwt");
+  }
+
+  getTokenData() {
+    if ( this.token_data != null) {
+        return this.token_data;
+    } else {
+      try {
+        console.log("TOKEN", sessionStorage.getItem("jwt"))
+        console.log("DECODED")
+        var stuff =  this.jwtHelper.decodeToken(sessionStorage.getItem("jwt"));//localStorage.getItem('access_token'));
+        console.log(stuff)
+        return {
+          role: stuff.role,
+          username: stuff.sub
+        }
+      } catch(Error) {
+        return null;
+      }
     }
+  }
 
-    tokenIsPresent() {
-      return this.access_token != null;
-    }
 
-    getToken() {
-      return this.access_token;
-    }
-
-    errorHandler(error: HttpErrorResponse) {
-      return throwError(error);
-    }
+  errorHandler(error: HttpErrorResponse) {
+    return throwError(error);
+  }
 }
-
-
-
-// login(user: any) {
-//   const body = {
-//     'username': user.username,
-//     'password': user.password
-//   };
-//   return this.http.post<any>(Main.PATH + "auth/login", body)
-//     .pipe(map((res) => {
-//       this.access_token = res.accessToken;
-//       this.token_data = res;
-//       window.localStorage.setItem("token", this.access_token);
-//     }, catchError(this.errorHander)));
-// }
