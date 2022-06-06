@@ -16,7 +16,7 @@ export class AuthService {
  
   constructor(private router: Router,
     private http: HttpClient,
-    private jwtHelper: JwtHelperService) {}
+    ) {}
 
   private token_data = null;
 
@@ -30,16 +30,19 @@ export class AuthService {
     let loginData = builder.buildObject(credentials);
     console.log(loginData);
 
-    return this.http.post<any>(Main.PATH + "api/auth/login", loginData, {headers: Main.HEADERS})
-    .pipe(map((res) => {
-      console.log(res)
-      this.parser.parseString(res, (err, result) => {
+    return this.http.post(Main.PATH + "api/auth/login", loginData, {headers: Main.HEADERS,  responseType: 'text'})
+    .pipe(map((data) => {
+      console.log("OVO SMO DOBILI SA BEKA:",data)
+      let out_result;
+      this.parser.parseString(data, (err, result) => {
         console.log("Login successssssssssss")
         console.log(result)
-
-        this.token_data = this.getTokenData();
-        sessionStorage.setItem("jwt", res.accessToken)
+        out_result = result;
       })
+      console.log("OVO JE ISPARSIRANO SA BEKA:", out_result)
+
+      sessionStorage.setItem("jwt", out_result.accessToken)
+      this.token_data = this.getTokenData();//on izvlaci to iz sessionstoragea
 
     }, catchError(this.errorHandler)));
 
@@ -47,6 +50,7 @@ export class AuthService {
 
   logout() {
     sessionStorage.removeItem("jwt")
+    this.token_data = null
     console.log("Logged out FROM AUTH SERVICE")
   }
 
@@ -74,16 +78,19 @@ export class AuthService {
   }
 
   getTokenData() {
+    let jwtHelper: JwtHelperService = new JwtHelperService();
+    console.log("SAD TREBA DA DEKODIRAMO jwt IZ SESSION STORAGEA")
     if ( this.token_data != null) {
         return this.token_data;
     } else {
       try {
         console.log("TOKEN", sessionStorage.getItem("jwt"))
         console.log("DECODED")
-        var stuff =  this.jwtHelper.decodeToken(sessionStorage.getItem("jwt"));//localStorage.getItem('access_token'));
-        console.log(stuff)
+        var stuff =  jwtHelper.decodeToken(sessionStorage.getItem("jwt"));//localStorage.getItem('access_token'));
+        console.log("EVO DEKODIRANI TOKEN: ", stuff)
         return {
-          role: stuff.role,
+          user: stuff.user,
+          role: stuff.user.authorities[0].name,
           username: stuff.sub
         }
       } catch(Error) {

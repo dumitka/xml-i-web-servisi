@@ -34,12 +34,15 @@ public class AuthController {
 	
 	@PostMapping(path = "/login", consumes = MediaType.APPLICATION_XML_VALUE , produces =MediaType.APPLICATION_XML_VALUE)
 	public ResponseEntity<UserTokenState> loginAndCreateToken(@RequestBody JwtAuthenticationRequest request) throws Exception {
+		try {
+			String username = request.getUsername().trim();
+			String password = request.getPassword().trim();
 		
-		String username = request.getUsername().trim();
-		String password = request.getPassword().trim();
+			UserTokenState token = userService.tryLogin(username, password);
 		
-		UserTokenState token = userService.tryLogin(username, password);
-		
-		return new ResponseEntity<>(token, HttpStatus.OK);
+			return new ResponseEntity<>(token, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
 	}
 }

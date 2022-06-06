@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    VaccRequestComponent
+    VaccRequestComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     AngularMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

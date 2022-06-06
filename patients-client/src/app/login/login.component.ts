@@ -32,8 +32,12 @@ export class LoginComponent implements OnInit {
   login() {
     this.service.login(this.loginForm.value).subscribe(
       data => {
-        this.openSnackBar("OVO JE REAKCIJA IZ LOGIN TS-A", this.RESPONSE_OK);
-        //navigate, by the role
+        this.openSnackBar("Uspešno ste ulogovani!", this.RESPONSE_OK);
+        if(this.service.getTokenData()?.role === "ROLE_USER") {
+          this.router.navigate(["/dashboard"]);
+        } else {
+          this.openSnackBar("Nema još stranice za admina", this.RESPONSE_OK);
+        }
       },
       error => {
         console.log(error.error)
