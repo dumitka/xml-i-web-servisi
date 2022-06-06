@@ -24,7 +24,7 @@ public class AuthController {
 	
 	//login i signup
 	@PostMapping(path = "/signup", consumes = MediaType.APPLICATION_XML_VALUE)
-	public ResponseEntity<Object> signUp(@RequestBody RegistrationRequest data) {
+	public ResponseEntity<Object> signUp(@RequestBody RegistrationRequest data) throws Exception {
 		
 		userService.createNewUser(data);
 		
@@ -33,7 +33,7 @@ public class AuthController {
 	
 	
 	@PostMapping(path = "/login", consumes = MediaType.APPLICATION_XML_VALUE , produces =MediaType.APPLICATION_XML_VALUE)
-	public ResponseEntity<UserTokenState> loginAndCreateToken(@RequestBody JwtAuthenticationRequest request) {
+	public ResponseEntity<UserTokenState> loginAndCreateToken(@RequestBody JwtAuthenticationRequest request) throws Exception {
 		
 		String username = request.getUsername().trim();
 		String password = request.getPassword().trim();

@@ -23,8 +23,8 @@ public class PatientsApplication implements WebMvcConfigurer{ //ima razlike
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = SpringApplication.run(PatientsApplication.class, args);
 
-		FirstTimeSetup.execute(applicationContext);
-		SpringApplication.run(PatientsApplication.class, args);
+		DbRunner.execute(applicationContext);
+		
 	}
 
 }

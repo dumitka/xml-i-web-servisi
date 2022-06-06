@@ -56,7 +56,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint).and()               
                 .authorizeRequests().antMatchers("/api/auth/**").permitAll()
-                					.antMatchers("/api/**").permitAll() //TODO skloniti posle
+                					.antMatchers("/**").permitAll() //TODO skloniti posle
                 .anyRequest().authenticated().and()
                 .cors().and()
                 .addFilterBefore(new TokenAuthenticationFilter(tokenUtils, customUserDetailsService),
