@@ -35,8 +35,8 @@ export class LoginComponent implements OnInit {
         this.openSnackBar("Uspešno ste ulogovani!", this.RESPONSE_OK);
         if(this.service.getTokenData()?.role === "ROLE_USER") {
           this.router.navigate(["/dashboard"]);
-        } else {
-          this.openSnackBar("Nema još stranice za admina", this.RESPONSE_OK);
+        } else if (this.service.getTokenData()?.role === "ROLE_ADMIN"){
+          this.router.navigate(["/adminDashboard"]);
         }
       },
       error => {
