@@ -1,0 +1,2 @@
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://www.baklavice.com/authority", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+package com.immunisation.patients.model.authority;
