@@ -17,13 +17,13 @@ export class LoginComponent implements OnInit {
   RESPONSE_OK: number = 0;
   RESPONSE_ERROR: number = -1;
 
-  constructor(private formBulder: FormBuilder, 
+  constructor(private formBuilder: FormBuilder, 
     private service: AuthService, 
     private router: Router,
     private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.loginForm = this.formBulder.group({
+    this.loginForm = this.formBuilder.group({
       username: ["", [Validators.required]],
       password: ["", [Validators.required]]
     });    
@@ -46,6 +46,9 @@ export class LoginComponent implements OnInit {
     )
   }
 
+  signupPage() {
+    this.router.navigate(["/register"])
+  }
 
   openSnackBar(msg: string, responseCode: number) {
     this.snackBar.open(msg, "x", {

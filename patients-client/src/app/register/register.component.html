@@ -1,0 +1,42 @@
+<div>
+  <mat-toolbar color="primary">
+    <span>Dobrodošli!</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button (click)="loginPage()">Početna stranica</button>
+  </mat-toolbar>
+
+  <div class="centered">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Registracija</mat-card-title>
+        </mat-card-header>
+        <form [formGroup]="regForm">
+            <mat-card-content>
+              <mat-form-field class="fullWidth">
+                  <input matInput placeholder="Korisničko ime (email adresa)" type="text" formControlName="username">
+              </mat-form-field>
+              <mat-form-field class="fullWidth">
+                  <input matInput placeholder="Šifra" [type]="hide ? 'password' : 'text'" formControlName="password">
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </mat-form-field>
+              <mat-form-field class="fullWidth">
+                <input matInput placeholder="Ponovljena šifra" type="password" formControlName="repeatPassword">
+              </mat-form-field>
+              <mat-form-field class="fullWidth">
+                <input matInput placeholder="JMBG" type="number" formControlName="jmbg">
+              </mat-form-field>
+              <mat-form-field class="fullWidth">
+                <input matInput placeholder="Ime" type="text" formControlName="ime">
+              </mat-form-field>
+              <mat-form-field class="fullWidth">
+                <input matInput placeholder="Prezime" type="text" formControlName="prezime">
+              </mat-form-field>
+  
+            </mat-card-content>
+            <button mat-raised-button color="primary" type="button" class="fullWidth" (click)="register()" [disabled]="!regForm.valid">Pošalji</button>
+        </form>
+    </mat-card>
+  </div>
+
+
+</div>

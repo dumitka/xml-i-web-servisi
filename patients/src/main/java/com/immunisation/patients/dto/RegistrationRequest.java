@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "signupData")//tako smo ga napravili na frontu
-@XmlType(propOrder = {"username", "password"})
+@XmlType(propOrder = {"username", "password", "jmbg", "ime", "prezime"})
 public class RegistrationRequest {
 
 	protected String username;

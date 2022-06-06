@@ -22,13 +22,15 @@ public class AuthController {
 	private UserService userService;
 
 	
-	//login i signup
 	@PostMapping(path = "/signup", consumes = MediaType.APPLICATION_XML_VALUE)
 	public ResponseEntity<Object> signUp(@RequestBody RegistrationRequest data) throws Exception {
+		try {
+			userService.createNewUser(data);
+			return new ResponseEntity<>(HttpStatus.OK);
+		}catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
 		
-		userService.createNewUser(data);
-		
-		return new ResponseEntity<>(HttpStatus.OK); //ne vracamo usera, nije potrebno?
 	}
 	
 	

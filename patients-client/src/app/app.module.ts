@@ -11,6 +11,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { VaccRequestComponent } from './vacc-request/vacc-request.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     DashboardComponent,
     VaccRequestComponent,
     AdminDashboardComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
