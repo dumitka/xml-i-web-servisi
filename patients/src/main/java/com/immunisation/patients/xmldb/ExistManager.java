@@ -4,19 +4,50 @@ import javax.xml.transform.OutputKeys;
 
 import org.exist.xmldb.EXistResource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.xmldb.api.DatabaseManager;
+import org.xmldb.api.base.Collection;
 import org.xmldb.api.base.Database;
 import org.xmldb.api.base.XMLDBException;
-
-import org.xmldb.api.base.Collection;
 import org.xmldb.api.modules.XMLResource;
 
-@Component
+@Service
 public class ExistManager {
 	
 	@Autowired
 	private AuthenticationUtilities utilities;
+	
+	
+	
+	public Collection getOrCreateCollection(String collUri, int pathOffset) throws Exception {
+		
+		Collection coll = DatabaseManager.getCollection(utilities.getUri() + collUri, utilities.getUser(), utilities.getPassword());
+		
+		if(coll == null) {
+			if(collUri.startsWith("/")) {
+				collUri = collUri.substring(1);
+			}
+			
+			String pathSegments[] = collUri.split("/");
+			
+			if( pathSegments.length > 0) {
+				StringBuilder path = new StringBuilder();
+				for(int i =0; i <= pathOffset; i++) {
+					path.append("/" + pathSegments[i]);
+				}
+//				Collection startCol = DatabaseManager.getCollection(utilities.getUri()+,)
+				
+				
+				
+				
+			}
+			
+		} else {
+			return coll;
+		}
+	}
+	
+	
 	
 	public void storeFromText(String collectionUri, String string, String text) {
 		// TODO Auto-generated method stub

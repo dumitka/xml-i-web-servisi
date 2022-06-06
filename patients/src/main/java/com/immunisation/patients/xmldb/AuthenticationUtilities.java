@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -12,14 +13,19 @@ import org.springframework.stereotype.Component;
 // Pomoćna klasa koja nam služi za konekciju sa exist bazom
 
 @Component
-@ConfigurationProperties(prefix = "conn")
 public class AuthenticationUtilities {
 
+	@Value("${conn.user}")
 	private String user;
+	@Value("${conn.password}")
 	private String password;
+	@Value("${conn.host}")
 	private String host;
+	@Value("${conn.port}")
 	private String port;
+	@Value("${conn.driver}")
 	private String driver;
+	@Value("${conn.uri}")
 	private String uri;
 	
 	public String getUser() {
