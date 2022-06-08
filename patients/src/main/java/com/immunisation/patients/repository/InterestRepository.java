@@ -22,7 +22,7 @@ import com.immunisation.patients.xmldb.ExistManager;
 @Repository
 public class InterestRepository {
 
-	private String collectionUri = "/db/eUprava/interesovanja";//menjati na interest
+	private String collectionUri = "/db/eUprava/interesovanja";  //menjati na interest
 
 	@Autowired
 	private ExistManager existManager;
