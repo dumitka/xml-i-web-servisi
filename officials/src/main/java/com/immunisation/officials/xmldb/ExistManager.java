@@ -1,4 +1,5 @@
-package com.immunisation.patients.xmldb;
+package com.immunisation.officials.xmldb;
+
 
 import java.io.File;
 
@@ -22,7 +23,7 @@ import org.xmldb.api.modules.XUpdateQueryService;
 @Service
 public class ExistManager {
 	
-	private final static String TARGET_NAMESPACE = "http://nebitno.com"; //TODO mozda pravi problem?
+	private final static String TARGET_NAMESPACE = "http://nebitno.com";//TODO mozda pravi problem?
 	public static final String UPDATE = "<xu:modifications version=\"1.0\" xmlns:xu=\"" + XUpdateProcessor.XUPDATE_NS
 			+ "\" xmlns=\"" + TARGET_NAMESPACE + "\">" + "<xu:update select=\"%1$s\">%2$s</xu:update>"
 			+ "</xu:modifications>";
