@@ -9,17 +9,6 @@ import javax.xml.bind.annotation.XmlType;
 import com.immunisation.patients.enums.EmploymentStatus;
 import com.immunisation.patients.enums.Profession;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-
-@Getter
-@Setter
-//@SuperBuilder
-@AllArgsConstructor
-@NoArgsConstructor
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TKorisnikSire", propOrder = {
@@ -56,6 +45,70 @@ public class ExtendUser extends GeneralUser {
 	
 	@XmlElement(name = "Sediste_socijalne_zastite")
 	private String headquarterOfSocialCare;
+
+	public String getNameOfParent() {
+		return nameOfParent;
+	}
+
+	public void setNameOfParent(String nameOfParent) {
+		this.nameOfParent = nameOfParent;
+	}
+
+	public String getBirthPlace() {
+		return birthPlace;
+	}
+
+	public void setBirthPlace(String birthPlace) {
+		this.birthPlace = birthPlace;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public Contact getContact() {
+		return contact;
+	}
+
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
+
+	public EmploymentStatus getEmploymentStatus() {
+		return employmentStatus;
+	}
+
+	public void setEmploymentStatus(EmploymentStatus employmentStatus) {
+		this.employmentStatus = employmentStatus;
+	}
+
+	public Profession getProfession() {
+		return profession;
+	}
+
+	public void setProfession(Profession profession) {
+		this.profession = profession;
+	}
+
+	public boolean isSocialCare() {
+		return socialCare;
+	}
+
+	public void setSocialCare(boolean socialCare) {
+		this.socialCare = socialCare;
+	}
+
+	public String getHeadquarterOfSocialCare() {
+		return headquarterOfSocialCare;
+	}
+
+	public void setHeadquarterOfSocialCare(String headquarterOfSocialCare) {
+		this.headquarterOfSocialCare = headquarterOfSocialCare;
+	}
 	
 	
 }

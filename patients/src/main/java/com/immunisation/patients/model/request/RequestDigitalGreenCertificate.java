@@ -1,4 +1,4 @@
-package com.immunisation.officials.model.request;
+package com.immunisation.patients.model.request;
 
 import java.util.Date;
 
@@ -10,20 +10,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import com.immunisation.officials.model.DateAdapter;
-import com.immunisation.officials.model.types.GeneralUser;
+import com.immunisation.patients.model.types.DateAdapter;
+import com.immunisation.patients.model.types.GeneralUser;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Builder
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -57,4 +46,62 @@ public class RequestDigitalGreenCertificate {
 	@XmlElement(name = "Datum_podnosenja_zahteva")
 	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date date; //datum podnosenja zahtjeva
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getStatement() {
+		return statement;
+	}
+
+	public void setStatement(String statement) {
+		this.statement = statement;
+	}
+
+	public GeneralUser getUser() {
+		return user;
+	}
+
+	public void setUser(GeneralUser user) {
+		this.user = user;
+	}
+
+	public String getReasonForRequest() {
+		return reasonForRequest;
+	}
+
+	public void setReasonForRequest(String reasonForRequest) {
+		this.reasonForRequest = reasonForRequest;
+	}
+
+	public String getPlace() {
+		return place;
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
+	
 }

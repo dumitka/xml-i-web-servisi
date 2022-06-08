@@ -7,7 +7,7 @@
         			@javax.xml.bind.annotation.XmlNs(prefix="tipovi", namespaceURI="http://www.baklavice.com/tipovi")
         	})
 
-package com.immunisation.officials.model.request;
+package com.immunisation.patients.model.request;
 
 import javax.xml.bind.annotation.XmlSchema;
 

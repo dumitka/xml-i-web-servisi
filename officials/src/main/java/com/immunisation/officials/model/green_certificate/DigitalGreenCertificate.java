@@ -8,17 +8,6 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.immunisation.officials.model.types.GeneralUser;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Builder
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -36,4 +25,30 @@ public class DigitalGreenCertificate {
 	
 	@XmlElement(name = "Info_vakcinacije")
 	private VaccinationInfo vaccinationInfo;
+
+	public CertificateInfo getCertificateInfo() {
+		return certificateInfo;
+	}
+
+	public void setCertificateInfo(CertificateInfo certificateInfo) {
+		this.certificateInfo = certificateInfo;
+	}
+
+	public GeneralUser getUser() {
+		return user;
+	}
+
+	public void setUser(GeneralUser user) {
+		this.user = user;
+	}
+
+	public VaccinationInfo getVaccinationInfo() {
+		return vaccinationInfo;
+	}
+
+	public void setVaccinationInfo(VaccinationInfo vaccinationInfo) {
+		this.vaccinationInfo = vaccinationInfo;
+	}
+	
+	
 }

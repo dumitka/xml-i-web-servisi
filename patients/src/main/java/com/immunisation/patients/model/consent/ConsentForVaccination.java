@@ -6,18 +6,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Builder
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "partForPatients",
@@ -30,4 +18,22 @@ public class ConsentForVaccination {
 	
 	@XmlElement(name = "Deo_za_radnika")
 	private PartForPublicOfficial partForPublicOfficial;
+
+	public PartForPatients getPartForPatients() {
+		return partForPatients;
+	}
+
+	public void setPartForPatients(PartForPatients partForPatients) {
+		this.partForPatients = partForPatients;
+	}
+
+	public PartForPublicOfficial getPartForPublicOfficial() {
+		return partForPublicOfficial;
+	}
+
+	public void setPartForPublicOfficial(PartForPublicOfficial partForPublicOfficial) {
+		this.partForPublicOfficial = partForPublicOfficial;
+	}
+	
+	
 }

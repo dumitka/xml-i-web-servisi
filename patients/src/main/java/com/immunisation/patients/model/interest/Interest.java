@@ -13,17 +13,6 @@ import com.immunisation.patients.model.types.Contact;
 import com.immunisation.patients.model.types.DateAdapter;
 import com.immunisation.patients.model.types.GeneralUser;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Builder
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
 	"code",
@@ -49,4 +38,46 @@ public class Interest {
 	@XmlElement(name = "Datum_interesovanja")
 	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date date; //datum interesovanja
+
+	public int getCode() {
+		return code;
+	}
+
+	public void setCode(int code) {
+		this.code = code;
+	}
+
+	public GeneralUser getPatient() {
+		return patient;
+	}
+
+	public void setPatient(GeneralUser patient) {
+		this.patient = patient;
+	}
+
+	public Contact getContact() {
+		return contact;
+	}
+
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
+
+	public VaccinationData getVaccinationData() {
+		return vaccinationData;
+	}
+
+	public void setVaccinationData(VaccinationData vaccinationData) {
+		this.vaccinationData = vaccinationData;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
+	
 }

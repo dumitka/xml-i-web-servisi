@@ -25,7 +25,7 @@ public class UserRepository {
 	public User findByUsername(String username) throws Exception {
 		String user = existManager.load(collectionUri, username + ".xml");
 
-        JAXBContext context = JAXBContext.newInstance("com.immunisation.patients.model.user");
+        JAXBContext context = JAXBContext.newInstance("com.immunisation.officials.model.user");
 
         Unmarshaller unmarshaller = context.createUnmarshaller();
 
@@ -36,7 +36,7 @@ public class UserRepository {
 	}
 
 	public void save(User user) throws Exception {
-        JAXBContext context = JAXBContext.newInstance("com.immunisation.patients.model.user");
+        JAXBContext context = JAXBContext.newInstance("com.immunisation.officials.model.user");
 
         Marshaller marshaller = context.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);

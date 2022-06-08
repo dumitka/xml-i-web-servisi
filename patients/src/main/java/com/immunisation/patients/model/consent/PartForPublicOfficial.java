@@ -9,17 +9,6 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Builder
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -51,4 +40,56 @@ public class PartForPublicOfficial {
 	
 	@XmlElement(name = "Trajne_kontraindikacije")
 	private String permanentContractions;
+
+	public String getHealthFacility() {
+		return healthFacility;
+	}
+
+	public void setHealthFacility(String healthFacility) {
+		this.healthFacility = healthFacility;
+	}
+
+	public String getVaccinationPoint() {
+		return vaccinationPoint;
+	}
+
+	public void setVaccinationPoint(String vaccinationPoint) {
+		this.vaccinationPoint = vaccinationPoint;
+	}
+
+	public String getDoctorData() {
+		return doctorData;
+	}
+
+	public void setDoctorData(String doctorData) {
+		this.doctorData = doctorData;
+	}
+
+	public List<ReceivedVaccine> getReceivedVaccines() {
+		return receivedVaccines;
+	}
+
+	public void setReceivedVaccines(List<ReceivedVaccine> receivedVaccines) {
+		this.receivedVaccines = receivedVaccines;
+	}
+
+	public String getTemporaryContractions() {
+		return temporaryContractions;
+	}
+
+	public void setTemporaryContractions(String temporaryContractions) {
+		this.temporaryContractions = temporaryContractions;
+	}
+
+	public String getPermanentContractions() {
+		return permanentContractions;
+	}
+
+	public void setPermanentContractions(String permanentContractions) {
+		this.permanentContractions = permanentContractions;
+	}
+	
+	
+	
+	
 }

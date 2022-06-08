@@ -29,7 +29,7 @@ public class AuthorityRepository {
 			return null;
 		}
 		
-		JAXBContext context = JAXBContext.newInstance("com.immunisation.patients.model.authority");
+		JAXBContext context = JAXBContext.newInstance("com.immunisation.officials.model.authority");
 		
 		Unmarshaller unmarshaller = context.createUnmarshaller();
 		
@@ -38,7 +38,7 @@ public class AuthorityRepository {
 	}
 
 	public void save(String name, long id) throws Exception {
-        JAXBContext context = JAXBContext.newInstance("com.immunisation.patients.model.authority");
+        JAXBContext context = JAXBContext.newInstance("com.immunisation.officials.model.authority");
 
         Marshaller marshaller = context.createMarshaller();
 

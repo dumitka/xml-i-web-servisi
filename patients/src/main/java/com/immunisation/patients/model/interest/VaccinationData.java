@@ -8,17 +8,6 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.immunisation.patients.enums.VaccineType;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Builder
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "townshipOfInstitution",
@@ -35,4 +24,30 @@ public class VaccinationData {
 	
 	@XmlElement(name = "Davalac_krvi")
 	private boolean bloodDonor;
+
+	public String getTownshipOfInstitution() {
+		return townshipOfInstitution;
+	}
+
+	public void setTownshipOfInstitution(String townshipOfInstitution) {
+		this.townshipOfInstitution = townshipOfInstitution;
+	}
+
+	public VaccineType getVaccineType() {
+		return vaccineType;
+	}
+
+	public void setVaccineType(VaccineType vaccineType) {
+		this.vaccineType = vaccineType;
+	}
+
+	public boolean isBloodDonor() {
+		return bloodDonor;
+	}
+
+	public void setBloodDonor(boolean bloodDonor) {
+		this.bloodDonor = bloodDonor;
+	}
+	
+	
 }

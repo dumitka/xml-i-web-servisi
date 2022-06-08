@@ -26,6 +26,6 @@ public class OfficialsApplication implements WebMvcConfigurer{
 	
 	public static void main(String[] args) throws JAXBException, SAXException {
 		ApplicationContext applicationContext = SpringApplication.run(OfficialsApplication.class, args);
-		DbRunner.execute(applicationContext);
+//		DbRunner.execute(applicationContext);
 	}
 }

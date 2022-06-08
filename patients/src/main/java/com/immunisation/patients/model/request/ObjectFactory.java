@@ -1,8 +1,8 @@
-package com.immunisation.officials.model.request;
+package com.immunisation.patients.model.request;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
-import com.immunisation.officials.model.types.GeneralUser;
+import com.immunisation.patients.model.types.GeneralUser;
 
 @XmlRegistry
 public class ObjectFactory {
