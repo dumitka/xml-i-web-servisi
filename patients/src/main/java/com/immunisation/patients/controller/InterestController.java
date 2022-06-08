@@ -1,27 +1,17 @@
 package com.immunisation.patients.controller;
 
+import com.immunisation.patients.dto.InterestCollection;
+import com.immunisation.patients.service.InterestService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.itextpdf.text.Document;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-
-import com.immunisation.patients.dto.InterestCollection;
-import com.immunisation.patients.service.InterestService;
-
-import java.io.IOException;
-import java.io.StringReader;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
 
 @RestController
 @RequestMapping(value = "api/interest", produces = MediaType.APPLICATION_XML_VALUE)

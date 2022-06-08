@@ -1,9 +1,9 @@
-package com.immunisation.officials.model.consent;
+package com.immunisation.patients.model.consent;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
-import com.immunisation.officials.model.types.Address;
-import com.immunisation.officials.model.types.ExtendUser;
+import com.immunisation.patients.model.types.Address;
+import com.immunisation.patients.model.types.ExtendUser;
 
 @XmlRegistry
 public class ObjectFactory {

@@ -1,4 +1,4 @@
-package com.immunisation.officials.model.consent;
+package com.immunisation.patients.model.consent;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.immunisation.officials.model.consent;
+package com.immunisation.patients.model.consent;
 
 import java.util.Date;
 
@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import com.immunisation.officials.enums.VaccineType;
-import com.immunisation.officials.model.DateAdapter;
-import com.immunisation.officials.model.types.ExtendUser;
+import com.immunisation.patients.enums.VaccineType;
+import com.immunisation.patients.model.types.DateAdapter;
+import com.immunisation.patients.model.types.ExtendUser;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
