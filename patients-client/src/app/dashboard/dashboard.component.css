@@ -2,14 +2,31 @@
   flex: 1 1 auto;
 }
 
+
 .centered {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 35%;
+  width: 24%;
 }
 .margin-10 {
   margin: 10px;
   display:flex;
   align-items:center;
 }
+
+img {
+  width: 360px;
+  height: 250px;
+  display: block;
+  
+}
+
+.option_button{
+  width: 65%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
