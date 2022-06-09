@@ -21,18 +21,6 @@ public class AuthController {
 	
 	@Autowired
 	private UserService userService;
-
-	
-	@PostMapping(path = "/signup", consumes = MediaType.APPLICATION_XML_VALUE)
-	public ResponseEntity<Object> signUp(@RequestBody RegistrationRequest data) throws Exception {
-		try {
-			userService.createNewUser(data);
-			return new ResponseEntity<>(HttpStatus.OK);
-		}catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-		}
-		
-	}
 	
 	
 	@PostMapping(path = "/login", consumes = MediaType.APPLICATION_XML_VALUE , produces =MediaType.APPLICATION_XML_VALUE)

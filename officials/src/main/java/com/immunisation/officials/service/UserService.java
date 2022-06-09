@@ -41,19 +41,20 @@ public class UserService {
 	@Autowired
 	private Mapper mapper;
 	
-
-	public void createNewUser(RegistrationRequest data) throws Exception {
-		User user = mapper.convertToEntity(data);
-		
-		user.setPassword(userDetailsService.encodePassword(user.getPassword()));
-		
-		List<Authority> authorities = new ArrayList<>();
-		Authority a = authorityService.findByName("ROLE_USER");
-		authorities.add(a);
-		user.setAuthorities(authorities);
-		
-		repository.save(user);
-	}
+// NE KORISTIMO NIGDE
+	
+//	public void createNewUser(RegistrationRequest data) throws Exception {
+//		User user = mapper.convertToEntity(data);
+//		
+//		user.setPassword(userDetailsService.encodePassword(user.getPassword()));
+//		
+//		List<Authority> authorities = new ArrayList<>();
+//		Authority a = authorityService.findByName("ROLE_USER");
+//		authorities.add(a);
+//		user.setAuthorities(authorities);
+//		
+//		repository.save(user);
+//	}
 
 	public UserTokenState tryLogin(String username, String password) throws Exception {
 		
