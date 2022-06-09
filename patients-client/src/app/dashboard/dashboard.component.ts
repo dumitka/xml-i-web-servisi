@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
 
   createInterest() {
     alert("EVO")
-    this.router.navigate(["/vaccRequest"])
+    this.router.navigate(["/interest"])
   }
 
   logout() {

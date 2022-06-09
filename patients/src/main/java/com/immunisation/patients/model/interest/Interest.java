@@ -23,7 +23,7 @@ import com.immunisation.patients.model.types.GeneralUser;
 })
 @XmlRootElement(name = "Interesovanje")
 public class Interest {
-	@XmlElement(name = "Sifra_interesovanja")
+	@XmlElement(name = "Sifra_interesovanja", namespace = "http://www.baklavice.com/user")
 	private int code;
 	
 	@XmlElement(name = "Podaci_o_licu")

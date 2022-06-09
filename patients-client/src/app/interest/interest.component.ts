@@ -3,13 +3,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { InterestService } from '../services/interest.service';
 
 @Component({
-  selector: 'app-vacc-request',
-  templateUrl: './vacc-request.component.html',
-  styleUrls: ['./vacc-request.component.css']
+  selector: 'app-interest',
+  templateUrl: './interest.component.html',
+  styleUrls: ['./interest.component.css']
 })
-export class VaccRequestComponent implements OnInit {
+export class InterestComponent implements OnInit {
 
   interestForm: FormGroup;
   RESPONSE_OK: number = 0;
@@ -18,7 +19,8 @@ export class VaccRequestComponent implements OnInit {
   constructor(private formBulder: FormBuilder, 
     private router: Router,
     private snackBar: MatSnackBar,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private interestService: InterestService) { }
 
   ngOnInit(): void {
     let currentUser = this.authService.getTokenData().user;
@@ -35,27 +37,38 @@ export class VaccRequestComponent implements OnInit {
       broj_fixnog:["", [Validators.required]],
       email:[currentUser.username, [Validators.email, Validators.required]],
       opstina_ustanove:["", [Validators.required]],
-      tip_vakcine:[""],
-      davalac_krvi:[""],
+      tip_vakcine:["", [Validators.required]],
+      davalac_krvi:["",  [Validators.required]],
     })
 
-
-    
-    // this.interestForm.controls['ime'].setValue(currentUser.ime);
-    // this.interestForm.controls['ime'].disable();
-    // this.interestForm.controls['prezime'].setValue(currentUser.prezime);
-    // this.interestForm.controls['prezime'].disable();
-    // this.interestForm.controls['email'].setValue(currentUser.username);
-    // this.interestForm.controls['email'].disable();
-    // this.interestForm.controls['licni_dokument'].setValue(currentUser.jmbg);
-    // this.interestForm.controls['licni_dokument'].disable();
     //DODATI DATUM INTERESOVANJA i 
     //SIFRU INTERESOVANJA
   }
 
   createInterest() {
-    // getRawValue
-    alert("Kao kreirano")
-    this.router.navigate(["/dashboard"]);
+    
+    let sirovo = this.interestForm.value;
+    console.log(sirovo)
+    sirovo['datum_interesovanja'] = "2022-06-09"
+    sirovo['sifra_interesovanja'] = 54321
+    
+    this.interestService.createInterest(sirovo).subscribe(
+      data => {
+        this.openSnackBar("Uspešno ste poslali interesovanje!", this.RESPONSE_OK);
+        this.router.navigate(["/dashboard"]);
+      },
+      error => {
+        console.log(error.error)
+        this.openSnackBar(error.error, this.RESPONSE_ERROR);
+      }
+    )
+  }
+
+  openSnackBar(msg: string, responseCode: number) {
+    this.snackBar.open(msg, "x", {
+      duration: responseCode === this.RESPONSE_OK ? 3000 : 20000,
+      verticalPosition: "top",
+      panelClass: responseCode === this.RESPONSE_OK ? "blue" : "red"
+    });
   }
 }

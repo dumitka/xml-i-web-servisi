@@ -1,6 +1,7 @@
 package com.immunisation.patients.controller;
 
 import com.immunisation.patients.dto.InterestCollection;
+import com.immunisation.patients.model.interest.Interest;
 import com.immunisation.patients.service.InterestService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,23 +27,6 @@ public class InterestController {
 		return new ResponseEntity<>("Hello", HttpStatus.OK);
 	}
 	
-//	@GetMapping(value = "/helloxml", produces = MediaType.APPLICATION_XML_VALUE)   NE RADI
-//	public ResponseEntity<Object> helloxml() throws ParserConfigurationException, SAXException, IOException {
-//		String xml = "<hello>HELLO MY FRIEND</hello>";
-//		
-//		String xmlStr = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"+
-//	            "<Tutorial id=\"1\"><technology>Dot net, Java, Big data, Database</technology>\n"+
-//	            "<address>topjavatutorial.com</address></Tutorial>";
-//		
-//		
-//		DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
-//	    DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-//	    Document document = (Document) docBuilder.parse(new InputSource(new StringReader(xmlStr)));
-//	
-//		
-//		return new ResponseEntity<>(document, HttpStatus.OK);
-//	}
-	
 	@GetMapping(produces = MediaType.APPLICATION_XML_VALUE) //produces?
 	public ResponseEntity<Object> getAll() {
 		try {
@@ -54,8 +38,19 @@ public class InterestController {
 		}
 	}
 	
-	@PostMapping(consumes = MediaType.APPLICATION_XML_VALUE)
-	public ResponseEntity<Object> saveInterest(@RequestBody String interest) {
+//	@PostMapping(consumes = MediaType.APPLICATION_XML_VALUE)
+//	public ResponseEntity<Object> saveInterest(@RequestBody String interest) {
+//		try {
+//			service.saveInterest(interest);
+//			return new ResponseEntity<>(HttpStatus.OK);
+//		}catch(Exception e) {
+//			e.printStackTrace();
+//			return new ResponseEntity<>("Error while saving Interest", HttpStatus.INTERNAL_SERVER_ERROR);
+//		}
+//	}
+	
+	@PostMapping(value="/body",  consumes = MediaType.APPLICATION_XML_VALUE)
+	public ResponseEntity<Object> save(@RequestBody String interest) {
 		try {
 			service.saveInterest(interest);
 			return new ResponseEntity<>(HttpStatus.OK);
