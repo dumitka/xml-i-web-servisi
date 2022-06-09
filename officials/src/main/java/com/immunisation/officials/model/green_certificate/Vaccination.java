@@ -8,19 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 import com.immunisation.officials.enums.VaccineType;
-import com.immunisation.officials.model.types.Vaccine;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Builder
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -43,7 +31,49 @@ public class Vaccination {
 	@XmlElement(name = "Serija")
 	private String series;
 	
-	@XmlElement(name = "Zdravsvena_ustanova")
+	@XmlElement(name = "Zdravsvena_ustanova") //? TODO
 	private String healthFacility;
+
+	public int getDose() {
+		return dose;
+	}
+
+	public void setDose(int dose) {
+		this.dose = dose;
+	}
+
+	public VaccineType getVaccineType() {
+		return vaccineType;
+	}
+
+	public void setVaccineType(VaccineType vaccineType) {
+		this.vaccineType = vaccineType;
+	}
+
+	public String getManufacturer() {
+		return manufacturer;
+	}
+
+	public void setManufacturer(String manufacturer) {
+		this.manufacturer = manufacturer;
+	}
+
+	public String getSeries() {
+		return series;
+	}
+
+	public void setSeries(String series) {
+		this.series = series;
+	}
+
+	public String getHealthFacility() {
+		return healthFacility;
+	}
+
+	public void setHealthFacility(String healthFacility) {
+		this.healthFacility = healthFacility;
+	}
+	
+	
 	
 }

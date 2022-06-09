@@ -8,17 +8,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Builder
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -32,4 +21,21 @@ public class VaccineDosesForReport {
 	
 	@XmlElement(name = "Doza")
 	private List<DosesForReport> doses;
+
+	public int getTotalNumberOfGivenDoses() {
+		return totalNumberOfGivenDoses;
+	}
+
+	public void setTotalNumberOfGivenDoses(int totalNumberOfGivenDoses) {
+		this.totalNumberOfGivenDoses = totalNumberOfGivenDoses;
+	}
+
+	public List<DosesForReport> getDoses() {
+		return doses;
+	}
+
+	public void setDoses(List<DosesForReport> doses) {
+		this.doses = doses;
+	}
+	
 }

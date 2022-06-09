@@ -11,17 +11,6 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.immunisation.officials.model.DateAdapter;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Builder
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -37,4 +26,22 @@ public class Period {
 	@XmlElement(name = "Datum_do")
 	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date dateTo;
+
+	public Date getDateFrom() {
+		return dateFrom;
+	}
+
+	public void setDateFrom(Date dateFrom) {
+		this.dateFrom = dateFrom;
+	}
+
+	public Date getDateTo() {
+		return dateTo;
+	}
+
+	public void setDateTo(Date dateTo) {
+		this.dateTo = dateTo;
+	}
+	
+	
 }

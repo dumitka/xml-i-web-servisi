@@ -1,7 +1,6 @@
 package com.immunisation.officials.model.consent;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -12,17 +11,6 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.immunisation.officials.model.DateAdapter;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Builder
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -58,5 +46,63 @@ public class ReceivedVaccine {
 	
 	@XmlElement(name = "Nezeljena_reakcija")
 	private String sideEffect;
+
+	public String getNameOfVaccine() {
+		return nameOfVaccine;
+	}
+
+	public void setNameOfVaccine(String nameOfVaccine) {
+		this.nameOfVaccine = nameOfVaccine;
+	}
+
+	public Date getDateOfVaccination() {
+		return dateOfVaccination;
+	}
+
+	public void setDateOfVaccination(Date dateOfVaccination) {
+		this.dateOfVaccination = dateOfVaccination;
+	}
+
+	public String getWayOfGivingTheVaccine() {
+		return wayOfGivingTheVaccine;
+	}
+
+	public void setWayOfGivingTheVaccine(String wayOfGivingTheVaccine) {
+		this.wayOfGivingTheVaccine = wayOfGivingTheVaccine;
+	}
+
+	public String getLimb() {
+		return limb;
+	}
+
+	public void setLimb(String limb) {
+		this.limb = limb;
+	}
+
+	public String getVaccineSerie() {
+		return vaccineSerie;
+	}
+
+	public void setVaccineSerie(String vaccineSerie) {
+		this.vaccineSerie = vaccineSerie;
+	}
+
+	public String getManufacturer() {
+		return manufacturer;
+	}
+
+	public void setManufacturer(String manufacturer) {
+		this.manufacturer = manufacturer;
+	}
+
+	public String getSideEffect() {
+		return sideEffect;
+	}
+
+	public void setSideEffect(String sideEffect) {
+		this.sideEffect = sideEffect;
+	}
+	
+	
 	
 }

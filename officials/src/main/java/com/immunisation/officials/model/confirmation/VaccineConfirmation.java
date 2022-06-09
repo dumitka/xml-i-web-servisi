@@ -13,17 +13,6 @@ import com.immunisation.officials.enums.VaccineType;
 import com.immunisation.officials.model.DateAdapter;
 import com.immunisation.officials.model.types.GeneralUser;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Builder
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "code",
@@ -53,4 +42,54 @@ public class VaccineConfirmation {
 	
 	@XmlElement(name = "QR_kod")
 	private String QRCode;
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public GeneralUser getUser() {
+		return user;
+	}
+
+	public void setUser(GeneralUser user) {
+		this.user = user;
+	}
+
+	public VaccineDoses getVaccineDoses() {
+		return vaccineDoses;
+	}
+
+	public void setVaccineDoses(VaccineDoses vaccineDoses) {
+		this.vaccineDoses = vaccineDoses;
+	}
+
+	public VaccineType getVaccine() {
+		return vaccine;
+	}
+
+	public void setVaccine(VaccineType vaccine) {
+		this.vaccine = vaccine;
+	}
+
+	public Date getDateOfIssue() {
+		return dateOfIssue;
+	}
+
+	public void setDateOfIssue(Date dateOfIssue) {
+		this.dateOfIssue = dateOfIssue;
+	}
+
+	public String getQRCode() {
+		return QRCode;
+	}
+
+	public void setQRCode(String qRCode) {
+		QRCode = qRCode;
+	}
+	
+	
 }

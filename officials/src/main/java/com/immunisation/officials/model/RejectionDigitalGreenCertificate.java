@@ -1,20 +1,10 @@
 package com.immunisation.officials.model;
 
-import com.immunisation.officials.model.request.RequestDigitalGreenCertificate;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Builder
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class RejectionDigitalGreenCertificate {
-	private RequestDigitalGreenCertificate requestDigitalGreenCertificate;
+////////////POPRAVITI
+	
+//	private RequestDigitalGreenCertificate requestDigitalGreenCertificate;
+	//mozda samo id od dokumenta sertifikata
 	private String reason;
 	
 }

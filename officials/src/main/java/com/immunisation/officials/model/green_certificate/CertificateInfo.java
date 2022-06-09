@@ -12,17 +12,6 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.immunisation.officials.model.DateAdapter;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Builder
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -37,4 +26,22 @@ public class CertificateInfo {
 	@XmlElement(name = "Datum_izdavanja")
 	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date dateOfIssue;
+
+	public String getCertificateNumber() {
+		return certificateNumber;
+	}
+
+	public void setCertificateNumber(String certificateNumber) {
+		this.certificateNumber = certificateNumber;
+	}
+
+	public Date getDateOfIssue() {
+		return dateOfIssue;
+	}
+
+	public void setDateOfIssue(Date dateOfIssue) {
+		this.dateOfIssue = dateOfIssue;
+	}
+	
+	
 }

@@ -12,17 +12,6 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.immunisation.officials.model.DateAdapter;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Builder
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -40,4 +29,30 @@ public class Dose {
 	
 	@XmlElement(name = "Serija")
 	private String series;
+
+	public int getSerialNumber() {
+		return serialNumber;
+	}
+
+	public void setSerialNumber(int serialNumber) {
+		this.serialNumber = serialNumber;
+	}
+
+	public Date getDateOfIssue() {
+		return dateOfIssue;
+	}
+
+	public void setDateOfIssue(Date dateOfIssue) {
+		this.dateOfIssue = dateOfIssue;
+	}
+
+	public String getSeries() {
+		return series;
+	}
+
+	public void setSeries(String series) {
+		this.series = series;
+	}
+	
+	
 }

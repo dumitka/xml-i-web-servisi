@@ -13,17 +13,6 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.immunisation.officials.model.DateAdapter;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Builder
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -63,4 +52,70 @@ public class Report {
 	@XmlElement(name = "Datum_izdavanja")
 	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date dateOfIssue;
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public Period getPeriod() {
+		return period;
+	}
+
+	public void setPeriod(Period period) {
+		this.period = period;
+	}
+
+	public int getNumberOfInterests() {
+		return numberOfInterests;
+	}
+
+	public void setNumberOfInterests(int numberOfInterests) {
+		this.numberOfInterests = numberOfInterests;
+	}
+
+	public int getRequestDigitalGreenCertificate() {
+		return requestDigitalGreenCertificate;
+	}
+
+	public void setRequestDigitalGreenCertificate(int requestDigitalGreenCertificate) {
+		this.requestDigitalGreenCertificate = requestDigitalGreenCertificate;
+	}
+
+	public int getDigitalGreenCertificate() {
+		return digitalGreenCertificate;
+	}
+
+	public void setDigitalGreenCertificate(int digitalGreenCertificate) {
+		this.digitalGreenCertificate = digitalGreenCertificate;
+	}
+
+	public VaccineDosesForReport getVaccineDosesForReport() {
+		return vaccineDosesForReport;
+	}
+
+	public void setVaccineDosesForReport(VaccineDosesForReport vaccineDosesForReport) {
+		this.vaccineDosesForReport = vaccineDosesForReport;
+	}
+
+	public List<Manufacturer> getDistributionOfManufacturers() {
+		return distributionOfManufacturers;
+	}
+
+	public void setDistributionOfManufacturers(List<Manufacturer> distributionOfManufacturers) {
+		this.distributionOfManufacturers = distributionOfManufacturers;
+	}
+
+	public Date getDateOfIssue() {
+		return dateOfIssue;
+	}
+
+	public void setDateOfIssue(Date dateOfIssue) {
+		this.dateOfIssue = dateOfIssue;
+	}
+	
+	
 }

@@ -13,19 +13,6 @@ import com.immunisation.officials.enums.VaccineType;
 import com.immunisation.officials.model.DateAdapter;
 import com.immunisation.officials.model.types.ExtendUser;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Builder
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-
-
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "patient",
@@ -47,4 +34,38 @@ public class PartForPatients {
 	@XmlElement(name = "Datum_saglasnosti")
 	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date date;  //datum saglasnosti
+
+	public ExtendUser getPatient() {
+		return patient;
+	}
+
+	public void setPatient(ExtendUser patient) {
+		this.patient = patient;
+	}
+
+	public boolean isPatientAgrees() {
+		return patientAgrees;
+	}
+
+	public void setPatientAgrees(boolean patientAgrees) {
+		this.patientAgrees = patientAgrees;
+	}
+
+	public VaccineType getVaccineType() {
+		return vaccineType;
+	}
+
+	public void setVaccineType(VaccineType vaccineType) {
+		this.vaccineType = vaccineType;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
+	
 }

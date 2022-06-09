@@ -6,6 +6,8 @@ import com.immunisation.officials.model.types.Address;
 
 
 public class WhenWhereVaccine {
+////////////POPRAVITI
+	
 //	private Interest requestVaccination;
 	private LocalDateTime date;
 	private Address adress;
