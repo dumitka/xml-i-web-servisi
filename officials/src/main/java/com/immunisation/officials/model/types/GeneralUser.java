@@ -10,6 +10,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import com.immunisation.officials.model.DateAdapter;
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(namespace = "http://www.baklavice.com/tipovi", name = "TKorisnikOpste", propOrder = {
     "citizenship",

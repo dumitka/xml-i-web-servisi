@@ -1,29 +1,39 @@
 <div>
   
   <mat-toolbar color="primary">
-    <span>Patient's dashboard</span>
+    <span>VAŠ PROFIL</span>
     <span class="example-spacer"></span>
-    <button mat-raised-button (click)="logout()">Log out</button>
+    <button mat-raised-button (click)="logout()">Odjava</button>
   </mat-toolbar>
 
-  <div class="centered">
-    <mat-card>
-      <mat-card-title >Menu</mat-card-title>
-      <mat-divider></mat-divider>
-      <mat-card-content>
+  <br>
+  <br>
+  <br>
 
-        <button mat-raised-button color="primary" (click)="createInterest()">Interesovanje za vakcinaciju</button>
-        <mat-divider></mat-divider>
-        <button mat-raised-button color="primary" >Saglasnost za vakcinaciju</button>
-        <mat-divider></mat-divider>
-        <button mat-raised-button color="primary" >Zahtev za zeleni sertifikat</button>
-        <mat-divider></mat-divider>
-        <button mat-raised-button color="primary" >Moji dokumenti</button>
-        <mat-divider></mat-divider>
-        <button mat-raised-button color="primary" >Korisnički podaci</button>
+  <div class="centered">
+    <mat-card class="example-card">
+      <img  mat-card-image src="../../assets/healthy-patient-icon.png" alt="Photo of happy healthy patient! :)">
+      <mat-card-content>
+        <div class="buttons_div">
+          <button mat-raised-button color="primary" class="option_button">Izmena podataka</button>
+          <br>
+          <button mat-raised-button color="primary" class="option_button" (click)="createInterest()">Zahtev za vakcinaciju</button>
+          <br>
+          <button mat-raised-button color="primary" class="option_button">Saglasnot za vakcinaciju</button>
+          <br>
+          <button mat-raised-button color="primary" class="option_button">Zahtev za zeleni sertifikat</button>
+          <br>
+          <button mat-raised-button color="primary" class="option_button">Pregled Vaših dokumenata</button>
+          <br>
+        </div>
+        
       </mat-card-content>
     </mat-card>
   </div>
+
+
+
+  
 
 
 </div>
