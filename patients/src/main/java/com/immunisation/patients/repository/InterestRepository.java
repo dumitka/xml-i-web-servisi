@@ -1,23 +1,20 @@
 package com.immunisation.patients.repository;
 
-import java.io.File;
 import java.io.StringReader;
+import java.io.StringWriter;
 
-import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.Schema;
-import javax.xml.validation.SchemaFactory;
+
+import com.immunisation.patients.model.interest.Interest;
+import com.immunisation.patients.xmldb.ExistManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
-
-import com.immunisation.patients.model.interest.Interest;
-import com.immunisation.patients.xmldb.ExistManager;
 
 @Repository
 public class InterestRepository {
@@ -30,6 +27,20 @@ public class InterestRepository {
 	public void saveInterest(String text, String docUri) throws Exception {
 		existManager.storeFromText(collectionUri, docUri + ".xml", text);
 	}
+	
+	public void save(Interest interest) throws Exception {
+        JAXBContext context = JAXBContext.newInstance("com.immunisation.patients.model.interest");
+
+        Marshaller marshaller = context.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
+        StringWriter sw = new StringWriter();
+
+        marshaller.marshal(interest, sw);
+
+        existManager.storeFromText(collectionUri, interest.getCode() + ".xml", sw.toString());
+    }
+	
 
 	public Interest[] getAll() throws SAXException, JAXBException, ClassNotFoundException, InstantiationException, IllegalAccessException, XMLDBException {
 		// dobavi sve
@@ -60,4 +71,6 @@ public class InterestRepository {
 		return (Interest) unmarshaller.unmarshal(reader);
 	}
 
+	//TODO GET JEDAN
+	
 }

@@ -14,4 +14,12 @@ public enum VaccineType {
     @XmlEnumValue("AstraZeneca") ASTRA_ZENECA,
     @XmlEnumValue("Moderna") MODERNA;
 	
+	 public String value() {
+        return name();
+    }
+
+    public static VaccineType fromValue(String v) {
+        return valueOf(v);
+    }
+
 }

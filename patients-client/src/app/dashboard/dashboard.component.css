@@ -22,6 +22,9 @@
   align-items:center;
 }
 
+button {
+  margin: 10px;
+}
 img {
   width: 410px;
   height: 300px;

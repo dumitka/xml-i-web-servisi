@@ -23,14 +23,14 @@
               <mat-form-field appearance="fill" class="fullWidth">
                 <mat-label>Pol</mat-label>
                 <mat-select formControlName="pol">
-                  <mat-option value="MUSKI">Muški</mat-option>
-                  <mat-option value="ZENSKI">Ženski</mat-option>
+                  <mat-option value="Muski">Muski</mat-option>
+                  <mat-option value="Zenski">Zenski</mat-option>
                 </mat-select>
               </mat-form-field>
 
-              <mat-form-field class="full-width" appearance="fill">
+              <mat-form-field class="full-width" appearance="fill" >
                 <mat-label>Datum rođenja</mat-label>
-                <input matInput [matDatepicker]="picker">
+                <input matInput [matDatepicker]="picker" formControlName="datum_rodjenja">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
@@ -53,33 +53,28 @@
               </mat-form-field>
               
 
-              <section >
-                  <mat-checkbox class="section" formControlName="tip_vakcine">Sputnjik</mat-checkbox>
-                  <mat-checkbox class="section">Pfizer</mat-checkbox>
-                  <mat-checkbox class="section">Sinepharm</mat-checkbox>
-              </section>  
-
-              <section formControlName="davalac_krvi">
-                <mat-checkbox class="section">Davalac krvi</mat-checkbox>
-              </section> 
-             
-
-              <!-- 
-              
-              <mat-form-field class="fullWidth">
-                  <input matInput placeholder="First Name" type="text" formControlName="firstname">
+              <mat-form-field appearance="fill" class="fullWidth">
+                <mat-label>Vakcina</mat-label>
+                <mat-select formControlName="tip_vakcine">
+                  <mat-option value="Pfizer-BioNTech">Pfizer-BioNTech</mat-option>
+                  <mat-option value="Sputnik V">Sputnik V</mat-option>
+                  <mat-option value="Sinopharm">Sinopharm</mat-option>
+                  <mat-option value="AstraZeneca">AstraZeneca</mat-option>
+                  <mat-option value="Moderna">Moderna</mat-option>
+                </mat-select>
               </mat-form-field>
-              <mat-form-field class="fullWidth">
-                  <input matInput placeholder="Last Name" type="text" formControlName="lastname">
-              </mat-form-field>
-              <mat-form-field class="fullWidth">
-                  <input matInput placeholder="Email" type="text" formControlName="email">
-              </mat-form-field> -->
 
+              <mat-form-field appearance="fill" class="fullWidth">
+                <mat-label>Davalac krvi</mat-label>
+                <mat-select formControlName="davalac_krvi">
+                  <mat-option value="DA">Da</mat-option>
+                  <mat-option value="NE">Ne</mat-option>
+                </mat-select>
+              </mat-form-field>
               
              
           </mat-card-content>
-            <button mat-raised-button color="primary" type="button" class="fullWidth" (click)="createInterest()" [disabled]="!interestForm.valid">Pošalji</button>
+            <button mat-raised-button color="primary" type="button" class="fullWidth" (click)="createInterest()">Pošalji</button>
       </form>
   </mat-card>
 </div>
