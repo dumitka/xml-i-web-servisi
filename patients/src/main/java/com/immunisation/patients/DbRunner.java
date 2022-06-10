@@ -48,7 +48,7 @@ public class DbRunner {
         admin.setUsername("admin@gmail.com");
 		admin.setIme("Adminko");
 		admin.setPrezime("Adminic");
-		admin.setJmbg(1111122222333L);
+		admin.setJmbg("1111122222333");
 		
 		admin.setPassword(userDetailsService.encodePassword(admin.getPassword()));
 		
@@ -75,7 +75,7 @@ public class DbRunner {
         pacijent.setUsername("pera@gmail.com");
         pacijent.setIme("Petar");
         pacijent.setPrezime("Peric");
-        pacijent.setJmbg(1111122222333L);
+        pacijent.setJmbg("1111122222333");
 		
         pacijent.setPassword(userDetailsService.encodePassword(pacijent.getPassword()));
 		

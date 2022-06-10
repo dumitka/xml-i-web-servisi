@@ -1,7 +1,6 @@
 package com.immunisation.patients.model.user;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -10,10 +9,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import com.immunisation.patients.model.authority.Authority;
-
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.immunisation.patients.model.authority.Authority;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "user", propOrder = {
@@ -32,7 +30,7 @@ public class User implements UserDetails{
 	@XmlElement(namespace = "http://www.baklavice.com/user", required = true)
 	protected String password;
 	@XmlElement(namespace = "http://www.baklavice.com/user")
-	protected long jmbg;
+	protected String jmbg;
 	@XmlElement(namespace = "http://www.baklavice.com/user", required = true)
 	protected String ime;
 	@XmlElement(namespace = "http://www.baklavice.com/user", required = true)
@@ -41,10 +39,10 @@ public class User implements UserDetails{
 	protected List<Authority> authorities;
 	
 
-	public long getJmbg() {
+	public String getJmbg() {
 		return jmbg;
 	}
-	public void setJmbg(long jmbg) {
+	public void setJmbg(String jmbg) {
 		this.jmbg = jmbg;
 	}
 	public String getIme() {

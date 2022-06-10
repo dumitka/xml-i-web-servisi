@@ -4,37 +4,40 @@ import java.io.StringReader;
 import java.io.StringWriter;
 
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-
-import com.immunisation.officials.model.user.User;
-import com.immunisation.officials.xmldb.ExistManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.immunisation.officials.model.user.User;
+import com.immunisation.officials.xmldb.ExistManager;
+
 @Repository
 public class UserRepository {
-
 	private String collectionUri = "/db/eUprava/users";
 
     @Autowired
     private ExistManager existManager;
 	
-	
 	public User findByUsername(String username) throws Exception {
 		String user = existManager.load(collectionUri, username + ".xml");
 
-        JAXBContext context = JAXBContext.newInstance("com.immunisation.officials.model.user");
-
-        Unmarshaller unmarshaller = context.createUnmarshaller();
-
-        StringReader sr = new StringReader(user);
-
-        User userInstance = (User) unmarshaller.unmarshal(sr);
-        return userInstance;
+        return userFromString(user);
 	}
 
+	public User[] findAll() throws Exception {
+		String[] xmls = existManager.loadXmlDocsToCollection(collectionUri);
+        User[] users = new User[xmls.length];
+
+        for (int i = 0; i < xmls.length; i++) {
+            users[i] = userFromString(xmls[i]);
+        }
+
+        return users;
+	}
+	
 	public void save(User user) throws Exception {
         JAXBContext context = JAXBContext.newInstance("com.immunisation.officials.model.user");
 
@@ -51,4 +54,13 @@ public class UserRepository {
 	public void save(String user, String username) throws Exception {
         existManager.storeFromText(collectionUri, username + ".xml", user);
     }
+	
+	private User userFromString(String xml) throws JAXBException {
+		StringReader stringReader = new StringReader(xml);
+
+		JAXBContext context = JAXBContext.newInstance("com.immunisation.officials.model.user");
+		Unmarshaller unmarshaller = context.createUnmarshaller();
+
+		return (User) unmarshaller.unmarshal(stringReader);
+	}
 }

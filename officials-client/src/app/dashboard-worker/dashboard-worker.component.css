@@ -1,0 +1,26 @@
+.centered {
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+}
+
+.mat-card-header {
+    text-align: center;
+    width: 100%;
+    display: block;
+    font-weight: 700;
+}
+
+.mat-card-title {
+    font-size: 30px;
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+}
+
+td, th {
+    text-align: center !important;
+    vertical-align: middle !important;
+}

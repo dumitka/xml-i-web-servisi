@@ -10,7 +10,7 @@ public class RegistrationRequest {
 
 	protected String username;
     protected String password;
-    protected long jmbg;
+    protected String jmbg;
     protected String ime;
     protected String prezime;
     
@@ -33,11 +33,11 @@ public class RegistrationRequest {
 	}
 	
 	@XmlElement
-	public long getJmbg() {
+	public String getJmbg() {
 		return jmbg;
 	}
 	
-	public void setJmbg(long jmbg) {
+	public void setJmbg(String jmbg) {
 		this.jmbg = jmbg;
 	}
 	
