@@ -45,7 +45,7 @@ public class InterestService {
 		
 	}
 
-	public void saveInterestFromString(String interest) throws Exception {
+	public Interest saveInterestFromString(String interest) throws Exception {
 		Interest interestObj = jaxb.unmarshall(Interest.class, interest);
 		
 		String id = UUID.randomUUID().toString();
@@ -59,6 +59,8 @@ public class InterestService {
 //		documentService.generateFiles(text, name, "zalbaOdluka.xsl");
 //		ByteArrayOutputStream result = metadataExtractor.extractMetadata(text);
 //		FusekiWriter.saveRDF(result, name);
+		
+		return repository.getInterestObj(id); //ovo pravi probljemos
 		
 	}
 

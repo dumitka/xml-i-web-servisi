@@ -28,6 +28,12 @@ public class InterestRepository {
 		existManager.storeFromText(collectionUri, docUri + ".xml", text);
 	}
 	
+	public Interest getInterestObj(String documentUri) throws Exception {
+		String xml =  existManager.load(collectionUri, documentUri + ".xml");
+		System.out.println(xml);
+		return convertStringToInterest(xml);
+	}
+	
 	public void save(Interest interest) throws Exception {
         JAXBContext context = JAXBContext.newInstance("com.immunisation.patients.model.interest");
 

@@ -15,7 +15,6 @@ export class DashboardComponent implements OnInit {
   }
 
   createInterest() {
-    alert("EVO")
     this.router.navigate(["/interest"])
   }
 

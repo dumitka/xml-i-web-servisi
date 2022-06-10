@@ -5,7 +5,6 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -19,7 +18,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "lastName",
     "gender",
     "birthdate",
-    "document"
+    "jmbg"
 })
 @XmlRootElement(name = "Podaci_o_licu", namespace = "http://www.baklavice.com/tipovi")
 public class GeneralUser {
@@ -42,12 +41,23 @@ public class GeneralUser {
 	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date birthdate;
 	
-	@XmlElements(value = { 
-			@XmlElement(name="JMBG", 
-                        type=String.class),
-            @XmlElement(name="Broj_pasosa", 
-                        type=String.class)})
-	private String document;
+//	@XmlElements(value = { 
+//			@XmlElement(name="JMBG", 
+//                        type=String.class),
+//            @XmlElement(name="Broj_pasosa", 
+//                        type=String.class)})
+//	private String document;
+
+	@XmlElement(name = "JMBG")
+	private String jmbg;
+	
+	public String getJmbg() {
+		return jmbg;
+	}
+
+	public void setJmbg(String jmbg) {
+		this.jmbg = jmbg;
+	}
 
 	public String getCitizenship() {
 		return citizenship;
@@ -97,13 +107,6 @@ public class GeneralUser {
 		this.birthdate = birthdate;
 	}
 
-	public String getDocument() {
-		return document;
-	}
 
-	public void setDocument(String document) {
-		this.document = document;
-	}
-	
 	
 }

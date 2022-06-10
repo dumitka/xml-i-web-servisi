@@ -48,7 +48,7 @@ export class InterestService {
             <tipovi:Prezime  property="pred:prezime" datatype="xsi:string">${raw.prezime}</tipovi:Prezime>
             <tipovi:Pol>${raw.pol}</tipovi:Pol>
             <tipovi:Datum_rodjenja property="pred:datum_rodjenja" datatype="xs:date">${raw.datum_rodjenja}</tipovi:Datum_rodjenja>
-            <tipovi:JMBG>${raw.jmbg}</tipovi:JMBG>
+            <tipovi:JMBG>${raw.licni_dokument}</tipovi:JMBG>
         </Podaci_o_licu>
         <Kontakt>
             <tipovi:Email>${raw.email}</tipovi:Email>

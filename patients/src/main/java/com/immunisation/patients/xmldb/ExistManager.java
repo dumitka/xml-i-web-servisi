@@ -120,6 +120,7 @@ public class ExistManager {
 					utilities.getPassword());
 			col.setProperty(OutputKeys.INDENT, "yes");
 			res = (XMLResource) col.getResource(documentId);
+			System.out.println(res);
 			return (String) res.getContent();
 		} finally {
 			if (col != null) {

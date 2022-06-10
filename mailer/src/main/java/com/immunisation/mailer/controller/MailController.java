@@ -22,6 +22,7 @@ public class MailController {
 	@PostMapping(consumes = MediaType.APPLICATION_XML_VALUE)
 	public ResponseEntity<Object> sendEmail(@RequestBody MailPackage content) {
 		try {
+			System.out.println("EVOOO ZAHTEV_____________________________________________________________");
 			service.sendEmail(content.getRecipient().trim(), content.getSubject().trim(), content.getBody().trim());
 			
 			return new ResponseEntity<>(HttpStatus.OK);

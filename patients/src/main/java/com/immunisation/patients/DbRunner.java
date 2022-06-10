@@ -128,8 +128,9 @@ public class DbRunner {
         
         pacc.setAddress(a);
         pacc.setGender("ZENSKI");
-        
-        
+        pacc.setJmbg("123456543211");
+        pacc.setName("PROBA IZ DB RANERA");
+        pacc.setLastName("HEHEHHE");
         in.setPatient(pacc);
         
         VaccinationData vd = new VaccinationData();

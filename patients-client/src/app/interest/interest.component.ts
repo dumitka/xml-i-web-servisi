@@ -50,6 +50,7 @@ export class InterestComponent implements OnInit {
     let sirovo = this.interestForm.value;
     console.log(sirovo)
     sirovo['datum_interesovanja'] = new Date().toISOString().split('T')[0]  //TODO popraviti
+    console.log(sirovo['datum_rodjenja'])
     sirovo['datum_rodjenja'] = sirovo.datum_rodjenja.toISOString().split('T')[0]
     
     this.interestService.createInterest(sirovo).subscribe(
