@@ -71,4 +71,6 @@ public class InterestRepository {
 		return (Interest) unmarshaller.unmarshal(reader);
 	}
 
+	//TODO GET JEDAN
+	
 }

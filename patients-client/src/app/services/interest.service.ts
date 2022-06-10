@@ -24,7 +24,7 @@ export class InterestService {
   createInterest(raw) {
     let interest = this.getInterestAsXml(raw);
 
-    return this.http.post(Main.PATH + "api/interest/body", interest, {headers: Main.HEADERS})
+    return this.http.post(Main.PATH + "api/interest", interest, {headers: Main.HEADERS})
     .pipe(map((data) => {
       console.log("USPEHH")
     }, catchError(this.errorHandler)));

@@ -1,7 +1,10 @@
 package com.immunisation.patients.controller;
 
+import java.util.HashMap;
+
 import com.immunisation.patients.dto.InterestCollection;
-import com.immunisation.patients.model.interest.Interest;
+import com.immunisation.patients.dto.MailPackage;
+import com.immunisation.patients.service.EmailService;
 import com.immunisation.patients.service.InterestService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping(value = "api/interest", produces = MediaType.APPLICATION_XML_VALUE)
@@ -21,6 +25,9 @@ public class InterestController {
 	
 	@Autowired
 	private InterestService service;
+	
+	@Autowired 
+	private EmailService emailService;
 	
 	@GetMapping(value = "/hello", produces = MediaType.ALL_VALUE)
 	public ResponseEntity<Object> hello() {
@@ -38,26 +45,31 @@ public class InterestController {
 		}
 	}
 	
-//	@PostMapping(consumes = MediaType.APPLICATION_XML_VALUE)
-//	public ResponseEntity<Object> saveInterest(@RequestBody String interest) {
-//		try {
-//			service.saveInterest(interest);
-//			return new ResponseEntity<>(HttpStatus.OK);
-//		}catch(Exception e) {
-//			e.printStackTrace();
-//			return new ResponseEntity<>("Error while saving Interest", HttpStatus.INTERNAL_SERVER_ERROR);
-//		}
-//	}
-	
-	@PostMapping(value="/body",  consumes = MediaType.APPLICATION_XML_VALUE)
+	@PostMapping(consumes = MediaType.APPLICATION_XML_VALUE)
 	public ResponseEntity<Object> save(@RequestBody String interest) {
 		try {
-			service.saveInterest(interest);
-			return new ResponseEntity<>(HttpStatus.OK);
+			service.saveInterestFromString(interest);
+			
+			
+//			return new ResponseEntity<>(HttpStatus.OK);
 		}catch(Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<>("Error while saving Interest", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+		
+		
+//		MailPackage mp = emailService.confirmInterestCreation(interestObj);
+		
+//		HashMap<String, Long> params = new HashMap<>();
+//		params.put("userId", orderDetails.getUserId());
+//		try {
+//		    ResponseEntity<Object> response = new RestTemplate().getForEntity("http://localhost:8080/users/{userId}", MailPackage.class, params);
+//		}
+//		catch (Exception ex) {
+//		    throw new Exception("Mail Not working");
+//		}
+		
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 }

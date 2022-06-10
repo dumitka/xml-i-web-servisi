@@ -35,11 +35,30 @@ public class InterestService {
 	public void saveInterest(String interest) throws Exception {
 		UUID id = UUID.randomUUID();
 		repository.saveInterest(interest, id.toString());
+		//TODO SAD POZOVI REPO>GET(ID)
+//		return 
 		
 	}
 
 	public void save(Interest interest) throws Exception {
 		repository.save(interest);
+		
+	}
+
+	public void saveInterestFromString(String interest) throws Exception {
+		Interest interestObj = jaxb.unmarshall(Interest.class, interest);
+		
+		String id = UUID.randomUUID().toString();
+		interestObj.setId(id);
+		interestObj.setAbout("http://www.baklavice.com/interesovanje/" + id);
+		
+		String updated = jaxb.marshall(Interest.class, interestObj);
+		
+		repository.saveInterest(updated, id);
+//		
+//		documentService.generateFiles(text, name, "zalbaOdluka.xsl");
+//		ByteArrayOutputStream result = metadataExtractor.extractMetadata(text);
+//		FusekiWriter.saveRDF(result, name);
 		
 	}
 

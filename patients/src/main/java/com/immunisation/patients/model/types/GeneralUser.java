@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "birthdate",
     "document"
 })
-@XmlRootElement(name = "Podaci_o_licu")
+@XmlRootElement(name = "Podaci_o_licu", namespace = "http://www.baklavice.com/tipovi")
 public class GeneralUser {
 	@XmlElement(name = "Drzavljanstvo", defaultValue="Republika Srbija")
 	private String citizenship;
