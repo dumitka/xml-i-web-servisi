@@ -12,6 +12,7 @@ import { InterestComponent } from './interest/interest.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { RegisterComponent } from './register/register.component';
+import { GreenSerRequestComponent } from './green-ser-request/green-ser-request.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { RegisterComponent } from './register/register.component';
     InterestComponent,
     AdminDashboardComponent,
     RegisterComponent,
+    GreenSerRequestComponent,
   ],
   imports: [
     BrowserModule,

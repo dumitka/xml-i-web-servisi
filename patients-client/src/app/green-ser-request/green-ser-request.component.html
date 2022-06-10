@@ -1,0 +1,111 @@
+<body>
+    <mat-toolbar color="primary">
+        <span>ZAHTEV ZA ZELENI SERTIFIKAT</span>
+        <span class="example-spacer"></span>
+        <button mat-raised-button id="profile_button" class="toolbar_button" (click)="profile()">Profil</button>
+        <button mat-raised-button class="toolbar_button" (click)="logout()">Odjava</button>
+    </mat-toolbar>
+
+    <br>
+    <br>
+
+    <div class="centered">
+        <mat-card class="example-card">
+            <mat-card-header>
+            <mat-card-title class="title"> <b>Digitalni zeleni sertifikat - EU kompatibilan / Digital green certificate - EU compatible </b></mat-card-title>
+            <mat-card-subtitle class="subtitle">
+                <br>
+                <p>
+                    U skladu sa odredbom Republike Srbije o izdavanju digitalnog zelenog sertifikata kao potvrde o izvršenoj vakcinaciji
+                    provit COVID-19, rezultatima testiranja na bolest SARS-CoV-2 ili oporavku od bolesti COVID-19, podnosim zahtev za izdavanje 
+                    digitalnog zelenog sertifikata.
+                </p>
+            </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                
+                <p><b>Podnosilac zahteva:</b></p>
+                
+                    <form [formGroup]="requestDataForm" (submit)="onSubmit()">
+                        <div>
+                        <mat-form-field class="centered_form" appearance="fill">
+                            <mat-label>Ime</mat-label>
+                            <input matInput type="text" id="name" formControlName="name">
+                        </mat-form-field>
+                        </div>
+                        
+                        <div>
+                        <mat-form-field class="centered_form" appearance="fill">
+                            <mat-label>Prezime</mat-label>
+                            <input matInput type="text" id="lastName" formControlName="lastName">
+                        </mat-form-field>
+                        </div>
+                        
+                        <div>
+                        <mat-form-field class="centered_form" appearance="fill">
+                            <mat-label>Datum rođenja</mat-label>
+                            <input matInput type="date" id="dateOfBirth" formControlName="dateOfBirth">
+                        </mat-form-field>
+                        </div>
+
+                        <div>
+                        <mat-form-field class="centered_form" appearance="fill">
+                            <mat-label>Pol</mat-label>
+                            <mat-select id="gender" formControlName="gender">
+                                <mat-option value="MUSKI">Muški</mat-option>
+                                <mat-option value="ZENSKI">Ženski</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        </div>
+                
+                        <div>
+                        <mat-form-field  class="centered_form" appearance="fill">
+                            <mat-label>Jedinstveni matični broj građanina</mat-label>
+                            <input matInput type="text" id="jmbg" formControlName="jmbg">
+                        </mat-form-field>
+                        </div>
+
+                        <div>
+                            <mat-form-field class="centered_form" appearance="fill">
+                            <mat-label>Broj pasoša</mat-label>
+                            <input matInput type="text" id="passport" formControlName="passport">
+                            </mat-form-field>
+                        </div>
+                
+                        <br>
+                        
+                        <p class="hint">Navesti što preciznije razloge za podnošenje zahteva za izdavanje digitalnog pasoša</p>
+                        <mat-form-field class="texted_area_form" appearance="fill">
+                            <mat-label>Razlog za podnošenje zahteva</mat-label>
+                            <textarea matInput type="text" id="reason" formControlName="reason"></textarea>
+                        </mat-form-field>
+                        
+                        
+                        <br>
+                        <br>
+                        <br>
+
+                        <div class="place_and_time">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Mesto podnošenja zahteva</mat-label>
+                                <input matInput type="text" id="place" formControlName="place">
+                            </mat-form-field>
+                        
+                            <mat-form-field class="date_move" appearance="fill">
+                            <mat-label>Datum podnošenja zahteva</mat-label>
+                            <input matInput type="date" id="date" formControlName="date">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-element">
+                        <button mat-raised-button color="primary" type="submit" class="submit_button" [disabled]="!requestDataForm.valid">Podnesi zahtev</button>
+                        </div>
+                    </form>
+                
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <br>
+    <br>
+</body>
