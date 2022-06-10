@@ -1,10 +1,18 @@
 package com.immunisation.patients;
 
 import java.util.ArrayList;
+import java.util.Date;
 
+import com.immunisation.patients.enums.VaccineType;
 import com.immunisation.patients.model.authority.Authority;
+import com.immunisation.patients.model.interest.Interest;
+import com.immunisation.patients.model.interest.VaccinationData;
+import com.immunisation.patients.model.types.Address;
+import com.immunisation.patients.model.types.Contact;
+import com.immunisation.patients.model.types.ExtendUser;
 import com.immunisation.patients.model.user.User;
 import com.immunisation.patients.repository.AuthorityRepository;
+import com.immunisation.patients.repository.InterestRepository;
 import com.immunisation.patients.repository.UserRepository;
 import com.immunisation.patients.service.AuthorityService;
 import com.immunisation.patients.service.CustomUserDetailsService;
@@ -41,6 +49,7 @@ public class DbRunner {
 		
 		CustomUserDetailsService userDetailsService = appContext.getBean(CustomUserDetailsService.class);
         UserRepository userRepo = appContext.getBean(UserRepository.class);
+        InterestRepository inRepo = appContext.getBean(InterestRepository.class);
         AuthorityService authorityService = appContext.getBean(AuthorityService.class);
         
         User admin = new User();
@@ -95,6 +104,46 @@ public class DbRunner {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        
+        
+        //INTEREST
+        Interest in = new Interest();
+        in.setCode("123");
+        
+        Contact c = new Contact();
+        c.setCellphone("054666777");
+        c.setEmail("abc@sdfl.com");
+        c.setLandline("021 777 888");
+        
+        in.setContact(c);
+        in.setDate(new Date());
+        
+        ExtendUser pacc = new ExtendUser();
+        
+        Address a = new Address();
+        a.setNumber("3");
+        a.setPlace("Bg");
+        a.setStreet("Ulica");
+        a.setTownship("Towwwnship");
+        
+        pacc.setAddress(a);
+        pacc.setGender("ZENSKI");
+        
+        
+        in.setPatient(pacc);
+        
+        VaccinationData vd = new VaccinationData();
+        vd.setBloodDonor(false);
+        vd.setTownshipOfInstitution("247365021");
+        vd.setVaccineType(VaccineType.PFIZER);
+        in.setVaccinationData(vd);
+        try {
+        	inRepo.save(in);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        
 	}
 	
 	

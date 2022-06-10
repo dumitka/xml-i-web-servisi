@@ -14,7 +14,7 @@ import com.immunisation.patients.enums.VaccineType;
     "vaccineType",
     "bloodDonor"
 })
-@XmlRootElement(name = "Podaci_o_vakcinaciji")
+@XmlRootElement(name = "Podaci_o_vakcinaciji", namespace = "http://www.baklavice.com/interesovanje")
 public class VaccinationData {
 	@XmlElement(name = "Opstina_ustanove")
 	private String townshipOfInstitution;

@@ -92,7 +92,7 @@ public class DbRunner {
 
         try {
             userRepo.save(zRadnik);
-            System.out.println("Imamo pacijenta:  " + zRadnik.getUsername());
+            System.out.println("Imamo zdravstvenog radnika:  " + zRadnik.getUsername());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

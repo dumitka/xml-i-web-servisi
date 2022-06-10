@@ -2,14 +2,44 @@
   flex: 1 1 auto;
 }
 
+
+
+.example-card{
+  background-color: #f8fafe;
+}
+
+
+
 .centered {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 35%;
+  width: 40%;
 }
 .margin-10 {
   margin: 10px;
   display:flex;
   align-items:center;
 }
+
+button {
+  margin: 10px;
+}
+img {
+  width: 410px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  
+}
+
+.option_button{
+  width: 45%;
+  margin-bottom: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+

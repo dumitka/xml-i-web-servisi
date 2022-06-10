@@ -1,0 +1,33 @@
+.centered {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(20, 136, 204, 1) 0%, rgba(43, 50, 178, 1) 100%);
+}
+
+.mat-card-header {
+  text-align: center;
+  width: 100%;
+  display: block;
+  font-weight: 700;
+}
+
+.mat-card-title {
+  font-size: 30px;
+  margin: 0;
+}
+
+.fullWidth {
+  width: 50%;
+}
+
+::ng-deep .mat-tooltip {
+  background-color: #323232 !important;
+  text-align: center;
+  font-size: 12px;
+}
+
+.section {
+  margin: 12px 5px;
+}

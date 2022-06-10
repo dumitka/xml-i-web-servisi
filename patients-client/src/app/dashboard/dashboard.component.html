@@ -1,29 +1,31 @@
-<div>
-  
+<body>
   <mat-toolbar color="primary">
-    <span>Patient's dashboard</span>
+    <span>VAŠ PROFIL</span>
     <span class="example-spacer"></span>
-    <button mat-raised-button (click)="logout()">Log out</button>
+    <button mat-raised-button (click)="logout()">Odjava</button>
   </mat-toolbar>
-
+  
+  <br>
+  
   <div class="centered">
-    <mat-card>
-      <mat-card-title >Menu</mat-card-title>
-      <mat-divider></mat-divider>
+    <mat-card class="example-card">
+      <img  mat-card-image src="../../assets/healthy-patient-icon.png" alt="Photo of happy healthy patient! :)">
       <mat-card-content>
-
-        <button mat-button  (click)="createInterest()">Interesovanje za vakcinaciju</button>
-        <mat-divider></mat-divider>
-        <button mat-button >Saglasnost za vakcinaciju</button>
-        <mat-divider></mat-divider>
-        <button mat-button >Zahtev za zeleni sertifikat</button>
-        <mat-divider></mat-divider>
-        <button mat-button >Moji dokumenti</button>
-        <mat-divider></mat-divider>
-        <button mat-button >Korisnički podaci</button>
+        <div class="buttons_div">
+          <button mat-raised-button color="primary" class="option_button">Izmena podataka</button>
+          
+          <button mat-raised-button color="primary" class="option_button" (click)="createInterest()">Zahtev za vakcinaciju</button>
+          
+          <button mat-raised-button color="primary" class="option_button">Saglasnot za vakcinaciju</button>
+          
+          <button mat-raised-button color="primary" class="option_button" (click)="createRequestGreenSer()">Zahtev za zeleni sertifikat</button>
+          
+          <button mat-raised-button color="primary" class="option_button">Pregled Vaših dokumenata</button>
+          
+        </div>
+        <br>
       </mat-card-content>
     </mat-card>
-  </div>
-
-
-</div>
+  </div>  
+</body>
+  
