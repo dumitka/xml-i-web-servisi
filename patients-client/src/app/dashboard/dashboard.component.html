@@ -1,17 +1,16 @@
-<div>
-  
+<body>
   <mat-toolbar color="primary">
     <span>VAŠ PROFIL</span>
     <span class="example-spacer"></span>
     <button mat-raised-button (click)="logout()">Odjava</button>
   </mat-toolbar>
-
+  
   <br>
   <br>
-  <br>
-
+  
   <div class="centered">
     <mat-card class="example-card">
+      <br>
       <img  mat-card-image src="../../assets/healthy-patient-icon.png" alt="Photo of happy healthy patient! :)">
       <mat-card-content>
         <div class="buttons_div">
@@ -21,19 +20,14 @@
           <br>
           <button mat-raised-button color="primary" class="option_button">Saglasnot za vakcinaciju</button>
           <br>
-          <button mat-raised-button color="primary" class="option_button">Zahtev za zeleni sertifikat</button>
+          <button mat-raised-button color="primary" class="option_button" (click)="createRequestGreenSer()">Zahtev za zeleni sertifikat</button>
           <br>
           <button mat-raised-button color="primary" class="option_button">Pregled Vaših dokumenata</button>
           <br>
         </div>
-        
+        <br>
       </mat-card-content>
     </mat-card>
-  </div>
-
-
-
+  </div>  
+</body>
   
-
-
-</div>

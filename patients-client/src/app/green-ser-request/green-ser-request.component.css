@@ -1,0 +1,63 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.example-card{
+    width: 1100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f8fafe;
+}
+
+.toolbar_button{
+    width: 90px;
+}
+  
+
+#profile_button{
+    margin-right: 20px;
+}
+
+
+.title{
+    margin-left: 160px;
+}
+
+
+.subtitle{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+p{
+    text-align: center;
+}
+
+.centered_form{
+    width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.texted_area_form{
+    width: 550px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.place_and_time{
+    margin-left: 650px;
+}
+  
+.date_move{
+    margin-left: 20px;
+}
+
+
+.submit_button{
+    margin-left: 944px;
+}
+
