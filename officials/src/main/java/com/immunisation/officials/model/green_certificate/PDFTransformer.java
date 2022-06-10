@@ -29,8 +29,10 @@ public class PDFTransformer {
 	private static TransformerFactory transformerFactory;
 	
 	public static final String INPUT_FILE = "data/xml/Digitalni_sertifikat1.xml";
-	public static final String XSL_FILE = "data/xsl/digitalni_sertifikat.xsl";
-	public static final String HTML_FILE = "gen/html/digitalni_sertifikat.html";
+	public static final String XSL_HTML_FILE = "data/xsl/digitalni_sertifikat_html.xsl";
+	public static final String XSL_PDF_FILE = "data/xsl/digitalni_sertifikat_pdf.xsl";
+	public static final String HTML_FILE = "gen/html/digitalni_sertifikat_html.html";
+	public static final String HTML_PDF_FILE = "gen/html/digitalni_sertifikat_pdf.html";
 	public static final String OUTPUT_FILE = "gen/pdf/digitalni_sertifikat.pdf";
 
 	static {
@@ -54,7 +56,7 @@ public class PDFTransformer {
     	Document document = new Document();
         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filePath));
         document.open();
-        XMLWorkerHelper.getInstance().parseXHtml(writer, document, new FileInputStream(HTML_FILE));
+        XMLWorkerHelper.getInstance().parseXHtml(writer, document, new FileInputStream(HTML_PDF_FILE));
         document.close();
     }
 
@@ -76,18 +78,27 @@ public class PDFTransformer {
     
     public void generateHTML(String xmlPath, String xslPath) throws FileNotFoundException {
 		try {
-			// Initialize Transformer instance
+			// ZA DIGITALNI_SERTIFIKAT_HTML
 			StreamSource transformSource = new StreamSource(new File(xslPath));
 			Transformer transformer = transformerFactory.newTransformer(transformSource);
 			transformer.setOutputProperty("{http://xml.apache.org/xalan}indent-amount", "2");
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			
-			// Generate XHTML
 			transformer.setOutputProperty(OutputKeys.METHOD, "xhtml");
 
-			// Transform DOM to HTML
 			DOMSource source = new DOMSource(buildDocument(xmlPath));
 			StreamResult result = new StreamResult(new FileOutputStream(HTML_FILE));
+			transformer.transform(source, result);
+			
+			// ZA DIGITALNI_SERTIFIKAT_PDF
+			transformSource = new StreamSource(new File(XSL_PDF_FILE));
+			transformer = transformerFactory.newTransformer(transformSource);
+			transformer.setOutputProperty("{http://xml.apache.org/xalan}indent-amount", "2");
+			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+			transformer.setOutputProperty(OutputKeys.METHOD, "xhtml");
+
+			source = new DOMSource(buildDocument(xmlPath));
+			result = new StreamResult(new FileOutputStream(HTML_PDF_FILE));
 			transformer.transform(source, result);
 		} catch (TransformerConfigurationException e) {
 			e.printStackTrace();
@@ -109,7 +120,7 @@ public class PDFTransformer {
 			pdfFile.getParentFile().mkdir();
 		}
 		PDFTransformer pdfTransformer = new PDFTransformer();
-		pdfTransformer.generateHTML(INPUT_FILE, XSL_FILE);
+		pdfTransformer.generateHTML(INPUT_FILE, XSL_HTML_FILE);
 		pdfTransformer.generatePDF(OUTPUT_FILE);
 		
 		System.out.println("[INFO] File \"" + OUTPUT_FILE + "\" generated successfully.");
