@@ -4,7 +4,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { VaccRequestComponent } from './vacc-request/vacc-request.component';
+//import { VaccRequestComponent } from '/vacc-request/vacc-request.component';
 import { GreenSerRequestComponent } from './green-ser-request/green-ser-request.component';
 import { InterestComponent } from './interest/interest.component';
 
