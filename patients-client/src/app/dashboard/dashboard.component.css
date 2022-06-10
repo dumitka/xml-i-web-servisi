@@ -3,11 +3,18 @@
 }
 
 
+
+.example-card{
+  background-color: #f8fafe;
+}
+
+
+
 .centered {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 24%;
+  width: 40%;
 }
 .margin-10 {
   margin: 10px;
@@ -16,14 +23,16 @@
 }
 
 img {
-  width: 360px;
-  height: 250px;
+  width: 410px;
+  height: 300px;
   display: block;
+  margin-left: auto;
+  margin-right: auto;
   
 }
 
 .option_button{
-  width: 65%;
+  width: 45%;
   display: block;
   margin-left: auto;
   margin-right: auto;

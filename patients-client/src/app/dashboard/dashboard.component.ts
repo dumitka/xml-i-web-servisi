@@ -19,6 +19,10 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(["/vaccRequest"])
   }
 
+  createRequestGreenSer(){
+    this.router.navigate(["/greenSerRequest"])
+  }
+
   logout() {
     this.authService.logout();
     this.router.navigate(["/"])
