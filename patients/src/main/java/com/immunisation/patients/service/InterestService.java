@@ -51,7 +51,7 @@ public class InterestService {
 		String id = UUID.randomUUID().toString();
 		interestObj.setId(id);
 		interestObj.setAbout("http://www.baklavice.com/interesovanje/" + id);
-		
+		interestObj.setCode(id);
 		String updated = jaxb.marshall(Interest.class, interestObj);
 		
 		repository.saveInterest(updated, id);

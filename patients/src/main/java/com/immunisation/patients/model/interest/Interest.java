@@ -26,12 +26,12 @@ import com.immunisation.patients.model.types.GeneralUser;
 @XmlRootElement(name = "Interesovanje")
 public class Interest {
 	@XmlElement(name = "Sifra_interesovanja")
-	private int code;
+	private String code;
 	
-	@XmlElement(name = "Podaci_o_licu", namespace= "http://www.baklavice.com/tipovi")
+	@XmlElement(name = "Podaci_o_licu")
 	private GeneralUser patient;
 	
-	@XmlElement(name = "Kontakt", namespace= "http://www.baklavice.com/tipovi")
+	@XmlElement(name = "Kontakt")
 	private Contact contact;
 	
 	@XmlElement(name = "Podaci_o_vakcinaciji")
@@ -99,11 +99,11 @@ public class Interest {
 		this.id = id;
 	}
 
-	public int getCode() {
+	public String getCode() {
 		return code;
 	}
 
-	public void setCode(int code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 

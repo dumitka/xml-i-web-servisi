@@ -108,7 +108,7 @@ public class DbRunner {
         
         //INTEREST
         Interest in = new Interest();
-        in.setCode(123);
+        in.setCode("123");
         
         Contact c = new Contact();
         c.setCellphone("054666777");

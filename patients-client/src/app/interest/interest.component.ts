@@ -30,10 +30,10 @@ export class InterestComponent implements OnInit {
       boraviste:["", [Validators.required]],
       ime:[currentUser.ime, [Validators.required]],
       prezime:[currentUser.prezime, [Validators.required]],
-      pol:["", [Validators.required]],
+      pol:["Zenski", [Validators.required]],
       datum_rodjenja:["", [Validators.required]],
-      licni_dokument:[currentUser.jmbg, [Validators.required]],
-      broj_mobilnog:["", [Validators.required]],
+      licni_dokument:[currentUser.jmbg, [Validators.required ]],  //TODO JMBG ILI PASOS LICNI DOKUMENT PROVERITI
+      broj_mobilnog:["", [Validators.required]],                //TODO MOZDA USTANOVA OSTAJE ISTA NA CELOM SISTEMU
       broj_fixnog:["", [Validators.required]],
       email:[currentUser.username, [Validators.email, Validators.required]],
       opstina_ustanove:["", [Validators.required]],
@@ -49,8 +49,8 @@ export class InterestComponent implements OnInit {
     
     let sirovo = this.interestForm.value;
     console.log(sirovo)
-    sirovo['datum_interesovanja'] = "2022-06-09"
-    sirovo['sifra_interesovanja'] = 54321
+    sirovo['datum_interesovanja'] = new Date().toISOString().split('T')[0]  //TODO popraviti
+    sirovo['datum_rodjenja'] = sirovo.datum_rodjenja.toISOString().split('T')[0]
     
     this.interestService.createInterest(sirovo).subscribe(
       data => {
