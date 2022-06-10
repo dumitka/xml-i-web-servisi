@@ -10,6 +10,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular_material.module'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { VaccinesComponent } from './vaccines/vaccines.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardWorkerComponent,
     DashboardOfficialComponent,
     LoginComponent,
+    VaccinesComponent,
+    AppointmentsComponent,
   ],
   imports: [
     BrowserModule,

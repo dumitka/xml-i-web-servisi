@@ -1,1 +1,27 @@
-<p>dashboard-official works!</p>
+<body>
+  <mat-toolbar color="primary">
+    <span>VAŠ PROFIL (Službenik)</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button (click)="logout()">Odjava</button>
+  </mat-toolbar>
+  
+  <br>
+  <br>
+  
+  <div class="centered">
+    <mat-card class="example-card">
+      <br>
+      <img  mat-card-image src="../../assets/healthy-patient-icon.png" alt="Photo of happy official! :)">
+      <mat-card-content>
+        <div class="buttons_div">
+          <button mat-raised-button color="primary" class="option_button" (click)="vakcine()">Evidencija vakcina</button>
+          <br>
+          <button mat-raised-button color="primary" class="option_button" (click)="termini()">Evidencija termina</button>
+          <br>
+        </div>
+        <br>
+      </mat-card-content>
+    </mat-card>
+  </div>  
+</body>
+  

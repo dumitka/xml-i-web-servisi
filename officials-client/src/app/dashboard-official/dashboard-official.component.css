@@ -1,0 +1,44 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+
+
+.example-card{
+  background-color: #f8fafe;
+}
+
+
+
+.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+.margin-10 {
+  margin: 10px;
+  display:flex;
+  align-items:center;
+}
+
+button {
+  margin: 10px;
+}
+img {
+  width: 410px;
+  height: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.option_button{
+  width: 45%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+

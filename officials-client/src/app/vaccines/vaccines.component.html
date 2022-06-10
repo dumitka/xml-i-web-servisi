@@ -1,0 +1,59 @@
+<body>
+  <mat-toolbar color="primary">
+    <span>Vakcine</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button (click)="logout()">Odjava</button>
+  </mat-toolbar>
+  
+  <br>
+  <br>
+  
+  <div class="centered">
+    <mat-card>
+      <mat-card-header>
+          <mat-card-title>Inventar vakcina</mat-card-title>
+      </mat-card-header>
+      <form [formGroup]="vaccForm">
+          <mat-card-content>
+            <h3>Pfizer-BioNTech : {{inventory.pfizerCount}}</h3>
+            <mat-form-field appearance="legacy" class="fullWidth">
+              <input matInput placeholder="Dodati količinu: " type="text">
+            </mat-form-field>
+            <button mat-raised-button color="primary" >
+              <mat-icon>add</mat-icon>
+            </button>
+            <h3>Sinopharm : {{inventory.sinopharmCount}}</h3>
+            <mat-form-field appearance="legacy" class="fullWidth">
+              <input matInput placeholder="Dodati količinu: " type="text">
+            </mat-form-field>
+            <button mat-raised-button color="primary" >
+              <mat-icon>add</mat-icon>
+            </button>
+            <h3>Astra Zeneca : {{inventory.astraCount}}</h3>
+            <mat-form-field appearance="legacy" class="fullWidth">
+              <input matInput placeholder="Dodati količinu: " type="text">
+            </mat-form-field>
+            <button mat-raised-button color="primary" >
+              <mat-icon>add</mat-icon>
+            </button>
+            <h3>Moderna : {{inventory.modernaCount}}</h3>
+            <mat-form-field appearance="legacy" class="fullWidth">
+              <input matInput placeholder="Dodati količinu: " type="text">
+            </mat-form-field>
+            <button mat-raised-button color="primary" >
+              <mat-icon>add</mat-icon>
+            </button>
+            <h3>Sputnik V : {{inventory.sputnikCount}}</h3>
+            <mat-form-field appearance="legacy" class="fullWidth">
+              <input matInput placeholder="Dodati količinu: " type="text">
+            </mat-form-field>
+            <button mat-raised-button color="primary" >
+              <mat-icon>add</mat-icon>
+            </button>
+
+          </mat-card-content>
+      </form>
+  </mat-card>
+  </div>  
+</body>
+  
