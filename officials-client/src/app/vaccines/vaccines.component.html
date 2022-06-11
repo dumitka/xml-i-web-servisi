@@ -17,37 +17,41 @@
           <mat-card-content>
             <h3>Pfizer-BioNTech : {{pfizerCount}}</h3>
             <mat-form-field appearance="legacy" class="fullWidth">
-              <input matInput placeholder="Dodati količinu: " type="number">
+              <input matInput placeholder="Dodati količinu: " type="number" [formControl]="addPfizer">
             </mat-form-field>
-            <button mat-raised-button color="primary" >
+            <button mat-raised-button color="primary" (click)="sendPfizer()" >
               <mat-icon>add</mat-icon>
             </button>
+
             <h3>Sinopharm : {{sinopharmCount}}</h3>
             <mat-form-field appearance="legacy" class="fullWidth">
-              <input matInput placeholder="Dodati količinu: " type="number">
+              <input matInput placeholder="Dodati količinu: " type="number" [formControl]="addSinopharm">
             </mat-form-field>
-            <button mat-raised-button color="primary" >
+            <button mat-raised-button color="primary" (click)="sendSinopharm()">
               <mat-icon>add</mat-icon>
             </button>
+
             <h3>AstraZeneca : {{astraCount}}</h3>
             <mat-form-field appearance="legacy" class="fullWidth">
-              <input matInput placeholder="Dodati količinu: " type="number">
+              <input matInput placeholder="Dodati količinu: " type="number" [formControl]="addAstra">
             </mat-form-field>
-            <button mat-raised-button color="primary" >
+            <button mat-raised-button color="primary" (click)="sendAstra()">
               <mat-icon>add</mat-icon>
             </button>
+
             <h3>Moderna : {{modernaCount}}</h3>
             <mat-form-field appearance="legacy" class="fullWidth">
-              <input matInput placeholder="Dodati količinu: " type="number">
+              <input matInput placeholder="Dodati količinu: " type="number" [formControl]="addModerna">
             </mat-form-field>
-            <button mat-raised-button color="primary" >
+            <button mat-raised-button color="primary" (click)="sendModerna()">
               <mat-icon>add</mat-icon>
             </button>
+
             <h3>Sputnik-V : {{sputnikCount}}</h3>
             <mat-form-field appearance="legacy" class="fullWidth">
-              <input matInput placeholder="Dodati količinu: " type="number">
+              <input matInput placeholder="Dodati količinu: " type="number" [formControl]="addSputnik">
             </mat-form-field>
-            <button mat-raised-button color="primary" >
+            <button mat-raised-button color="primary" (click)="sendSputnik()">
               <mat-icon>add</mat-icon>
             </button>
 

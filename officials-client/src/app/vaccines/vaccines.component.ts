@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -15,12 +15,20 @@ export class VaccinesComponent implements OnInit {
   RESPONSE_OK: number = 0;
   RESPONSE_ERROR: number = -1;
 
-  sinopharmCount:  number =0;
-  astraCount:  number =0;
+  sinopharmCount: number = 0;
+  addSinopharm = new FormControl('');
+
+  astraCount:  number = 0;
+  addAstra= new FormControl('');
+
   sputnikCount: number = 0;
+  addSputnik= new FormControl('');
+
   pfizerCount: number = 0;
+  addPfizer= new FormControl('');
+
   modernaCount: number = 0;
-  
+  addModerna= new FormControl('');
 
   constructor(private router: Router, private authService: AuthService,
     private formBuilder: FormBuilder, 
@@ -30,10 +38,6 @@ export class VaccinesComponent implements OnInit {
   ngOnInit(): void {
 
     this.refreshData()
-    
-
-
-    // form ctrl pfizerCount: [""], 
     
   }
 
@@ -60,6 +64,76 @@ export class VaccinesComponent implements OnInit {
       }
     }
     return null;
+  }
+
+  sendPfizer() {
+    this.vaccService.dodajNove({name: "Pfizer-BioNTech", kolicina: this.addPfizer.value}).subscribe(
+      data => {
+        this.openSnackBar("Uspešno ažurirana količina!", this.RESPONSE_OK);
+        this.addPfizer.setValue(0);
+        this.refreshData();
+      },
+      error => {
+        console.log(error.error)
+        this.openSnackBar(error.error, this.RESPONSE_ERROR);
+      }
+    )
+  }
+
+  sendSinopharm() {
+    this.vaccService.dodajNove({name: "Sinopharm", kolicina: this.addSinopharm.value}).subscribe(
+      data => {
+        this.openSnackBar("Uspešno ažurirana količina!", this.RESPONSE_OK);
+        this.addSinopharm.setValue(0);
+        this.refreshData();
+      },
+      error => {
+        console.log(error.error)
+        this.openSnackBar(error.error, this.RESPONSE_ERROR);
+      }
+    )
+  }
+
+  sendAstra() {
+    this.vaccService.dodajNove({name: "AstraZeneca", kolicina: this.addAstra.value}).subscribe(
+      data => {
+        this.openSnackBar("Uspešno ažurirana količina!", this.RESPONSE_OK);
+        this.addAstra.setValue(0);
+        this.refreshData();
+      },
+      error => {
+        console.log(error.error)
+        this.openSnackBar(error.error, this.RESPONSE_ERROR);
+      }
+    )
+  }
+
+  sendModerna() {
+    this.vaccService.dodajNove({name: "Moderna", kolicina: this.addModerna.value}).subscribe(
+      data => {
+        this.openSnackBar("Uspešno ažurirana količina!", this.RESPONSE_OK);
+        this.addModerna.setValue(0);
+        this.refreshData();
+      },
+      error => {
+        console.log(error.error)
+        this.openSnackBar(error.error, this.RESPONSE_ERROR);
+      }
+    )
+  }
+
+  sendSputnik(){
+    this.vaccService.dodajNove({name: "Sputnik-V", kolicina: this.addSputnik.value}).subscribe(
+      data => {
+        this.openSnackBar("Uspešno ažurirana količina!", this.RESPONSE_OK);
+        this.addSputnik.setValue(0);
+        this.refreshData();
+      },
+      error => {
+        console.log(error.error)
+        this.openSnackBar(error.error, this.RESPONSE_ERROR);
+      }
+    )
   }
 
   logout() {

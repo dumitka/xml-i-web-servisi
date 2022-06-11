@@ -79,7 +79,7 @@ public class VaccineInfoRepository {
     	
     	VaccineInfo vInfo = this.findByNaziv(naziv);
     	
-    	existManager.update(0, collectionUri, collectionUri + "/" + naziv + ".xml", "//*slobodnih", String.valueOf(vInfo.getSlobodnih() + kolicina));
+    	existManager.update(0, collectionUri, naziv + ".xml", "//*:slobodnih", String.valueOf(vInfo.getSlobodnih() + kolicina));
     }
     
 	//rezervisi jednu
@@ -90,8 +90,8 @@ public class VaccineInfoRepository {
     	
     	VaccineInfo vInfo = this.findByNaziv(id);//
     	
-    	existManager.update(0, "/db/eUprava/" + collectionName, vaccInfoUri + ".xml", "//*slobodnih", String.valueOf(vInfo.getSlobodnih()-1));
-    	existManager.update(0, "/db/eUprava/" + collectionName, vaccInfoUri + ".xml", "//*rezervisanih", String.valueOf(vInfo.getRezervisanih() + 1));
+    	existManager.update(0, "/db/eUprava/" + collectionName, id + ".xml", "//*:slobodnih", String.valueOf(vInfo.getSlobodnih()-1));
+    	existManager.update(0, "/db/eUprava/" + collectionName, id + ".xml", "//*:rezervisanih", String.valueOf(vInfo.getRezervisanih() + 1));
     }
 	
 	//smanji  rezervisane za jednu
