@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { RegisterComponent } from './register/register.component';
 import { GreenSerRequestComponent } from './green-ser-request/green-ser-request.component';
+import { ConsentComponent } from './consent/consent.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { GreenSerRequestComponent } from './green-ser-request/green-ser-request.
     AdminDashboardComponent,
     RegisterComponent,
     GreenSerRequestComponent,
+    ConsentComponent,
   ],
   imports: [
     BrowserModule,

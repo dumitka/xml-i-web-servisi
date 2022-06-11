@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.immunisation.patients.jaxb.JaxB;
-import com.immunisation.patients.model.interest.Interest;
 import com.immunisation.patients.model.request.RequestDigitalGreenCertificate;
 import com.immunisation.patients.repository.GreenSerRequestRepository;
 

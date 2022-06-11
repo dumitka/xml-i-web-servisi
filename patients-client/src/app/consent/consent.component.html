@@ -1,0 +1,204 @@
+<body>
+    <mat-toolbar color="primary">
+        <span>SAGLASNOST ZA VAKCINACIJU</span>
+        <span class="example-spacer"></span>
+        <button mat-raised-button id="profile_button" class="toolbar_button" (click)="profile()">Profil</button>
+        <button mat-raised-button class="toolbar_button" (click)="logout()">Odjava</button>
+    </mat-toolbar>
+
+    <br>
+    <br>
+
+    <div class="centered">
+        <mat-card class="example-card">
+            <mat-card-header>
+            <mat-card-title class="title"> <b>Saglasnost za sprovođenje preporučene imunizacije </b></mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                
+                <form [formGroup]="consentForm" (submit)="onSubmit()">
+                    <p>Ukoliko ste državljanin Srbije, dovoljno je da unesete Vaš JMBG. Ukoliko ste strani državljanin, molimo Vas unesite broj Vašeg pasoša.</p>
+                    <div class="citizenship_documents">
+                        <mat-form-field class="c1" appearance="fill">
+                            <mat-label>Državljanstvo</mat-label>
+                            <input matInput type="text" id="citizenship" formControlName="citizenship">
+                        </mat-form-field>
+                    
+                        <mat-form-field class="c2" appearance="fill">
+                        <mat-label>JMBG</mat-label>
+                        <input matInput type="text" id="jmbg" formControlName="jmbg">
+                        </mat-form-field>
+
+                        <mat-form-field class="c3" appearance="fill">
+                            <mat-label>Broj pasoša</mat-label>
+                            <input matInput type="text" id="passport" formControlName="passport">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="citizenship_documents">
+                        <mat-form-field class="c1" appearance="fill">
+                            <mat-label>Ime</mat-label>
+                            <input matInput type="text" id="name" formControlName="name">
+                        </mat-form-field>
+                        
+                        <mat-form-field class="c2" appearance="fill">
+                            <mat-label>Ime roditelja</mat-label>
+                            <input matInput type="text" id="parentName" formControlName="parentName">
+                        </mat-form-field>
+                            
+                        <mat-form-field class="c3" appearance="fill">
+                            <mat-label>Prezime</mat-label>
+                            <input matInput type="text" id="lastName" formControlName="lastName">
+                        </mat-form-field>
+                    </div>
+
+
+                    <div class="citizenship_documents">
+                        <mat-form-field class="c1" appearance="fill">
+                            <mat-label>Pol</mat-label>
+                            <mat-select id="gender" formControlName="gender">
+                                <mat-option value="MUSKI">Muški</mat-option>
+                                <mat-option value="ZENSKI">Ženski</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        
+                        <mat-form-field class="c2" appearance="fill">
+                            <mat-label>Datum rođenja</mat-label>
+                            <input matInput type="date" id="dateOfBirth" formControlName="dateOfBirth">
+                        </mat-form-field>
+                            
+                        <mat-form-field class="c3" appearance="fill">
+                            <mat-label>Mesto rođenja</mat-label>
+                            <input matInput type="text" id="placeOfBirth" formControlName="placeOfBirth">
+                        </mat-form-field>
+                    </div>
+                    
+
+                    <div class="adress">
+                        <mat-form-field class="c1" appearance="fill">
+                            <mat-label>Opština</mat-label>
+                            <input matInput type="text" id="township" formControlName="township">
+                        </mat-form-field>
+                            
+                        <mat-form-field class="c2" appearance="fill">
+                            <mat-label>Mesto</mat-label>
+                            <input matInput type="text" id="livingPlace" formControlName="livingPlace">
+                        </mat-form-field>
+                        
+                        <mat-form-field class="c3" appearance="fill">
+                            <mat-label>Ulica</mat-label>
+                            <input matInput type="text" id="street" formControlName="street">
+                        </mat-form-field>
+                            
+                        <mat-form-field class="c4" appearance="fill">
+                            <mat-label>Broj</mat-label>
+                            <input matInput type="text" id="number" formControlName="number">
+                        </mat-form-field>
+                    </div>
+
+
+                    <div class="citizenship_documents">
+                        <mat-form-field class="c1" appearance="fill">
+                            <mat-label>Imejl</mat-label>
+                            <input matInput type="email" id="email" formControlName="email">
+                        </mat-form-field>
+                            
+                        <mat-form-field class="c2" appearance="fill">
+                            <mat-label>Broj telefona</mat-label>
+                            <input matInput type="text" id="phone" formControlName="phone">
+                        </mat-form-field>
+                        
+                        <mat-form-field class="c3"  appearance="fill">
+                            <mat-label>Fiksni bro telefona</mat-label>
+                            <input matInput type="text" id="fiksni" formControlName="fiksni">
+                        </mat-form-field>
+                    </div>
+
+
+                    <div class="citizenship_documents">
+                        <mat-form-field class="c1" appearance="fill">
+                            <mat-label>Radni status</mat-label>
+                            <mat-select id="radni_status" formControlName="radni_status">
+                                <mat-option value="zaposlen">zaposlen</mat-option>
+                                <mat-option value="nezaposlen">nezaposlen</mat-option>
+                                <mat-option value="penzioner">penzioner</mat-option>
+                                <mat-option value="ucenik">ucenik</mat-option>
+                                <mat-option value="student">student</mat-option>
+                                <mat-option value="dete">dete</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                            
+                        <mat-form-field class="c2" appearance="fill">
+                            <mat-label>Zanimanje zaposlenog</mat-label>
+                            <mat-select id="zanimanje_zaposlenog" formControlName="zanimanje_zaposlenog">
+                                <mat-option value="zdravstvena zastita">zdravstvena zaštita</mat-option>
+                                <mat-option value="socijalna zastita">socijalna zaštita</mat-option>
+                                <mat-option value="prosveta">prosveta</mat-option>
+                                <mat-option value="MUP">MUP</mat-option>
+                                <mat-option value="Vojska RS">Vojska RS</mat-option>
+                                <mat-option value="drugo">drugo</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        
+                        <mat-form-field class="c3" appearance="fill">
+                            <mat-label>Da li ste korisnk socijalne službe?</mat-label>
+                            <mat-select id="socijalno" formControlName="socijalno">
+                                <mat-option value="true">Da</mat-option>
+                                <mat-option value="false">Ne</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <hr>
+
+                    <br>
+                    <div class="h3"><h3>SAGLASNOST</h3></div>
+                    
+                    <div class="izjava">
+                        <b>Izjavljujem da sam &nbsp;&nbsp;</b>
+                        <mat-form-field class="c1" appearance="fill">
+                            <mat-label>Saglasnost</mat-label>
+                            <mat-select id="saglasnost" formControlName="saglasnost">
+                                <mat-option value="true">SAGLASAN/SAGLASNA</mat-option>
+                                <mat-option value="false">NESAGLASAN/NESAGLASNA</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        &nbsp;<b>sa sprovođenjem aktivne/pasivne imunizacije </b>
+                            
+                        <mat-form-field class="c2" appearance="fill">
+                            <mat-label>Vakcina</mat-label>
+                            <mat-select id="vakcina" formControlName="vakcina">
+                                <mat-option value="Pfizer-BioNTech">Pfizer-BioNTech</mat-option>
+                                <mat-option value="Sputnik V">Sputnik V</mat-option>
+                                <mat-option value="Sinopharm">Sinopharm</mat-option>
+                                <mat-option value="AstraZeneca">AstraZeneca</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        
+                        <p class="pomjeri"><b>Lekar mi je objasnio rizike sprovođenjem aktivne/pasivne imunizacije navedenim imunološkim lekom.</b></p>
+                    </div>
+                    <br>
+                    <hr>
+
+                    <div class="datum_saglasnosti">
+                        <mat-form-field class="c2" appearance="fill">
+                            <mat-label>Datum saglasnosti</mat-label>
+                            <input matInput type="date" id="dateOfConsent" formControlName="dateOfConsent">
+                        </mat-form-field>
+                    </div>
+                    
+
+                    <div class="form-element">
+                        <button mat-raised-button color="primary" type="submit" class="submit_button" [disabled]="!consentForm.valid">Podnesi zahtev</button>
+                    </div>
+
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+
+    <br>
+    <br>
+</body>

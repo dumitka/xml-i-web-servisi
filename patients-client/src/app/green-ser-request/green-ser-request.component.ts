@@ -17,7 +17,7 @@ export class GreenSerRequestComponent implements OnInit {
 
   constructor(private router: Router, private authService: AuthService, 
               private fb: FormBuilder, private service:GreenSerRequestServiceService,
-              private snackBar: MatSnackBar,) { 
+              private snackBar: MatSnackBar) { 
     this.createForm();
   }
 
