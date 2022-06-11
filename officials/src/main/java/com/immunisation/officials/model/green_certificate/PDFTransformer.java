@@ -24,7 +24,6 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
 
 public class PDFTransformer {
-	
 	private static DocumentBuilderFactory documentFactory;
 	private static TransformerFactory transformerFactory;
 	
