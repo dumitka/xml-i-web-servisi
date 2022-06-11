@@ -23,6 +23,10 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(["/greenSerRequest"])
   }
 
+  createConsent(){
+    this.router.navigate(["/consent"])
+  }
+
   logout() {
     this.authService.logout();
     this.router.navigate(["/"])
