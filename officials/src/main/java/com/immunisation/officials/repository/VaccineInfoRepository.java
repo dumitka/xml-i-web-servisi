@@ -73,36 +73,25 @@ public class VaccineInfoRepository {
 	//dodaj nove slobodne
     public void dodajNoveVakcine(String naziv, Integer kolicina) throws Exception {
     	
-//    	String[] parts = vaccInfoUri.split("/");
-//    	String id = parts[parts.length -1];
-//    	String collectionName = parts[parts.length -2];
-    	
     	VaccineInfo vInfo = this.findByNaziv(naziv);
     	
     	existManager.update(0, collectionUri, naziv + ".xml", "//*:slobodnih", String.valueOf(vInfo.getSlobodnih() + kolicina));
     }
     
 	//rezervisi jednu
-    public void rezervisiJednu(String vaccInfoUri) throws Exception { 
-    	String[] parts = vaccInfoUri.split("/");
-    	String id = parts[parts.length -1];
-    	String collectionName = parts[parts.length -2];
-    	
+    public void rezervisiJednu(String id) throws Exception {
     	VaccineInfo vInfo = this.findByNaziv(id);//
     	
-    	existManager.update(0, "/db/eUprava/" + collectionName, id + ".xml", "//*:slobodnih", String.valueOf(vInfo.getSlobodnih()-1));
-    	existManager.update(0, "/db/eUprava/" + collectionName, id + ".xml", "//*:rezervisanih", String.valueOf(vInfo.getRezervisanih() + 1));
+    	existManager.update(0, collectionUri, id + ".xml", "//*:slobodnih", String.valueOf(vInfo.getSlobodnih()-1));
+    	existManager.update(0, collectionUri, id + ".xml", "//*:rezervisanih", String.valueOf(vInfo.getRezervisanih() + 1));
     }
 	
 	//smanji  rezervisane za jednu
-    public void obaviVakcinaciju(String vaccInfoUri) throws Exception { 
-    	String[] parts = vaccInfoUri.split("/");
-    	String id = parts[parts.length -1];
-    	String collectionName = parts[parts.length -2];
+    public void obaviVakcinaciju(String naziv) throws Exception { 
+
+    	VaccineInfo vInfo = this.findByNaziv(naziv);//
     	
-    	VaccineInfo vInfo = this.findByNaziv(id);//
-    	
-    	existManager.update(0, "/db/eUprava/" + collectionName, vaccInfoUri + ".xml", "//*rezervisanih", String.valueOf(vInfo.getRezervisanih() - 1));
+    	existManager.update(0, collectionUri, naziv + ".xml", "//*rezervisanih", String.valueOf(vInfo.getRezervisanih() - 1));
     }
     
     private VaccineInfo converStringToVaccineInfo(String xml) throws JAXBException {

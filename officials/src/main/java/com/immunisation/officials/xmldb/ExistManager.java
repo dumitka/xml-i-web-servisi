@@ -146,8 +146,34 @@ public class ExistManager {
 		}
 	}
 	
+	public String[] retrieve(String collectionUri, String xpathExp) throws Exception {
+		connectToDb();
+		Collection col = null;
+		ResourceSet result = null;
+		String[] xmls = {};
+		try {
+			col = DatabaseManager.getCollection(utilities.getUri() + collectionUri, utilities.getUser(),
+					utilities.getPassword());
+			XPathQueryService xpathService = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+			xpathService.setProperty("indent", "yes");
+			xpathService.setNamespace("", TARGET_NAMESPACE);
+			result = xpathService.query(xpathExp);
+			int len = (int) result.getSize();
+			xmls = new String[len];
+			for (int i = 0; i < len; i++){
+				XMLResource xmlResource = (XMLResource) result.getResource(i);
+				xmls[i] = (String) xmlResource.getContent();
+			}
+		} finally {
+			if (col != null) {
+				col.close();
+			}
+		}
+		return xmls;
+	}
+
 	
-	public String[] retrieve(String collectionUri, String xpathExp, String prefix, String namespace) throws Exception {
+	public String[] myRetrieve(String collectionUri, String xpathExp, String prefix, String namespace) throws Exception {
 		connectToDb();
 		Collection col = null;
 		ResourceSet result = null;
