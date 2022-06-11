@@ -28,11 +28,16 @@ public class PDFTransformer {
 	private static DocumentBuilderFactory documentFactory;
 	private static TransformerFactory transformerFactory;
 	
+	private static String inputFile = "data/xml/";
+	private static final String XSL_HTML_FILE = "data/xsl/digitalni_sertifikat_html.xsl";
+	private static final String XSL_PDF_FILE = "data/xsl/digitalni_sertifikat_pdf.xsl";
+	private static String htmlFile = "gen/html";
+	private static final String HTML_PDF_FILE = "gen/html/digitalni_sertifikat_pdf.html";
+	private static String outputFile = "gen/pdf";
+	
+	// *** za demonstraciju iz main-a
 	public static final String INPUT_FILE = "data/xml/Digitalni_sertifikat1.xml";
-	public static final String XSL_HTML_FILE = "data/xsl/digitalni_sertifikat_html.xsl";
-	public static final String XSL_PDF_FILE = "data/xsl/digitalni_sertifikat_pdf.xsl";
 	public static final String HTML_FILE = "gen/html/digitalni_sertifikat_html.html";
-	public static final String HTML_PDF_FILE = "gen/html/digitalni_sertifikat_pdf.html";
 	public static final String OUTPUT_FILE = "gen/pdf/digitalni_sertifikat.pdf";
 
 	static {
@@ -45,13 +50,42 @@ public class PDFTransformer {
 		/* Inicijalizacija Transformer fabrike */
 		transformerFactory = TransformerFactory.newInstance();
 	}
+	
+	// potreban parametara "Digitalni_sertifikat1.xml"
+	// *** static zbog main-a
+	public static void generateXHTML(String xmlDoc) {
+		inputFile += xmlDoc;
+		int brojHTMLa = new File(htmlFile).listFiles().length - 3;
+		htmlFile = htmlFile + "/digitalni_sertifikat_html" + brojHTMLa + ".html";
+		int brojPDFa = new File(outputFile).listFiles().length;
+		outputFile = outputFile + "/digitalni_sertifikat" + brojPDFa + ".pdf";
+		
+		System.out.println("Generisanje XHTML-a u toku...");
+    	
+    	// Creates parent directory if necessary
+    	File pdfFile = new File(outputFile);
+		if (!pdfFile.getParentFile().exists()) {
+			System.out.println("[INFO] A new directory is created: " + pdfFile.getParentFile().getAbsolutePath() + ".");
+			pdfFile.getParentFile().mkdir();
+		}
+		PDFTransformer pdfTransformer = new PDFTransformer();
+		try {
+			pdfTransformer.generateHTML(inputFile, htmlFile);
+			pdfTransformer.generatePDF(outputFile);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("Izgenerisan HTML i PDF.");
+	}
  
-    /**
-     * Creates a PDF using iText Java API
-     * @param filePath
-     * @throws IOException
-     * @throws DocumentException
-     */
     public void generatePDF(String filePath) throws IOException, DocumentException {
     	Document document = new Document();
         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filePath));
@@ -76,10 +110,10 @@ public class PDFTransformer {
 		return document;
 	}
     
-    public void generateHTML(String xmlPath, String xslPath) throws FileNotFoundException {
+    public void generateHTML(String xmlPath, String htmlPath) throws FileNotFoundException {
 		try {
 			// ZA DIGITALNI_SERTIFIKAT_HTML
-			StreamSource transformSource = new StreamSource(new File(xslPath));
+			StreamSource transformSource = new StreamSource(new File(XSL_HTML_FILE));
 			Transformer transformer = transformerFactory.newTransformer(transformSource);
 			transformer.setOutputProperty("{http://xml.apache.org/xalan}indent-amount", "2");
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
@@ -87,7 +121,7 @@ public class PDFTransformer {
 			transformer.setOutputProperty(OutputKeys.METHOD, "xhtml");
 
 			DOMSource source = new DOMSource(buildDocument(xmlPath));
-			StreamResult result = new StreamResult(new FileOutputStream(HTML_FILE));
+			StreamResult result = new StreamResult(new FileOutputStream(htmlPath));
 			transformer.transform(source, result);
 			
 			// ZA DIGITALNI_SERTIFIKAT_PDF
@@ -107,7 +141,6 @@ public class PDFTransformer {
 		} catch (TransformerException e) {
 			e.printStackTrace();
 		}
-    
     }
     
     public static void main(String[] args) throws IOException, DocumentException {
@@ -120,10 +153,13 @@ public class PDFTransformer {
 			pdfFile.getParentFile().mkdir();
 		}
 		PDFTransformer pdfTransformer = new PDFTransformer();
-		pdfTransformer.generateHTML(INPUT_FILE, XSL_HTML_FILE);
+		pdfTransformer.generateHTML(INPUT_FILE, HTML_FILE);
 		pdfTransformer.generatePDF(OUTPUT_FILE);
 		
 		System.out.println("[INFO] File \"" + OUTPUT_FILE + "\" generated successfully.");
 		System.out.println("[INFO] End.");
+
+		//System.out.println("--------------------------------------------------------");
+		//generateXHTML("Digitalni_sertifikat2.xml");
     }
 }

@@ -16,7 +16,11 @@
 	            	Certificate ID: <img src="data\pictures\prazan_prostor.png" width="20" height="12"/> <xsl:value-of select="b:Sertifikat/b:Info_sertifikat/b:Broj_sertifikata"/>
 	            	<img src="data\pictures\prazan_prostor.png" width="185" height="12"/>
 	            	Certificate issuing date and time: <img src="data\pictures\prazan_prostor.png" width="30" height="12"/> <xsl:value-of select="b:Sertifikat/b:Info_sertifikat/b:Datum_izdavanja"/> <br />
-	            	<img src="data\pictures\cir_ime.png" width="320" heigth="15"/> <xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Ime"/> <xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Prezime"/><br/>
+	            	<img src="data\pictures\cir_ime.png" width="320" heigth="15"/> 
+	            	<xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Ime"/>
+	            	<img src="data\pictures\prazan_prostor.png" width="5" height="12"/>
+	            	<xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Prezime"/>
+	            	<br/>
 	            	<img src="data\pictures\cir_pol.png" width="320" heigth="15"/> <xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Pol"/><br/>
 	            	<img src="data\pictures\cir_dat_rodj.png" width="320" heigth="15"/> <xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Datum_rodjenja"/><br/>
 	            	<img src="data\pictures\cir_jmbg.png" width="320" heigth="15"/> <xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:JMBG"/><br/>
@@ -32,6 +36,7 @@
                      </xsl:for-each>
                      <br/>
                      <img src="data\pictures\cir_proizvodjac.png"/><br/>
+	            	<img src="data\pictures\prazan_prostor.png" width="12" height="12"/>
                      <xsl:for-each select="b:Sertifikat/b:Info_vakcinacije/b:Vakcinacije">
                         <xsl:sort select="@Doza"/>
                       	<xsl:value-of select="b:Proizvodjac"/>, <xsl:value-of select="b:Serija"/>

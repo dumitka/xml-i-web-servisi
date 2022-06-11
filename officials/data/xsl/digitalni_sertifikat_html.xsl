@@ -56,7 +56,8 @@
 	            	<br/>
 	            	<span class="boldovano">Име и презиме / Name and surname: </span>
 	            	<img src="../../data/pictures/prazan_prostor.png" width="90" height="12"/>
-	            	<xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Ime"/> 
+	            	<xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Ime"/>
+	            	<img src="../../data/pictures/prazan_prostor.png" width="5" height="12"/>
 	            	<xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Prezime"/>
 	            	<br/>
 	            	<span class="boldovano">Пол / Gender: </span>
