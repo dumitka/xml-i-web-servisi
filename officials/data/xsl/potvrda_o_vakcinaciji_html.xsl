@@ -77,7 +77,13 @@
             		<br/>
             	</p>
             	<p style="color:d3d3d3;font-size:14;">
-            		<span class="boldovano" style="font-size:18"> Име и презиме: <xsl:value-of select="b:Potvrda/b:Info_korisnika/t:Ime"/>  <xsl:value-of select="b:Potvrda/b:Info_korisnika/t:Prezime"/></span>
+            		<span class="boldovano" style="font-size:18"> 
+            			Име и презиме: 
+            			<img src="../../data/pictures/prazan_prostor.png" width="5" height="12"/>
+            			<xsl:value-of select="b:Potvrda/b:Info_korisnika/t:Ime"/>
+            			<img src="../../data/pictures/prazan_prostor.png" width="5" height="12"/>
+            			<xsl:value-of select="b:Potvrda/b:Info_korisnika/t:Prezime"/>
+            		</span>
             		<br/>
             		Ime i prezime / First and last name
             		<br/>
@@ -127,7 +133,7 @@
             		Naziv vkacine / Name of vaccine
             		<br/>
             		<br/>
-            		<span class="boldovano" style="font-size:18"> Датум издавања потврде: <xsl:value-of select="b:Potvrda/b:Info_korisnika/t:Datum_izdavanja"/></span>
+            		<span class="boldovano" style="font-size:18"> Датум издавања потврде: <xsl:value-of select="b:Potvrda/b:Datum_izdavanja"/></span>
             		<br/>
             		Datum izdavanja potvrde / Confirmation realease date
             		<br/>
