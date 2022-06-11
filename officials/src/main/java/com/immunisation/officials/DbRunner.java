@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 import com.immunisation.officials.model.authority.Authority;
 import com.immunisation.officials.model.user.User;
+import com.immunisation.officials.model.vaccineinfo.VaccineInfo;
 import com.immunisation.officials.repository.AuthorityRepository;
 import com.immunisation.officials.repository.UserRepository;
 import com.immunisation.officials.service.AuthorityService;
 import com.immunisation.officials.service.CustomUserDetailsService;
+import com.immunisation.officials.service.VaccineInfoService;
 
 import org.springframework.context.ApplicationContext;
 
@@ -96,6 +98,49 @@ public class DbRunner {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        
+        
+        //VACCINES
+        
+        VaccineInfoService vaccService = appContext.getBean(VaccineInfoService.class);
+        
+        VaccineInfo vacc1 = new VaccineInfo();
+        vacc1.setNaziv("Pfizer-BioNTech");
+        vacc1.setSlobodnih(5);
+        vacc1.setRezervisanih(0);
+        
+        
+        VaccineInfo vacc2 = new VaccineInfo();
+        vacc2.setNaziv("Sputnik-V");
+        vacc2.setSlobodnih(5);
+        vacc2.setRezervisanih(0);
+        
+        VaccineInfo vacc3 = new VaccineInfo();
+        vacc3.setNaziv("Sinopharm");
+        vacc3.setSlobodnih(5);
+        vacc3.setRezervisanih(0);
+        
+        VaccineInfo vacc4 = new VaccineInfo();
+        vacc4.setNaziv("AstraZeneca");
+        vacc4.setSlobodnih(5);
+        vacc4.setRezervisanih(0);
+        
+        VaccineInfo vacc5 = new VaccineInfo();
+        vacc5.setNaziv("Moderna");
+        vacc5.setSlobodnih(5);
+        vacc5.setRezervisanih(0);
+        
+        try {
+        	vaccService.save(vacc1);
+        	vaccService.save(vacc2);
+        	vaccService.save(vacc3);
+        	vaccService.save(vacc4);
+        	vaccService.save(vacc5);
+        	System.out.println("Dodali smo vakcine");
+        }catch(Exception e) {
+        	System.out.println(e.getMessage());
+        }
+        
 	}
 	
 }

@@ -51,11 +51,12 @@ public class VaccineInfoRepository {
     	return infos;
     }
     
-	//kreiraj novu(za db runner npr)
-    public void saveInterest(String text, String docUri) throws Exception {
-		existManager.storeFromText(collectionUri, docUri + ".xml", text);
-	}
+	
+//    public void saveInterest(String text, String docUri) throws Exception {
+//		existManager.storeFromText(collectionUri, docUri + ".xml", text);
+//	}
     
+  //kreiraj novu(za db runner npr)
     public void save(VaccineInfo vaccineInfo) throws Exception {
         JAXBContext context = JAXBContext.newInstance("com.immunisation.officials.model.vaccineinfo");
 
@@ -70,14 +71,15 @@ public class VaccineInfoRepository {
     }
     
 	//dodaj nove slobodne
-    public void dodajNoveVakcine(String vaccInfoUri, Integer kolicina) throws Exception {
-    	String[] parts = vaccInfoUri.split("/");
-    	String id = parts[parts.length -1];
-    	String collectionName = parts[parts.length -2];
+    public void dodajNoveVakcine(String naziv, Integer kolicina) throws Exception {
     	
-    	VaccineInfo vInfo = this.findByNaziv(id);
+//    	String[] parts = vaccInfoUri.split("/");
+//    	String id = parts[parts.length -1];
+//    	String collectionName = parts[parts.length -2];
     	
-    	existManager.update(0, "/db/eUprava/" + collectionName, vaccInfoUri + ".xml", "//*slobodnih", String.valueOf(vInfo.getSlobodnih() + kolicina));
+    	VaccineInfo vInfo = this.findByNaziv(naziv);
+    	
+    	existManager.update(0, collectionUri, collectionUri + "/" + naziv + ".xml", "//*slobodnih", String.valueOf(vInfo.getSlobodnih() + kolicina));
     }
     
 	//rezervisi jednu
