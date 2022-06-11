@@ -11,6 +11,8 @@ import * as xml2js from 'xml2js';
 })
 export class VaccService {
 
+  readonly URL: string = Main.PATH + "api/vaccinfo";
+
   constructor(private router: Router,
     private http: HttpClient,
     ) {}
@@ -19,8 +21,19 @@ export class VaccService {
   private parser = new xml2js.Parser({
     explicitArray: false,
     explicitRoot: false,
+    tagNameProcessors: [xml2js.processors.stripPrefix]
   });
 
+  getAll() {
+    return this.http.get(Main.PATH + "api/vaccinfo", {headers: Main.HEADERS,  responseType: 'text'})
+    .pipe(map((data) => {
+      let out_result;
+      this.parser.parseString(data, (err, result) => {
+        out_result = result;
+      })
+      return out_result.VaccineInfos.VaccineInfo;
+    }, catchError(this.errorHandler)));
+  }
 
 
   errorHandler(error: HttpErrorResponse) {

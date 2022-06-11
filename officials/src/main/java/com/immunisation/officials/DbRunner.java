@@ -112,22 +112,22 @@ public class DbRunner {
         
         VaccineInfo vacc2 = new VaccineInfo();
         vacc2.setNaziv("Sputnik-V");
-        vacc2.setSlobodnih(5);
+        vacc2.setSlobodnih(6);
         vacc2.setRezervisanih(0);
         
         VaccineInfo vacc3 = new VaccineInfo();
         vacc3.setNaziv("Sinopharm");
-        vacc3.setSlobodnih(5);
+        vacc3.setSlobodnih(7);
         vacc3.setRezervisanih(0);
         
         VaccineInfo vacc4 = new VaccineInfo();
         vacc4.setNaziv("AstraZeneca");
-        vacc4.setSlobodnih(5);
+        vacc4.setSlobodnih(8);
         vacc4.setRezervisanih(0);
         
         VaccineInfo vacc5 = new VaccineInfo();
         vacc5.setNaziv("Moderna");
-        vacc5.setSlobodnih(5);
+        vacc5.setSlobodnih(9);
         vacc5.setRezervisanih(0);
         
         try {
