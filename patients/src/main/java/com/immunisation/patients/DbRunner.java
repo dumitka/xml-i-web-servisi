@@ -3,8 +3,14 @@ package com.immunisation.patients;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.springframework.context.ApplicationContext;
+
+import com.immunisation.patients.enums.EmploymentStatus;
+import com.immunisation.patients.enums.Profession;
 import com.immunisation.patients.enums.VaccineType;
 import com.immunisation.patients.model.authority.Authority;
+import com.immunisation.patients.model.consent.ConsentForVaccination;
+import com.immunisation.patients.model.consent.PartForPatients;
 import com.immunisation.patients.model.interest.Interest;
 import com.immunisation.patients.model.interest.VaccinationData;
 import com.immunisation.patients.model.types.Address;
@@ -12,12 +18,11 @@ import com.immunisation.patients.model.types.Contact;
 import com.immunisation.patients.model.types.ExtendUser;
 import com.immunisation.patients.model.user.User;
 import com.immunisation.patients.repository.AuthorityRepository;
+import com.immunisation.patients.repository.ConsentForVaccinationReposity;
 import com.immunisation.patients.repository.InterestRepository;
 import com.immunisation.patients.repository.UserRepository;
 import com.immunisation.patients.service.AuthorityService;
 import com.immunisation.patients.service.CustomUserDetailsService;
-
-import org.springframework.context.ApplicationContext;
 
 public class DbRunner {
 
@@ -51,13 +56,14 @@ public class DbRunner {
         UserRepository userRepo = appContext.getBean(UserRepository.class);
         InterestRepository inRepo = appContext.getBean(InterestRepository.class);
         AuthorityService authorityService = appContext.getBean(AuthorityService.class);
+        ConsentForVaccinationReposity cfvRepository = appContext.getBean(ConsentForVaccinationReposity.class);
         
         User admin = new User();
         admin.setPassword("admin");
         admin.setUsername("admin@gmail.com");
 		admin.setIme("Adminko");
 		admin.setPrezime("Adminic");
-		admin.setJmbg("1111122222333");
+		admin.setJmbg("1111122222334");
 		
 		admin.setPassword(userDetailsService.encodePassword(admin.getPassword()));
 		
@@ -143,8 +149,53 @@ public class DbRunner {
             System.out.println(e.getMessage());
         }
 
+        // CONSENT
+        ConsentForVaccination cfv = new ConsentForVaccination();
         
+        PartForPatients pfp = new PartForPatients();
+        pfp.setDate(new Date(2022, 05, 05));
+        
+        ExtendUser patient = new ExtendUser();
+        
+        Address address = new Address();
+        address.setNumber("22");
+        address.setPlace("Novi Sad");
+        address.setStreet("Zmaj Jovina");
+        address.setTownship("Novi Sad");
+        patient.setAddress(address);
+        
+        patient.setBirthdate(new Date(1979, 05, 27));
+        patient.setBirthPlace("Novi Sad");
+        patient.setCitizenship("Republika Srbija");
+        
+        Contact contact = new Contact();
+        contact.setCellphone("0641234567");
+        contact.setEmail("pera@gmail.com");
+        contact.setLandline("021123456");
+        patient.setContact(contact);
+        
+        patient.setDocument(pacijent.getJmbg());
+        patient.setEmploymentStatus(EmploymentStatus.ZAPOSLEN);
+        patient.setGender("M");
+        patient.setHeadquarterOfSocialCare("");
+        patient.setLastName(pacijent.getPrezime());
+        patient.setName(pacijent.getIme());
+        patient.setNameOfParent("Marko");
+        
+        patient.setProfession(Profession.PROSVETA);
+        patient.setResidence("Republika Srbija");
+        patient.setSocialCare(false);
+        pfp.setPatient(patient);
+        
+        pfp.setPatientAgrees(true);
+        pfp.setVaccineType(VaccineType.PFIZER);
+        
+        cfv.setPartForPatients(pfp);
+
+        try {
+        	cfvRepository.save(cfv);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 	}
-	
-	
 }

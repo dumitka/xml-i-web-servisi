@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../services/user.service';
 
 export interface User {
   ime: string;
@@ -32,14 +33,19 @@ export class DashboardWorkerComponent implements OnInit {
   dataSource: User[] = [];
   displayedColumns = this.columns.map(c => c.columnDef);
 
-  constructor() { }
+  constructor(private service: UserService) { }
 
   ngOnInit(): void {
+    this.loadData();
   }
 
-  finish() {}
+  loadData() {
+    this.service.getPatientsWithConsent().subscribe(
+      data => {
+        this.dataSource = data;
+      }
+    );
+  }
 
-  add() {}
-
-  back() {}
+  immunise() {}
 }

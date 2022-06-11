@@ -49,7 +49,7 @@ public class DbRunner {
         sluzbenik.setUsername("sluzbenik@gmail.com");
         sluzbenik.setIme("Sluzbenik");
         sluzbenik.setPrezime("Sluzic");
-        sluzbenik.setJmbg(1199122662333L);
+        sluzbenik.setJmbg("1199122662333");
 		
         sluzbenik.setPassword(userDetailsService.encodePassword(sluzbenik.getPassword()));
 		
@@ -76,7 +76,7 @@ public class DbRunner {
         zRadnik.setUsername("zradnik@gmail.com");
         zRadnik.setIme("Zdravstven");
         zRadnik.setPrezime("Radnicic");
-        zRadnik.setJmbg(1117722222333L);
+        zRadnik.setJmbg("1117722222333");
 		
         zRadnik.setPassword(userDetailsService.encodePassword(zRadnik.getPassword()));
 		

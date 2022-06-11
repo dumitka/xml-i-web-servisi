@@ -2,6 +2,7 @@ package com.immunisation.officials.repository;
 
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.List;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -27,12 +28,15 @@ public class UserRepository {
         return userFromString(user);
 	}
 
-	public User[] findAll() throws Exception {
+	public User[] findAllByJMBG(List<String> jmbgs) throws Exception {
 		String[] xmls = existManager.loadXmlDocsToCollection(collectionUri);
         User[] users = new User[xmls.length];
 
         for (int i = 0; i < xmls.length; i++) {
-            users[i] = userFromString(xmls[i]);
+        	User user = userFromString(xmls[i]);
+        	if (jmbgs.contains(user.getJmbg())) {
+                users[i] = userFromString(xmls[i]);
+			}
         }
 
         return users;

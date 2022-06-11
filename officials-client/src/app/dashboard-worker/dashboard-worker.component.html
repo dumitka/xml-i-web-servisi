@@ -14,16 +14,16 @@
                         <th mat-header-cell *matHeaderCellDef>{{column.header}}</th>
                         <td mat-cell *matCellDef="let row">{{column.cell(row)}}</td>
                     </ng-container>
-                    <ng-container matColumnDef="finish">
-                        <th mat-header-cell *matHeaderCellDef>Finish</th>
+                    <ng-container matColumnDef="immunise">
+                        <th mat-header-cell *matHeaderCellDef>Izvrši</th>
                         <td mat-cell *matCellDef="let row">
-                            <button mat-icon-button color="primary" (click)="finish(row)" [disabled]="row.finished">
+                            <button mat-icon-button color="primary" (click)="immunise(row)">
                                 <mat-icon>check</mat-icon>
                             </button>
                         </td>
                     </ng-container>
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns.concat(['finish'])"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns.concat(['finish']);"></tr>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns.concat(['immunise'])"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns.concat(['immunise']);"></tr>
                 </table>
             </mat-card-content>
         </mat-card>
