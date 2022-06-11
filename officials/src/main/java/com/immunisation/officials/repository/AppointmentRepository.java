@@ -9,7 +9,6 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 import com.immunisation.officials.model.appointment.Appointment;
-import com.immunisation.officials.model.vaccineinfo.VaccineInfo;
 import com.immunisation.officials.xmldb.ExistManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class AppointmentRepository {
 	
-	private String collectionUri = "/db/eUprava/appointment";
+	private String collectionUri = "/db/eUprava/appointments";
 	
 	@Autowired
     private ExistManager existManager;
@@ -40,7 +39,7 @@ public class AppointmentRepository {
 
 	//search po tome da li je rezervisan
 //	[tip~=posta]
-	public Appointment[] searchByRezervisan() throws Exception {
+	public Appointment[] searchByRezervisanFalse() throws Exception {
 		String query = "[rezervisan~=false]";
 		
 		String queryPart = "for $x in collection() ";

@@ -8,6 +8,10 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import com.immunisation.officials.model.DateAdapter;
+import com.immunisation.officials.model.TimeAdapter;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -24,9 +28,11 @@ public class Appointment {
 	protected String id;
 	
 	@XmlElement(namespace = "http://www.baklavice.com/appointment", required = true)
+	@XmlJavaTypeAdapter(DateAdapter.class)
 	protected Date datum;
 	
 	@XmlElement(namespace = "http://www.baklavice.com/appointment", required = true)
+	@XmlJavaTypeAdapter(TimeAdapter.class)
 	protected LocalTime vreme;
 	
 	@XmlElement(namespace = "http://www.baklavice.com/appointment")

@@ -1,12 +1,21 @@
 package com.immunisation.officials;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
+import com.immunisation.officials.model.appointment.Appointment;
 import com.immunisation.officials.model.authority.Authority;
 import com.immunisation.officials.model.user.User;
 import com.immunisation.officials.model.vaccineinfo.VaccineInfo;
 import com.immunisation.officials.repository.AuthorityRepository;
 import com.immunisation.officials.repository.UserRepository;
+import com.immunisation.officials.service.AppointmentService;
 import com.immunisation.officials.service.AuthorityService;
 import com.immunisation.officials.service.CustomUserDetailsService;
 import com.immunisation.officials.service.VaccineInfoService;
@@ -140,6 +149,47 @@ public class DbRunner {
         }catch(Exception e) {
         	System.out.println(e.getMessage());
         }
+        
+        
+        
+        //APPOINTMENTS
+        
+        AppointmentService appService = appContext.getBean(AppointmentService.class);
+        
+        int dateRange = 10;
+        LocalDate sad = LocalDate.now();
+        List<Date> dates = new ArrayList<>();
+        List<LocalTime> times = new ArrayList<>();
+        
+        for(int i = 0; i < dateRange; i++) {
+        	LocalDate localDate = sad.plusDays(i);
+        	Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        	dates.add(date);
+        }
+
+        for(int i = 8; i <= 16; i++) {
+        	LocalTime time = LocalTime.of(i, 0);
+        	times.add(time);
+        }
+        //Za svaki dan, za svako vreme novi termin
+        for(Date date: dates) {
+        	for(LocalTime time : times) {
+        		Appointment a = new Appointment();
+        		System.out.println("_______TERMIN:______" + date + "___________________" + time);
+        		a.setDatum(date);
+        		a.setVreme(time);
+        		a.setId(UUID.randomUUID().toString());
+        		
+        		try {
+					appService.save(a);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+        	}
+        }
+        
+        System.out.println("Ubacili smo termine");
+//  
         
 	}
 	

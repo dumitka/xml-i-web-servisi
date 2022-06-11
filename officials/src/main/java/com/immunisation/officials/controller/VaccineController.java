@@ -1,8 +1,11 @@
 package com.immunisation.officials.controller;
 
+import com.immunisation.officials.dto.VaccinationDate;
 import com.immunisation.officials.dto.VaccineDto;
 import com.immunisation.officials.dto.VaccineInfoCollection;
+import com.immunisation.officials.model.appointment.Appointment;
 import com.immunisation.officials.model.vaccineinfo.VaccineInfo;
+import com.immunisation.officials.service.AppointmentService;
 import com.immunisation.officials.service.VaccineInfoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +26,9 @@ public class VaccineController {
 	@Autowired
 	private VaccineInfoService service;
 	
+	@Autowired
+	private AppointmentService appService;
+	
 	@GetMapping(produces = MediaType.APPLICATION_XML_VALUE)
 	public ResponseEntity<Object> getAll() {
 		try {
@@ -34,7 +40,6 @@ public class VaccineController {
 		}
 	}
 
-	//dodati jos kolicinski
 	@PutMapping(consumes = MediaType.APPLICATION_XML_VALUE)
 	public ResponseEntity<Object> dodajNove(@RequestBody VaccineDto dto) {
 		try {
@@ -44,7 +49,6 @@ public class VaccineController {
 			e.printStackTrace();
 			return new ResponseEntity<>("Error while adding new vacc", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		
 	}
 	
 	@GetMapping(value="/{naziv}", produces = MediaType.APPLICATION_XML_VALUE)
@@ -53,6 +57,29 @@ public class VaccineController {
 			VaccineInfo v = service.getByNaziv(naziv);
 			return new ResponseEntity<>(v, HttpStatus.OK);
 		}catch(Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@PutMapping(value="/zakazivanje/{vakcina}", produces = MediaType.APPLICATION_XML_VALUE)
+	public ResponseEntity<Object> zakazivanje(@PathVariable String vakcina) throws Exception {
+		
+		try {
+			VaccineInfo vaccInfo = service.getByNaziv(vakcina);
+			Appointment[] array = appService.searchSlobodne();
+			
+			if(vaccInfo.getSlobodnih() < 1 || array.length == 0) {
+				return new ResponseEntity<>(null, HttpStatus.OK);
+			}
+			
+			Appointment a = array[0];
+			service.rezervisiJednuDozu(vakcina);
+			
+			VaccinationDate dto = new VaccinationDate(vakcina, a.getDatum(), a.getVreme());
+			
+			return new ResponseEntity<>(dto, HttpStatus.OK);
+		} catch(Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
