@@ -2,6 +2,7 @@ package com.immunisation.officials.controller;
 
 import com.immunisation.officials.dto.VaccineDto;
 import com.immunisation.officials.dto.VaccineInfoCollection;
+import com.immunisation.officials.model.vaccineinfo.VaccineInfo;
 import com.immunisation.officials.service.VaccineInfoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +34,6 @@ public class VaccineController {
 		}
 	}
 
-	
 	//dodati jos kolicinski
 	@PutMapping(consumes = MediaType.APPLICATION_XML_VALUE)
 	public ResponseEntity<Object> dodajNove(@RequestBody VaccineDto dto) {
@@ -44,6 +45,17 @@ public class VaccineController {
 			return new ResponseEntity<>("Error while adding new vacc", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
+	}
+	
+	@GetMapping(value="/{naziv}", produces = MediaType.APPLICATION_XML_VALUE)
+	public ResponseEntity<VaccineInfo> getByNaziv(@PathVariable String naziv) {
+		try {
+			VaccineInfo v = service.getByNaziv(naziv);
+			return new ResponseEntity<>(v, HttpStatus.OK);
+		}catch(Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 

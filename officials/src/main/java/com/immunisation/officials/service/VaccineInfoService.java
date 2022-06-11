@@ -45,12 +45,12 @@ public class VaccineInfoService {
 		repository.dodajNoveVakcine(naziv, kolicina);
 	}
 	
-	//rezervisi jednu
+	//rezervisi jednu TREBACE PRI NALAZENJU TERMINA
 	public void rezervisiJednuDozu(String vaccInfoUri) throws Exception {
 		repository.rezervisiJednu(vaccInfoUri);
 	}
 	
-	//smanji  rezervisane za jednu
+	//smanji  rezervisane za jednu  TREBACE PRI VAKCINACIJI
 	public void smanjiRezervisaneZaJedan(String vaccInfoUri) throws Exception {
 		repository.obaviVakcinaciju(vaccInfoUri);
 	}
