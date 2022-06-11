@@ -1,6 +1,5 @@
 package com.immunisation.officials.model.appointment;
 
-import java.time.LocalTime;
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -11,14 +10,13 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.immunisation.officials.model.DateAdapter;
-import com.immunisation.officials.model.TimeAdapter;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "appointment", propOrder = {
 		"id",
 		"datum",
-		"vreme",
+		"vremeSeconds",
 		"rezervisan"
 })
 @XmlRootElement(name = "appointment", namespace = "http://www.baklavice.com/appointment")
@@ -32,8 +30,7 @@ public class Appointment {
 	protected Date datum;
 	
 	@XmlElement(namespace = "http://www.baklavice.com/appointment", required = true)
-	@XmlJavaTypeAdapter(TimeAdapter.class)
-	protected LocalTime vreme;
+	protected int vremeSeconds;
 	
 	@XmlElement(namespace = "http://www.baklavice.com/appointment")
 	protected Boolean rezervisan;
@@ -55,12 +52,13 @@ public class Appointment {
 		this.datum = datum;
 	}
 
-	public LocalTime getVreme() {
-		return vreme;
+
+	public int getVremeSeconds() {
+		return vremeSeconds;
 	}
 
-	public void setVreme(LocalTime vreme) {
-		this.vreme = vreme;
+	public void setVremeSeconds(int i) {
+		this.vremeSeconds = i;
 	}
 
 	public Boolean getRezervisan() {

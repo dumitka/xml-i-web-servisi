@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -62,21 +63,27 @@ public class VaccineController {
 		}
 	}
 	
-	@PutMapping(value="/zakazivanje/{vakcina}", produces = MediaType.APPLICATION_XML_VALUE)
-	public ResponseEntity<Object> zakazivanje(@PathVariable String vakcina) throws Exception {
-		
+	@GetMapping(value="/zakazivanje/{vakcina}", produces = MediaType.APPLICATION_XML_VALUE)
+	public ResponseEntity<VaccinationDate> zakazivanje(@PathVariable String vakcina) throws Exception {
+		System.out.println("______________________________________STIGAO ZAHTEV ZA ZAKAZIVANJE, VAKCINA SLEDECA: " + vakcina);
 		try {
+			System.out.println(vakcina);
 			VaccineInfo vaccInfo = service.getByNaziv(vakcina);
 			Appointment[] array = appService.searchSlobodne();
 			
 			if(vaccInfo.getSlobodnih() < 1 || array.length == 0) {
+				System.out.println("_______________________________________ILI NEMA VAKCINE< ILI NEMA TERMINA, EVO OBJEKATA");
+				System.out.println(vaccInfo);
+				System.out.println(array);
 				return new ResponseEntity<>(null, HttpStatus.OK);
 			}
-			
+			System.out.println("____________________________________NASLI SMO I VAKCINU I TERMIN");
 			Appointment a = array[0];
 			service.rezervisiJednuDozu(vakcina);
-			
-			VaccinationDate dto = new VaccinationDate(vakcina, a.getDatum(), a.getVreme());
+			appService.rezervisiById(a.getId());
+			System.out.println(a.getDatum());
+			System.out.println(a.getVremeSeconds());
+			VaccinationDate dto = new VaccinationDate(vakcina, a.getDatum(), a.getVremeSeconds());
 			
 			return new ResponseEntity<>(dto, HttpStatus.OK);
 		} catch(Exception e) {

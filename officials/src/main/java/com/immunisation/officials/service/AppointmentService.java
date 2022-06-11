@@ -21,6 +21,7 @@ public class AppointmentService {
 	}
 	
 	public Appointment[] searchSlobodne() throws Exception {
+		System.out.println("_________++++++++++++++++++++________________EVO TRAZIMO SLOBODNE");
 		return repository.searchByRezervisanFalse();
 	}
 	

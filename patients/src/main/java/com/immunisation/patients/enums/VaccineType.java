@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 public enum VaccineType {
 	
 	@XmlEnumValue("Pfizer-BioNTech") PFIZER,
-    @XmlEnumValue("Sputnik V") SPUTNIK,
+    @XmlEnumValue("Sputnik-V") SPUTNIK,
     @XmlEnumValue("Sinopharm") SINOPHARM,
     @XmlEnumValue("AstraZeneca") ASTRA_ZENECA,
     @XmlEnumValue("Moderna") MODERNA;

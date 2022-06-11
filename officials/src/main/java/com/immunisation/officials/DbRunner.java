@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoField;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -175,10 +176,10 @@ public class DbRunner {
         for(Date date: dates) {
         	for(LocalTime time : times) {
         		Appointment a = new Appointment();
-        		System.out.println("_______TERMIN:______" + date + "___________________" + time);
         		a.setDatum(date);
-        		a.setVreme(time);
+        		a.setVremeSeconds(time.get(ChronoField.SECOND_OF_DAY));
         		a.setId(UUID.randomUUID().toString());
+        		a.setRezervisan(false);
         		
         		try {
 					appService.save(a);

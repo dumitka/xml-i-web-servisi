@@ -1,4 +1,4 @@
-package com.immunisation.officials.dto;
+package com.immunisation.patients.dto;
 
 import java.util.Date;
 
@@ -7,7 +7,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import com.immunisation.officials.model.DateAdapter;
+import com.immunisation.patients.model.types.DateAdapter;
+
 
 
 @XmlRootElement(name = "vaccinationDate")
@@ -15,14 +16,14 @@ import com.immunisation.officials.model.DateAdapter;
 public class VaccinationDate {
 	
 	@XmlElement(name="naziv")
-	private String naziv;
+	public String naziv;
 	
 	@XmlElement(name="datum")
 	@XmlJavaTypeAdapter(DateAdapter.class)
-	private Date datum;
+	public Date datum;
 	
 	@XmlElement(name="vremeSeconds")
-	private int vremeSeconds;
+	public int vremeSeconds;
 
 	public VaccinationDate() {
 	}
@@ -33,7 +34,6 @@ public class VaccinationDate {
 		this.datum = datum;
 		this.vremeSeconds = vremeSeconds;
 	}
-
-
 	
 }
+

@@ -1,7 +1,13 @@
 package com.immunisation.patients.service;
 
+import java.time.LocalTime;
+import java.time.temporal.ChronoField;
+
 import com.immunisation.patients.dto.MailPackage;
+import com.immunisation.patients.dto.VaccinationDate;
 import com.immunisation.patients.model.interest.Interest;
+import com.immunisation.patients.util.DateTypeConverter;
+import com.immunisation.patients.util.LocalTimeTypeConverter;
 
 import org.springframework.stereotype.Service;
 
@@ -35,6 +41,28 @@ public class EmailService {
 		mp.setBody(text);
 		
 		
+		return mp;
+	}
+
+	public MailPackage sendVaccinationDate(VaccinationDate vd, String email, String mesto) {
+		int totalSecs = vd.vremeSeconds;
+		int hours = totalSecs / 3600;
+		int minutes = (totalSecs % 3600) / 60;
+
+		String timeString = String.format("%02d:%02d", hours, minutes);
+		
+		String text = "Poštovani,\n"
+				+ "Portal za imunizaciju je pronašao slobodan termin i rezervisao dozu "+ vd.naziv + " vakcine za Vas.\n"   // . Dobićete obaveštenje o prvom slobodnom terminu imunizacije uskoro.\n"
+				+ "Ovo je vreme i mesto vaše prve imunizacije: \n\n" 
+				+ "Mesto: " + mesto + "\n"
+				+ "Datum: " + DateTypeConverter.printDate(vd.datum) + "\n"
+				+ "Vreme: " + timeString;
+		
+		
+		MailPackage mp = new MailPackage();
+		mp.setRecipient(email);
+		mp.setSubject("Termin prve vakcinacije");
+		mp.setBody(text);
 		return mp;
 	}
 
