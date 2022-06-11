@@ -83,6 +83,9 @@ public class PDFTransformer {
 		}
 		
 		System.out.println("Izgenerisan HTML i PDF.");
+		htmlFile = "gen/html";
+		inputFile = "data/xml/";
+		outputFile = "gen/pdf";
 	}
  
     public void generatePDF(String filePath) throws IOException, DocumentException {
