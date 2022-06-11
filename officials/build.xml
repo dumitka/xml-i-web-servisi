@@ -1,0 +1,17 @@
+<project name="XMLTransformations" default="main" basedir=".">
+
+	<property name="lib.dir" location="${basedir}/lib" />
+	<property name="data.dir" location="${basedir}/data/" />
+	<property name="xml.dir" location="${data.dir}/xml" />
+	<property name="xsl.dir" location="${data.dir}/xsl" />
+	<property name="gen.dir" location="${basedir}/gen" />
+
+	<!-- XSLT primer -->
+	<target name="example1-generate-html">
+		<echo message="Generating HTML file." />
+		<xslt in="${xml.dir}/Digitalni_sertifikat1.xml" style="${xsl.dir}/digitalni_sertifikat.xsl" out="${gen.dir}/html/digitalni_sertifikat.html" />
+	</target>
+
+	<target name="main" />
+
+</project>
