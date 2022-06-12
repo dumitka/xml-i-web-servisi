@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 //import { VaccRequestComponent } from '/vacc-request/vacc-request.component';
 import { GreenSerRequestComponent } from './green-ser-request/green-ser-request.component';
 import { InterestComponent } from './interest/interest.component';
+import { ConsentComponent } from './consent/consent.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'interest', component: InterestComponent},
   {path: 'adminDashboard', component: AdminDashboardComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'greenSerRequest', component: GreenSerRequestComponent}
+  {path: 'greenSerRequest', component: GreenSerRequestComponent},
+  {path: 'consent', component: ConsentComponent}
 ];
 
 @NgModule({

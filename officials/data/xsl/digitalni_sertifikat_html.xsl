@@ -11,36 +11,30 @@
                 <link rel="stylesheet" type="text/css" href="digitalni_sertifikat.css"/>
             </head>
             <body>
-            	<p>
-            		<img src="../../data/pictures/grb_rs.png" 
-            			class="levo" alt="Grb Srbije" width="30%" height="30%"/>
-            		<img src="../../data/pictures/primer_qrk.jpg" 
-            			class="desno" alt="QR kod" width="30%" height="30%"/>
+            	<p style="text-align:center;">
+            		<img src="../../data/pictures/grb_rs.png" class="levo" alt="Grb Srbije"/>
+            		<img src="../../data/pictures/primer_qrk.jpg" class="desno" alt="QR kod"/>
             			
-            		<img src="../../data/pictures/prazan_prostor.png" width="1000" height="25"/>
-            		<img src="../../data/pictures/prazan_prostor.png" width="250" height="12"/>
+            		<br/>
+            		<br/>
             		<span class="naslov"> ДИГИТАЛНИ ЗЕЛЕНИ СЕРТИФИКАТ </span>
-            		<img src="../../data/pictures/prazan_prostor.png" width="200" height="12"/>
-            		<img src="../../data/pictures/prazan_prostor.png" width="300" height="12"/>
+            		<br/>
             		<span class="podnaslov">Потврда о извршеној вакцинацији против</span>
-            		<img src="../../data/pictures/prazan_prostor.png" width="200" height="12"/>
-            		<img src="../../data/pictures/prazan_prostor.png" width="400" height="12"/>
+            		<br/>
             		<span class="podnaslov">COVID-19 и резултатима тестирања</span>
-            		<img src="../../data/pictures/prazan_prostor.png" width="300" height="12"/>
-            		
-            		<img src="../../data/pictures/prazan_prostor.png" width="300" height="12"/>
+            		<br/>
             		<span class="naslov"> DIGITAL GREEN CERTIFICATE </span>
-            		<img src="../../data/pictures/prazan_prostor.png" width="250" height="12"/>
-            		<img src="../../data/pictures/prazan_prostor.png" width="250" height="12"/>
+            		<br/>
             		<span class="podnaslov">Certificate of vaccination against COVID-19</span>
-            		<img src="../../data/pictures/prazan_prostor.png" width="150" height="12"/>
-            		<img src="../../data/pictures/prazan_prostor.png" width="420" height="12"/>
+            		<br/>
             		<span class="podnaslov">and test result</span>
-            		<img src="../../data/pictures/prazan_prostor.png" width="330" height="12"/>
-            		<img src="../../data/pictures/prazan_prostor.png" width="1000" height="25"/>
+            		<br/>
             	</p>
-            	<br/>
             	<p>
+            		<br/>
+            		РЕПУБЛИКА СРБИЈА<br/>
+            		REPUBLIC OF SERBIA<br/>
+            		<br/>
 	            	<span class="boldovano">Број сертификата /</span>
 	            	<img src="../../data/pictures/prazan_prostor.png" width="590" height="12"/>
 	            	<span class="boldovano">Датум и време издавања сертификата /</span>
@@ -53,36 +47,40 @@
 	            	<img src="../../data/pictures/prazan_prostor.png" width="90" height="12"/>
 	            	<xsl:value-of select="b:Sertifikat/b:Info_sertifikat/b:Datum_izdavanja"/>
 	            	<br/>
-	            	<br/>
-	            	<span class="boldovano">Име и презиме / Name and surname: </span>
-	            	<img src="../../data/pictures/prazan_prostor.png" width="90" height="12"/>
-	            	<xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Ime"/>
-	            	<img src="../../data/pictures/prazan_prostor.png" width="5" height="12"/>
-	            	<xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Prezime"/>
-	            	<br/>
-	            	<span class="boldovano">Пол / Gender: </span>
-	            	<img src="../../data/pictures/prazan_prostor.png" width="308" height="12"/>
-	            	<xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Pol"/>
-	            	<br/>
-	            	<span class="boldovano">Датум рођења / Date of birth: </span>
-	            	<img src="../../data/pictures/prazan_prostor.png" width="160" height="12"/>
-	            	<xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Datum_rodjenja"/>
-	            	<br/>
-	            	<span class="boldovano">ЈМБГ / Personal No. / EBS: </span>
-	            	<img src="../../data/pictures/prazan_prostor.png" width="188" height="12"/>
-	            	<xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:JMBG"/>
-	            	<br/>
-	            	<span class="boldovano">Број пасоша / Passport No.: </span>
-	            	<img src="../../data/pictures/prazan_prostor.png" width="178" height="12"/>
-	            	<xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Broj_pasosa"/>
-	            	<br/>
-	            	<img src="../../data/pictures/linija.png"/>
-	            	<br/>
-            	</p>
+	            </p>
+	            <table style="width: 50%; align:left; text-align:left;">
+	            	<tr>
+                        <td><span class="boldovano">Име и презиме / Name and surname:</span></td>
+                        <td>
+                        	<xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Ime"/>
+                        	<img src="../../data/pictures/prazan_prostor.png" width="5" height="12"/>
+	            			<xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Prezime"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="boldovano">Пол / Gender:</span></td>
+                        <td><xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Pol"/></td>
+                    </tr>
+                    <tr>
+                        <td><span class="boldovano">Датум рођења / Date of birth:</span></td>
+                        <td><xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Datum_rodjenja"/></td>
+                    </tr>
+                    <tr>
+                        <td><span class="boldovano">ЈМБГ / Personal No. / EBS:</span></td>
+                        <td><xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:JMBG"/></td>
+                    </tr>
+                    <tr>
+                        <td><span class="boldovano">Број пасоша / Passport No.:</span></td>
+                        <td><xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Broj_pasosa"/></td>
+                    </tr>
+				</table>
+            	<br/>
+            	<img src="../../data/pictures/linija.png" width="100%"/>
+            	<br/>
             	
             	<table style="width: 95%; align:center; text-align:left">
             		<tr>
-                        <td colspan="2" style="text-align:center"><span class="veci_bold" style="text-align:center">Вакцинација / Vaccination</span></td>
+                        <td colspan="2" style="text-align:center"><span class="veci_bold">Вакцинација / Vaccination</span></td>
                     </tr>
                     <tr>
                         <td><span class="boldovano">Доза / Dose: 1/2</span></td>
@@ -125,19 +123,19 @@
             	</table>
             	
             	<p>
-	            	<img src="../../data/pictures/linija.png"/>
+	            	<img src="../../data/pictures/linija.png" width="100%"/>
 	            	<br/>
             	</p> 
             	<table style="width: 95%; align:center;text-align:left">
             		<tr>
-                        <td style="text-align:center"><span class="veci_bold" style="text-align:center">SARS-CoV-2 RT</span></td>
-                        <td style="text-align:center"><span class="veci_bold" style="text-align:center">SARS-CoV-2 Ag-RDT</span></td>
-                        <td style="text-align:center"><span class="veci_bold" style="text-align:center">SARS-CoV-2 RBD S-Protein</span></td>
+                        <td style="text-align:center"><span class="veci_bold">SARS-CoV-2 RT</span></td>
+                        <td style="text-align:center"><span class="veci_bold">SARS-CoV-2 Ag-RDT</span></td>
+                        <td style="text-align:center"><span class="veci_bold">SARS-CoV-2 RBD S-Protein</span></td>
                     </tr>
             		<tr>
-                        <td style="text-align:center"><span class="veci_bold" style="text-align:center">Real-time PCR</span></td>
-                        <td style="text-align:center"><span class="veci_bold" style="text-align:center">(Antigen Rapid Detection test)</span></td>
-                        <td style="text-align:center"><span class="veci_bold" style="text-align:center">Immunoglobulin G (IgG) test</span></td>
+                        <td style="text-align:center"><span class="veci_bold">Real-time PCR</span></td>
+                        <td style="text-align:center"><span class="veci_bold">(Antigen Rapid Detection test)</span></td>
+                        <td style="text-align:center"><span class="veci_bold">Immunoglobulin G (IgG) test</span></td>
                     </tr>
                     <tr>
                         <td><span class="boldovano">Врста узорка / Sample type:</span></td>
@@ -209,8 +207,32 @@
                         <td>N/A</td>
                         <td>N/A</td>
                     </tr>
-                    
             	</table>
+            	
+            	<p style="text-align:right;margin-right:130">
+	            	<span class="boldovano">Дигитални потпус / Digitally signed by:</span>
+            	</p> 
+            	<div width="100%" >
+	            	<div style="width:600;float:left;">
+	            		<img src="../../data/pictures/grb_ijzs.jpg" class="levo"/>
+	            		<br/>
+	            		<span class="boldovano">Сертификат издаје:</span><br/>
+	            		Институт за јавно здравље Србије<br/>
+						"Др Милан Јовановић Батут"<br/>
+	            		<span class="boldovano">Certificate issued by:</span><br/>
+	            		Institute of Public Health of Serbia<br/>
+	            		"Dr Milan Jovanović Batut"<br/>
+	            	</div>
+	            	<div style="width:600;float:right;font-size:17">
+	            		<img src="../../data/pictures/grb_rs.png" class="levo"/>
+	            		<br/><br/><br/>
+	            		РЕПУБЛИКА СРБИЈА<br/>
+	            		Влада Републике Србије<br/>
+	            		Канцеларија за информационе<br/>
+	            		технологије и електронску управу<br/>
+	            		Немањина 11, БЕОГРАД<br/>
+	            	</div>
+            	</div>
             </body>
         </html>
     </xsl:template>

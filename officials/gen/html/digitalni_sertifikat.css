@@ -9,7 +9,15 @@ body {
 img.desno {
     float: right;
     padding: 8px;
-    margin-left: 8px;
+    margin-right: 8px;
+    width: 200;
+    height: 200;
+}
+
+img.srednje {
+    float: center;
+    padding: 8px;
+    margin-left: 500px;
     width: 200;
     height: 200;
 }

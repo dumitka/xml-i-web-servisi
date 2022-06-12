@@ -1,0 +1,75 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.toolbar_button{
+    width: 90px;
+}
+
+#profile_button{
+    margin-right: 20px;
+}
+
+.example-card{
+    width: 1100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f8fafe;
+}
+
+.title{
+    margin-left: 270px;
+}
+
+p{
+    text-align: center;
+}
+
+.citizenship_documents{
+    margin-left: 14%;
+    margin-bottom: 1%;
+}
+
+
+.c1{
+    width: 250px;
+}
+.c2{
+    width: 250px;
+    margin-left: 20px;
+}
+
+.c3{
+    margin-left: 20px;
+    width: 250px;
+}
+
+.h3{
+   margin-left: 45%;
+}
+
+.c4{
+    margin-left: 20px;
+    width: 250px;
+}
+
+.adress{
+    margin-left: 20px;
+}
+
+.izjava{
+    margin-left: 80px;
+}
+
+.datum_saglasnosti{
+    margin-left: 800px;
+}
+
+.submit_button{
+    margin-left: 944px;
+}
+
+.pomjeri{
+    margin-right: 50px;
+}

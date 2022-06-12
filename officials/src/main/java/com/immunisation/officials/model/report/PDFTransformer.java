@@ -1,4 +1,4 @@
-package com.immunisation.officials.model.green_certificate;
+package com.immunisation.officials.model.report;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,16 +28,16 @@ public class PDFTransformer {
 	private static TransformerFactory transformerFactory;
 	
 	private static String inputFile = "data/xml/";
-	private static final String XSL_HTML_FILE = "data/xsl/digitalni_sertifikat_html.xsl";
-	private static final String XSL_PDF_FILE = "data/xsl/digitalni_sertifikat_pdf.xsl";
+	private static final String XSL_HTML_FILE = "data/xsl/izvestaj_o_imunizaciji_html.xsl";
+	private static final String XSL_PDF_FILE = "data/xsl/izvestaj_o_imunizaciji_pdf.xsl";
 	private static String htmlFile = "gen/html";
-	private static final String HTML_PDF_FILE = "gen/html/digitalni_sertifikat_pdf.html";
+	private static final String HTML_PDF_FILE = "gen/html/izvestaj_o_imunizaciji_pdf.html";
 	private static String outputFile = "gen/pdf";
 	
 	// *** za demonstraciju iz main-a
-	public static final String INPUT_FILE = "data/xml/Digitalni_sertifikat1.xml";
-	public static final String HTML_FILE = "gen/html/digitalni_sertifikat_html.html";
-	public static final String OUTPUT_FILE = "gen/pdf/digitalni_sertifikat.pdf";
+	public static final String INPUT_FILE = "data/xml/Izvestaj_o_imunizaciji.xml";
+	public static final String HTML_FILE = "gen/html/izvestaj_o_imunizaciji_html.html";
+	public static final String OUTPUT_FILE = "gen/pdf/izvestaj_o_imunizaciji.pdf";
 
 	static {
 		/* Inicijalizacija DOM fabrike */
@@ -50,14 +50,14 @@ public class PDFTransformer {
 		transformerFactory = TransformerFactory.newInstance();
 	}
 	
-	// potreban parametara "Digitalni_sertifikat1.xml"
+	// potreban parametara "Izvestaj_o_imunizaciji.xml"
 	// *** static zbog main-a
 	public static void generateXHTML(String xmlDoc) {
 		inputFile += xmlDoc;
-		int brojHTMLa = new File(htmlFile).listFiles().length - 3;
-		htmlFile = htmlFile + "/digitalni_sertifikat_html" + brojHTMLa + ".html";
+		int brojHTMLa = new File(htmlFile).listFiles().length - 4;
+		htmlFile = htmlFile + "/izvestaj_o_imunizaciji_html" + brojHTMLa + ".html";
 		int brojPDFa = new File(outputFile).listFiles().length;
-		outputFile = outputFile + "/digitalni_sertifikat" + brojPDFa + ".pdf";
+		outputFile = outputFile + "/izvestaj_o_imunizaciji" + brojPDFa + ".pdf";
 		
 		System.out.println("Generisanje XHTML-a u toku...");
     	
@@ -126,7 +126,7 @@ public class PDFTransformer {
 			StreamResult result = new StreamResult(new FileOutputStream(htmlPath));
 			transformer.transform(source, result);
 			
-			// ZA DIGITALNI_SERTIFIKAT_PDF
+			// ZA IZVESTAJ_O_IMUNIZACIJI_PDF
 			transformSource = new StreamSource(new File(XSL_PDF_FILE));
 			transformer = transformerFactory.newTransformer(transformSource);
 			transformer.setOutputProperty("{http://xml.apache.org/xalan}indent-amount", "2");
@@ -162,6 +162,6 @@ public class PDFTransformer {
 		System.out.println("[INFO] End.");
 
 		//System.out.println("--------------------------------------------------------");
-		//generateXHTML("Digitalni_sertifikat2.xml");
+		//generateXHTML("Izvestaj_o_imunizaciji.xml");
     }
 }
