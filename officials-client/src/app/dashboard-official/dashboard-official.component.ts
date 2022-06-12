@@ -26,4 +26,8 @@ export class DashboardOfficialComponent implements OnInit {
     this.authService.logout();
     this.router.navigate(["/"])
   }
+
+  imunizacija(){
+    this.router.navigate(["/immunisation"])
+  }
 }

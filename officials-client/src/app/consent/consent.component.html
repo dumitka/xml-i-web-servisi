@@ -1,0 +1,281 @@
+<body>
+    <mat-toolbar color="primary">
+        <span>SAGLASNOST ZA VAKCINACIJU</span>
+        <span class="example-spacer"></span>
+        <button mat-raised-button id="profile_button" class="toolbar_button" (click)="profile()">Profil</button>
+        <button mat-raised-button class="toolbar_button" (click)="logout()">Odjava</button>
+    </mat-toolbar>
+
+        <div class="centered">
+            <mat-card class="example-card1">
+                <mat-card-header>
+                <mat-card-title class="title1"> <b>PACIJENTOVI PODACI</b></mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    
+                    <hr>
+                    <p>
+                        <b>Džavljanstvo:</b> {{consent.Deo_za_pacijenta.Licni_podaci.Drzavljanstvo}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <b>Boravište:</b> {{consent.Deo_za_pacijenta.Licni_podaci.Boraviste}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <b>Dokument:</b> {{consent.Deo_za_pacijenta.Licni_podaci.Broj_pasosa}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </p>
+                    <hr>
+                        <p>
+                            <b>Prezime:</b> {{consent.Deo_za_pacijenta.Licni_podaci.Prezime}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b>Ime roditelja:</b> {{consent.Deo_za_pacijenta.Licni_podaci.Ime_roditelja}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b>Ime:</b> {{consent.Deo_za_pacijenta.Licni_podaci.Ime}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </p>
+                    <hr>
+                        <p>
+                            <b>Pol:</b> {{consent.Deo_za_pacijenta.Licni_podaci.Pol}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b>Datum rođenja:</b> {{consent.Deo_za_pacijenta.Licni_podaci.Datum_rodjenja}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b>Mesto rođenja:</b> {{consent.Deo_za_pacijenta.Licni_podaci.Mesto_rodjenja}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </p>
+                    <hr>
+                        <p>
+                            <b>Adresa (ulica i broj):</b> {{consent.Deo_za_pacijenta.Licni_podaci.Adresa.Ulica}}  {{consent.Deo_za_pacijenta.Licni_podaci.Adresa.Broj}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b>Grad:</b> {{consent.Deo_za_pacijenta.Licni_podaci.Adresa.Mesto}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b>Opština:</b> {{consent.Deo_za_pacijenta.Licni_podaci.Adresa.Opstina}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </p>
+                    <hr>
+                        <p>
+                            <b>Telefon:</b> {{consent.Deo_za_pacijenta.Licni_podaci.Kontakt.Broj_mobilnog}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b>Fiksni:</b> {{consent.Deo_za_pacijenta.Licni_podaci.Kontakt.Broj_fiksnog}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b>Imejl:</b> {{consent.Deo_za_pacijenta.Licni_podaci.Kontakt.Email}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </p>
+                    <hr>
+                        <p>
+                            <b>Radni status:</b>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b>Zanimanje zaposelnog:</b> {{consent.Deo_za_pacijenta.Licni_podaci.Zanimanje_zaposlenog}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b>Korisnik ustanove socijalne zaštite:</b> {{consent.Deo_za_pacijenta.Licni_podaci.Socijalna_zastita}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </p>
+                    <hr>
+                </mat-card-content>
+            </mat-card>
+        
+
+        <br>
+        <br>
+
+        <div class="centered">
+            <mat-card class="example-card2">
+                <mat-card-header>
+                <mat-card-title class="title2"> <b>PACIJENTOVA SAGLASNOST ZA IZVRŠENJE IMUNIZACIJE </b></mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <hr>
+                    <p>
+                        Pacijent je <b>SAGLASAN/A</b> sa sprovođenjem aktivne/pasivne imunizacije: <b>{{consent.Deo_za_pacijenta.Tip_vakcine}}</b>
+                        </p>
+                        <p>Lekar je objasnio rizike sprovođenjem aktivne/pasivne imunizacije navedenim imunološkim lekom.</p>
+                        <p>Datum ispunjenja saglasnosti: <b>{{consent.Deo_za_pacijenta.Datum_saglasnosti}}</b></p>
+                    <hr>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+
+    <div class="centered">
+        <mat-card class="example-card">
+            <mat-card-header>
+            <mat-card-title class="title3"> <b>EVIDENCIJA O VAKCINACIJI PROTIV COVID-19 </b></mat-card-title>
+            <mat-card-subtitle class="subtitle">(Popunjava zdravstveni radnik)</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                
+                <form [formGroup]="consentForm" (submit)="onSubmit()">
+                    <div class="zuvp">
+                        <mat-form-field class="c1" appearance="fill">
+                            <mat-label>Zdravstvena ustanova</mat-label>
+                            <input matInput type="text" id="zdravstvena_ustanova" formControlName="zdravstvena_ustanova">
+                        </mat-form-field>
+                    
+                        <mat-form-field class="c2" appearance="fill">
+                        <mat-label>Vakcinacijski punkt</mat-label>
+                        <input matInput type="text" id="vakcinacijski_punkt" formControlName="vakcinacijski_punkt">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="ljekar">
+                        <mat-form-field class="c5" appearance="fill">
+                            <mat-label>Podaci o ljekaru (Ime, prezime, faksimil i broj telefona)</mat-label>
+                            <input matInput type="text" id="podaci_o_ljekaru" formControlName="podaci_o_ljekaru">
+                        </mat-form-field>
+                    </div>
+
+                    <p>
+                        Pre davanja vakcine pregledati osobu i upoznati je sa koristima i o mogućim neželjenim reakcijama posle vakcinacije. 
+                        Obavezno upisati svaku datu vakcinu i sve tražene podatke u ovaj obrazac i podatke uneti u lični karton o izvršenim imunizacijama
+                        i zdravstveni karton.
+                    </p>
+
+                    <hr>
+
+                    <p><b>PRVA VAKCINA</b></p>
+
+                    <div class="vaccine11">
+                        <mat-form-field class="c1" appearance="fill">
+                            <mat-label>Naziv vakcine</mat-label>
+                            <mat-select id="naziv_vakcine1" formControlName="naziv_vakcine1">
+                                <mat-option value="Pfizer-BioNTech">Pfizer-BioNTech</mat-option>
+                                <mat-option value="Sputnik-V">Sputnik-V</mat-option>
+                                <mat-option value="Sinopharm">Sinopharm</mat-option>
+                                <mat-option value="AstraZeneca">AstraZeneca</mat-option>
+                                <mat-option value="Moderna">Moderna</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        
+                        <mat-form-field class="c2" appearance="fill">
+                            <mat-label>Serija vakcine</mat-label>
+                            <input matInput type="text" id="serija_vakcine1" formControlName="serija_vakcine1">
+                        </mat-form-field>
+
+                        <mat-form-field class="c3" appearance="fill">
+                            <mat-label>Proizvođač</mat-label>
+                            <input matInput type="text" id="proizvodjac1" formControlName="proizvodjac1">
+                        </mat-form-field>       
+                    </div>
+
+                    <div class="vaccine12">
+                        <mat-form-field class="c1" appearance="fill">
+                            <mat-label>Način davanja vakcine</mat-label>
+                            <input matInput type="text" id="nacin_davanja_vakcine1" formControlName="nacin_davanja_vakcine1">
+                        </mat-form-field>
+
+                        <mat-form-field class="c2" appearance="fill">
+                            <mat-label>Ekstremitet</mat-label>
+                            <mat-select id="ekstremitet1" formControlName="ekstremitet1">
+                                <mat-option value="LR">LR</mat-option>
+                                <mat-option value="DR">DR</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="c3" appearance="fill">
+                            <mat-label>Datum davanja vakcine</mat-label>
+                            <input matInput type="date" id="datum_davanja_vakcine1" formControlName="datum_davanja_vakcine1">
+                        </mat-form-field>
+                        
+                    </div>
+
+                    <br>
+                    <hr>
+
+                    <p><b>DRUGA VAKCINA</b></p>
+
+                    <div class="vaccine11">
+                        <mat-form-field class="c1" appearance="fill">
+                            <mat-label>Naziv vakcine</mat-label>
+                            <mat-select id="naziv_vakcine2" formControlName="naziv_vakcine2">
+                                <mat-option value="Pfizer-BioNTech">Pfizer-BioNTech</mat-option>
+                                <mat-option value="Sputnik-V">Sputnik-V</mat-option>
+                                <mat-option value="Sinopharm">Sinopharm</mat-option>
+                                <mat-option value="AstraZeneca">AstraZeneca</mat-option>
+                                <mat-option value="Moderna">Moderna</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        
+                        <mat-form-field class="c2" appearance="fill">
+                            <mat-label>Serija vakcine</mat-label>
+                            <input matInput type="text" id="serija_vakcine2" formControlName="serija_vakcine2">
+                        </mat-form-field>
+
+                        <mat-form-field class="c3" appearance="fill">
+                            <mat-label>Proizvođač</mat-label>
+                            <input matInput type="text" id="proizvodjac2" formControlName="proizvodjac2">
+                        </mat-form-field>       
+                    </div>
+
+                    <div class="vaccine12">
+                        <mat-form-field class="c1" appearance="fill">
+                            <mat-label>Način davanja vakcine</mat-label>
+                            <input matInput type="text" id="nacin_davanja_vakcine2" formControlName="nacin_davanja_vakcine2">
+                        </mat-form-field>
+
+                        <mat-form-field class="c2" appearance="fill">
+                            <mat-label>Ekstremitet</mat-label>
+                            <mat-select id="ekstremitet2" formControlName="ekstremitet2">
+                                <mat-option value="LR">LR</mat-option>
+                                <mat-option value="DR">DR</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="c3" appearance="fill">
+                            <mat-label>Datum davanja vakcine</mat-label>
+                            <input matInput type="date" id="datum_davanja_vakcine2" formControlName="datum_davanja_vakcine2">
+                        </mat-form-field>
+                        
+                    </div>
+
+                    <hr>
+                    <br>
+
+                    <p><b>TREĆA VAKCINA</b></p>
+
+                    <div class="vaccine11">
+                        <mat-form-field class="c1" appearance="fill">
+                            <mat-label>Naziv vakcine</mat-label>
+                            <mat-select id="naziv_vakcine" formControlName="naziv_vakcine3">
+                                <mat-option value="Pfizer-BioNTech">Pfizer-BioNTech</mat-option>
+                                <mat-option value="Sputnik-V">Sputnik-V</mat-option>
+                                <mat-option value="Sinopharm">Sinopharm</mat-option>
+                                <mat-option value="AstraZeneca">AstraZeneca</mat-option>
+                                <mat-option value="Moderna">Moderna</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        
+                        <mat-form-field class="c2" appearance="fill">
+                            <mat-label>Serija vakcine</mat-label>
+                            <input matInput type="text" id="serija_vakcine3" formControlName="serija_vakcine3">
+                        </mat-form-field>
+
+                        <mat-form-field class="c3" appearance="fill">
+                            <mat-label>Proizvođač</mat-label>
+                            <input matInput type="text" id="proizvodjac3" formControlName="proizvodjac3">
+                        </mat-form-field>       
+                    </div>
+
+                    <div class="vaccine12">
+                        <mat-form-field class="c1" appearance="fill">
+                            <mat-label>Način davanja vakcine</mat-label>
+                            <input matInput type="text" id="nacin_davanja_vakcine3" formControlName="nacin_davanja_vakcine3">
+                        </mat-form-field>
+
+                        <mat-form-field class="c2" appearance="fill">
+                            <mat-label>Ekstremitet</mat-label>
+                            <mat-select id="ekstremitet" formControlName="ekstremitet3">
+                                <mat-option value="LR">LR</mat-option>
+                                <mat-option value="DR">DR</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="c3" appearance="fill">
+                            <mat-label>Datum davanja vakcine</mat-label>
+                            <input matInput type="date" id="datum_davanja_vakcine3" formControlName="datum_davanja_vakcine3">
+                        </mat-form-field>
+                        
+                    </div>
+                    
+                    <hr>
+                    <br> <br>
+                    <button mat-raised-button color="primary" type="submit" class="submit_button" [disabled]="!consentForm.valid">Završi</button>
+
+
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+
+    <br>
+    <br>
+
+
+</body>

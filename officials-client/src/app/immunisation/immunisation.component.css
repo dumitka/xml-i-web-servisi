@@ -1,0 +1,49 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.toolbar_button{
+    width: 90px;
+}
+
+#profile_button{
+    margin-right: 20px;
+}
+
+
+table{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: #f8fafe;
+  }
+
+
+.position{
+    width: 100px;
+}
+
+.Datum{
+    width: 200px;
+}
+
+.Ime{
+    width: 200px;
+}
+
+.Prezime{
+  width: 200px;
+}
+
+.Vakcina{
+    width: 250px;
+}
+
+.button{
+  width: 200px;
+}
+
+.demo-table {
+    width: 950px;
+  }

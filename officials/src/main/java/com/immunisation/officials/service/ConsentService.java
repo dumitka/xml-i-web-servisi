@@ -1,13 +1,18 @@
-package com.immunisation.patients.service;
+package com.immunisation.officials.service;
 
 import java.util.UUID;
-import com.immunisation.patients.jaxb.JaxB;
+
+import javax.xml.bind.JAXBException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.xmldb.api.base.XMLDBException;
 
-import com.immunisation.patients.model.consent.ConsentForVaccination;
-import com.immunisation.patients.repository.ConsentRepository;
+import com.immunisation.officials.dto.ConsentCollection;
+import com.immunisation.officials.jaxb.JaxB;
+import com.immunisation.officials.model.consent.ConsentForVaccination;
+import com.immunisation.officials.repository.ConsentRepository;
+
 
 @Service
 public class ConsentService {
@@ -15,7 +20,12 @@ public class ConsentService {
 	private JaxB jaxb;
 	
 	@Autowired
-	private ConsentRepository repository;
+	ConsentRepository repository;
+	
+	public ConsentCollection getAllUnfinishedConsents() throws ClassNotFoundException, InstantiationException, IllegalAccessException, XMLDBException, JAXBException {
+		ConsentForVaccination[] consents = repository.getAllUnfinishedConsents();
+		return new ConsentCollection(consents);
+	}
 	
 	public void saveConsentFromString(String consent) throws Exception {
 		ConsentForVaccination consentObj = jaxb.unmarshall(ConsentForVaccination.class, consent);
