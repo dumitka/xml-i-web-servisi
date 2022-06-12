@@ -83,17 +83,33 @@ export class ConsentServiceService {
             <Datum_saglasnosti property="pred:datum_saglasnosti" datatype="xsi:date">${raw.dateOfConsent}</Datum_saglasnosti>
         </Deo_za_pacijenta>
         <Deo_za_radnika>
-            <Zdravstvena_ustanova property="pred:zdravstvena_ustanova" datatype="xsi:string">prazno</Zdravstvena_ustanova>
-            <Vakcinacijski_punkt>prazno</Vakcinacijski_punkt>
-            <Podaci_o_lekaru property="pred:podaci_o_lekaru" datatype="xsi:string">prazno, prazno</Podaci_o_lekaru>
+            <Zdravstvena_ustanova property="pred:zdravstvena_ustanova" datatype="xsi:string"></Zdravstvena_ustanova>
+            <Vakcinacijski_punkt></Vakcinacijski_punkt>
+            <Podaci_o_lekaru property="pred:podaci_o_lekaru" datatype="xsi:string"></Podaci_o_lekaru>
             <Primljene_vakcine_info>
                 <Primljena_vakcina>
-                    <Naziv_vakcine>prazno</Naziv_vakcine>
-                    <Datum_davanja_vakcine property="pred:datum_davanja_vakcine" datatype="xsi:date">prazno</Datum_davanja_vakcine>
-                    <Nacin_davanja_vakcine>prazno</Nacin_davanja_vakcine>
-                    <Ekstremitet>prazno</Ekstremitet>
-                    <Serija_vakcine>prazno</Serija_vakcine>
-                    <Proizvodjac>prazno</Proizvodjac>
+                    <Naziv_vakcine></Naziv_vakcine>
+                    <Datum_davanja_vakcine property="pred:datum_davanja_vakcine" datatype="xsi:date"></Datum_davanja_vakcine>
+                    <Nacin_davanja_vakcine></Nacin_davanja_vakcine>
+                    <Ekstremitet></Ekstremitet>
+                    <Serija_vakcine></Serija_vakcine>
+                    <Proizvodjac></Proizvodjac>
+                </Primljena_vakcina>
+                <Primljena_vakcina>
+                    <Naziv_vakcine></Naziv_vakcine>
+                    <Datum_davanja_vakcine property="pred:datum_davanja_vakcine" datatype="xsi:date"></Datum_davanja_vakcine>
+                    <Nacin_davanja_vakcine></Nacin_davanja_vakcine>
+                    <Ekstremitet></Ekstremitet>
+                    <Serija_vakcine></Serija_vakcine>
+                    <Proizvodjac></Proizvodjac>
+                </Primljena_vakcina>
+                <Primljena_vakcina>
+                    <Naziv_vakcine></Naziv_vakcine>
+                    <Datum_davanja_vakcine property="pred:datum_davanja_vakcine" datatype="xsi:date"></Datum_davanja_vakcine>
+                    <Nacin_davanja_vakcine></Nacin_davanja_vakcine>
+                    <Ekstremitet></Ekstremitet>
+                    <Serija_vakcine></Serija_vakcine>
+                    <Proizvodjac></Proizvodjac>
                 </Primljena_vakcina>
             </Primljene_vakcine_info>
         </Deo_za_radnika>
@@ -122,7 +138,7 @@ export class ConsentServiceService {
                 <tipovi:Prezime property="pred:prezime" datatype="xsi:string">${raw.lastName}</tipovi:Prezime>
                 <tipovi:Pol>${raw.gender}</tipovi:Pol>
                 <tipovi:Datum_rodjenja property="pred:datum_rodjenja" datatype="xs:date">${raw.dateOfBirth}</tipovi:Datum_rodjenja>
-                <tipovi:Broj_pasosa>${raw.passport}</tipovi:Broj_pasosa>
+                <tipovi:JMBG>${raw.passport}</tipovi:JMBG>
                 <tipovi:Ime_roditelja>${raw.parentName}</tipovi:Ime_roditelja>
                 <tipovi:Mesto_rodjenja>${raw.placeOfBirth}</tipovi:Mesto_rodjenja>
                 <tipovi:Adresa>
@@ -145,17 +161,33 @@ export class ConsentServiceService {
             <Datum_saglasnosti property="pred:datum_saglasnosti" datatype="xsi:date">${raw.dateOfConsent}</Datum_saglasnosti>
         </Deo_za_pacijenta>
         <Deo_za_radnika>
-            <Zdravstvena_ustanova property="pred:zdravstvena_ustanova" datatype="xsi:string">prazno</Zdravstvena_ustanova>
-            <Vakcinacijski_punkt>prazno</Vakcinacijski_punkt>
-            <Podaci_o_lekaru property="pred:podaci_o_lekaru" datatype="xsi:string">prazno, prazno</Podaci_o_lekaru>
+            <Zdravstvena_ustanova property="pred:zdravstvena_ustanova" datatype="xsi:string"></Zdravstvena_ustanova>
+            <Vakcinacijski_punkt></Vakcinacijski_punkt>
+            <Podaci_o_lekaru property="pred:podaci_o_lekaru" datatype="xsi:string"></Podaci_o_lekaru>
             <Primljene_vakcine_info>
                 <Primljena_vakcina>
-                    <Naziv_vakcine>prazno</Naziv_vakcine>
-                    <Datum_davanja_vakcine property="pred:datum_davanja_vakcine" datatype="xsi:date">prazno</Datum_davanja_vakcine>
-                    <Nacin_davanja_vakcine>prazno</Nacin_davanja_vakcine>
-                    <Ekstremitet>prazno</Ekstremitet>
-                    <Serija_vakcine>prazno</Serija_vakcine>
-                    <Proizvodjac>prazno</Proizvodjac>
+                    <Naziv_vakcine></Naziv_vakcine>
+                    <Datum_davanja_vakcine property="pred:datum_davanja_vakcine" datatype="xsi:date"></Datum_davanja_vakcine>
+                    <Nacin_davanja_vakcine></Nacin_davanja_vakcine>
+                    <Ekstremitet></Ekstremitet>
+                    <Serija_vakcine></Serija_vakcine>
+                    <Proizvodjac></Proizvodjac>
+                </Primljena_vakcina>
+                <Primljena_vakcina>
+                    <Naziv_vakcine></Naziv_vakcine>
+                    <Datum_davanja_vakcine property="pred:datum_davanja_vakcine" datatype="xsi:date"></Datum_davanja_vakcine>
+                    <Nacin_davanja_vakcine></Nacin_davanja_vakcine>
+                    <Ekstremitet></Ekstremitet>
+                    <Serija_vakcine></Serija_vakcine>
+                    <Proizvodjac></Proizvodjac>
+                </Primljena_vakcina>
+                <Primljena_vakcina>
+                    <Naziv_vakcine></Naziv_vakcine>
+                    <Datum_davanja_vakcine property="pred:datum_davanja_vakcine" datatype="xsi:date"></Datum_davanja_vakcine>
+                    <Nacin_davanja_vakcine></Nacin_davanja_vakcine>
+                    <Ekstremitet></Ekstremitet>
+                    <Serija_vakcine></Serija_vakcine>
+                    <Proizvodjac></Proizvodjac>
                 </Primljena_vakcina>
             </Primljene_vakcine_info>
         </Deo_za_radnika>

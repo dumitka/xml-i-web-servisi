@@ -55,7 +55,6 @@ export class ConsentComponent implements OnInit {
     })
   }
   
-  socijalno
   profile(){
     this.router.navigate(["/dashboard"])
   }
@@ -76,6 +75,8 @@ export class ConsentComponent implements OnInit {
         this.openSnackBar("Molim unesite Vaš JMBG ili broj Vašeg pasoša.", this.RESPONSE_ERROR);
       }else if(this.consentForm.value.jmbg != ""){
         //drzavlajnin sa jmbg
+        console.log("Drzavljanin Srbije, sa jmbg")
+        
         this.service.createConsent(raw, false).subscribe(
           data => {
             this.openSnackBar("Saglasnost je uspešno poslana!", this.RESPONSE_OK);
@@ -88,6 +89,8 @@ export class ConsentComponent implements OnInit {
         )
       }else{
         //drzavlajnin sa pasosem
+        console.log("Drzavljanin Srbije, sa pasosem")
+        
         this.service.createConsent(raw, true).subscribe(
           data => {
             this.openSnackBar("Saglasnost je uspešno poslana!", this.RESPONSE_OK);
@@ -105,6 +108,8 @@ export class ConsentComponent implements OnInit {
         this.openSnackBar("Molim unesite broj Vašeg pasoša.", this.RESPONSE_ERROR);
       }else{
         //pozovi onu sa pasose = true
+        console.log("Nije drzavljanin Srbije pasos")
+        
         this.service.createConsent(raw, true).subscribe(
           data => {
             this.openSnackBar("Saglasnost je uspešno poslana!", this.RESPONSE_OK);
@@ -115,6 +120,7 @@ export class ConsentComponent implements OnInit {
             this.openSnackBar(error.error, this.RESPONSE_ERROR);
           }
         )
+        
       }
 
     }
