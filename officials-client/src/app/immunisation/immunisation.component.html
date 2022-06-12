@@ -1,0 +1,58 @@
+<body>
+
+    <mat-toolbar color="primary">
+        <span>SVE SAGLASNOSTI ZA VAKCINACIJU</span>
+        <span class="example-spacer"></span>
+        <button mat-raised-button id="profile_button" class="toolbar_button" (click)="profile()">Profil</button>
+        <button mat-raised-button class="toolbar_button" (click)="logout()">Odjava</button>
+    </mat-toolbar>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div ></div>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+            <ng-container matColumnDef="No.">
+            <th mat-header-cell  class="position"  *matHeaderCellDef><b>No.</b></th>
+            <td mat-cell *matCellDef="let element; let i = index">{{i+1}}.</td>
+            </ng-container>
+        
+            <ng-container matColumnDef="Datum">
+            <th mat-header-cell  class="Datum"  *matHeaderCellDef><b>Datum</b></th>
+            <td mat-cell *matCellDef="let element"><i>{{element.Deo_za_pacijenta.Datum_saglasnosti}}</i></td>
+            </ng-container>
+            
+            <ng-container matColumnDef="Ime">
+            <th mat-header-cell  class="Ime" *matHeaderCellDef><b>Ime</b></th>
+            <td mat-cell *matCellDef="let element"><i>{{element.Deo_za_pacijenta.Licni_podaci.Ime}}</i></td>
+            </ng-container>
+    
+            <ng-container matColumnDef="Prezime">
+            <th mat-header-cell  class="Prezime"  *matHeaderCellDef><b>Prezime</b></th>
+            <td mat-cell *matCellDef="let element"><i>{{element.Deo_za_pacijenta.Licni_podaci.Prezime}}</i></td>
+            </ng-container>
+            
+            <ng-container matColumnDef="Vakcina">
+            <th mat-header-cell  class="Vakcina" *matHeaderCellDef><b>Vakcina</b></th>
+            <td mat-cell *matCellDef="let element"><i>{{element.Deo_za_pacijenta.Tip_vakcine}}</i></td>
+            </ng-container>
+    
+            <ng-container matColumnDef="button">
+            <th mat-header-cell  class="button" *matHeaderCellDef><b>Popuni saglasnost</b></th>
+            <td mat-cell *matCellDef="let element; let i = index">
+                <button mat-raised-button class="take_button" id="take_button{{i+1}}" (click) = "popuni(element)"><i>POPUNI</i></button>
+            </td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr
+                mat-row
+                *matRowDef="let row; columns: displayedColumns;"
+            ></tr>
+    
+    </table>
+
+</body>

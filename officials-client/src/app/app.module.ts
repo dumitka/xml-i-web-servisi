@@ -12,6 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { VaccinesComponent } from './vaccines/vaccines.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
+import { ImmunisationComponent } from './immunisation/immunisation.component';
+import { ConsentComponent } from './consent/consent.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { AppointmentsComponent } from './appointments/appointments.component';
     LoginComponent,
     VaccinesComponent,
     AppointmentsComponent,
+    ImmunisationComponent,
+    ConsentComponent,
   ],
   imports: [
     BrowserModule,

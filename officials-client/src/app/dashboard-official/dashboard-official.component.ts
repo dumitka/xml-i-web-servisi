@@ -36,4 +36,9 @@ export class DashboardOfficialComponent implements OnInit {
       alert("Uspesno generisanje HTML-ova i PDF-ova!");
     });
   }
+
+  imunizacija(){
+    this.router.navigate(["/immunisation"])
+
+  }
 }
