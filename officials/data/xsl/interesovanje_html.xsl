@@ -4,7 +4,7 @@
     xmlns:t="http://www.baklavice.com/tipovi" version="2.0">
 
     <xsl:template match="/">
-        <html>
+        <html style="width:1519">
             <head>
                 <title>Interesovanje za vakcinaciju</title>
                 <meta charset="UTF-8"/>
@@ -22,6 +22,7 @@
             </head>
             <body>
             	<p style="text-align:center;font-weight: bold;font-size:22;">
+            		<br/>
             		Исказивање интересовања за вакцинисање против COVID-19
             	</p>
             	<p>
@@ -153,10 +154,10 @@
             	<p>
             	<br/><br/><br/><br/><br/>
             	дана <xsl:value-of select="b:Interesovanje/b:Datum_interesovanja"/> године
-            	<img src="../../data/pictures/prazan_prostor.png" width="500" height="12"/>
+            	<img src="../../../data/pictures/prazan_prostor.png" width="500" height="12"/>
             	____________________________________
             	<br/>
-            	<img src="../../data/pictures/prazan_prostor.png" width="850" height="12"/>
+            	<img src="../../../data/pictures/prazan_prostor.png" width="850" height="12"/>
             	<span style="font-size:10">Потпис</span>
             	</p>
             </body>

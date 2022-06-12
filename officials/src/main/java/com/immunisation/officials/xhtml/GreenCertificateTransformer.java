@@ -1,4 +1,4 @@
-package com.immunisation.officials.model.confirmation;
+package com.immunisation.officials.xhtml;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,21 +23,21 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
 
-public class PDFTransformer {
+public class GreenCertificateTransformer {
 	private static DocumentBuilderFactory documentFactory;
 	private static TransformerFactory transformerFactory;
 	
 	private static String inputFile = "data/xml/";
-	private static final String XSL_HTML_FILE = "data/xsl/potvrda_o_vakcinaciji_html.xsl";
-	private static final String XSL_PDF_FILE = "data/xsl/potvrda_o_vakcinaciji_pdf.xsl";
-	private static String htmlFile = "gen/html";
-	private static final String HTML_PDF_FILE = "gen/html/potvrda_o_vakcinaciji_pdf.html";
-	private static String outputFile = "gen/pdf";
+	private static final String XSL_HTML_FILE = "data/xsl/digitalni_sertifikat_html.xsl";
+	private static final String XSL_PDF_FILE = "data/xsl/digitalni_sertifikat_pdf.xsl";
+	private static String htmlFile = "gen/html/digitalni_sertifikati";
+	private static final String HTML_PDF_FILE = "gen/html/digitalni_sertifikat_pdf.html";
+	private static String outputFile = "gen/pdf/digitalni_sertifikati";
 	
 	// *** za demonstraciju iz main-a
-	public static final String INPUT_FILE = "data/xml/Potvrda_o_vakcinaciji.xml";
-	public static final String HTML_FILE = "gen/html/potvrda_o_vakcinaciji_html.html";
-	public static final String OUTPUT_FILE = "gen/pdf/potvrda_o_vakcinaciji.pdf";
+	public static final String INPUT_FILE = "data/xml/Digitalni_sertifikat1.xml";
+	public static final String HTML_FILE = "gen/html/digitalni_sertifikat_html.html";
+	public static final String OUTPUT_FILE = "gen/pdf/digitalni_sertifikat.pdf";
 
 	static {
 		/* Inicijalizacija DOM fabrike */
@@ -50,14 +50,14 @@ public class PDFTransformer {
 		transformerFactory = TransformerFactory.newInstance();
 	}
 	
-	// potreban parametara "Potvrda_o_vakcinaciji.xml"
+	// potreban parametara "Digitalni_sertifikat1.xml"
 	// *** static zbog main-a
 	public static void generateXHTML(String xmlDoc) {
 		inputFile += xmlDoc;
-		int brojHTMLa = new File(htmlFile).listFiles().length - 5;
-		htmlFile = htmlFile + "/izvestaj_o_imunizaciji_html" + brojHTMLa + ".html";
-		int brojPDFa = new File(outputFile).listFiles().length;
-		outputFile = outputFile + "/izvestaj_o_imunizaciji" + brojPDFa + ".pdf";
+		int brojHTMLa = new File(htmlFile).listFiles().length;
+		htmlFile = htmlFile + "/digitalni_sertifikat" + brojHTMLa + ".html";
+		int brojPDFa = new File(outputFile).listFiles().length + 1;
+		outputFile = outputFile + "/digitalni_sertifikat" + brojPDFa + ".pdf";
 		
 		System.out.println("Generisanje XHTML-a u toku...");
     	
@@ -67,7 +67,7 @@ public class PDFTransformer {
 			System.out.println("[INFO] A new directory is created: " + pdfFile.getParentFile().getAbsolutePath() + ".");
 			pdfFile.getParentFile().mkdir();
 		}
-		PDFTransformer pdfTransformer = new PDFTransformer();
+		GreenCertificateTransformer pdfTransformer = new GreenCertificateTransformer();
 		try {
 			pdfTransformer.generateHTML(inputFile, htmlFile);
 			pdfTransformer.generatePDF(outputFile);
@@ -83,9 +83,9 @@ public class PDFTransformer {
 		}
 		
 		System.out.println("Izgenerisan HTML i PDF.");
-		htmlFile = "gen/html";
 		inputFile = "data/xml/";
-		outputFile = "gen/pdf";
+		htmlFile = "gen/html/digitalni_sertifikati";
+		outputFile = "gen/pdf/digitalni_sertifikati";
 	}
  
     public void generatePDF(String filePath) throws IOException, DocumentException {
@@ -126,7 +126,7 @@ public class PDFTransformer {
 			StreamResult result = new StreamResult(new FileOutputStream(htmlPath));
 			transformer.transform(source, result);
 			
-			// ZA IZVESTAJ_O_IMUNIZACIJI_PDF
+			// ZA DIGITALNI_SERTIFIKAT_PDF
 			transformSource = new StreamSource(new File(XSL_PDF_FILE));
 			transformer = transformerFactory.newTransformer(transformSource);
 			transformer.setOutputProperty("{http://xml.apache.org/xalan}indent-amount", "2");
@@ -146,7 +146,7 @@ public class PDFTransformer {
     }
     
     public static void main(String[] args) throws IOException, DocumentException {
-    	System.out.println("[INFO] " + PDFTransformer.class.getSimpleName());
+    	System.out.println("[INFO] " + GreenCertificateTransformer.class.getSimpleName());
     	
     	// Creates parent directory if necessary
     	File pdfFile = new File(OUTPUT_FILE);
@@ -154,7 +154,7 @@ public class PDFTransformer {
 			System.out.println("[INFO] A new directory is created: " + pdfFile.getParentFile().getAbsolutePath() + ".");
 			pdfFile.getParentFile().mkdir();
 		}
-		PDFTransformer pdfTransformer = new PDFTransformer();
+		GreenCertificateTransformer pdfTransformer = new GreenCertificateTransformer();
 		pdfTransformer.generateHTML(INPUT_FILE, HTML_FILE);
 		pdfTransformer.generatePDF(OUTPUT_FILE);
 		
@@ -162,7 +162,6 @@ public class PDFTransformer {
 		System.out.println("[INFO] End.");
 
 		//System.out.println("--------------------------------------------------------");
-		//generateXHTML("Potvrda_o_vakcinaciji.xml");
+		//generateXHTML("Digitalni_sertifikat2.xml");
     }
-
 }

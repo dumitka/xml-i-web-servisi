@@ -30,9 +30,9 @@ public class InterestTransformer {
 	private static String inputFile = "data/xml/";
 	private static final String XSL_HTML_FILE = "data/xsl/interesovanje_html.xsl";
 	private static final String XSL_PDF_FILE = "data/xsl/interesovanje_pdf.xsl";
-	private static String htmlFile = "gen/html/interesovanje";
+	private static String htmlFile = "gen/html/interesovanja";
 	private static final String HTML_PDF_FILE = "gen/html/interesovanje_pdf.html";
-	private static String outputFile = "gen/pdf/interesovanje";
+	private static String outputFile = "gen/pdf/interesovanja";
 	
 	// *** za demonstraciju iz main-a
 	public static final String INPUT_FILE = "data/xml/Interesovanje.xml";
@@ -55,7 +55,7 @@ public class InterestTransformer {
 	public static void generateXHTML(String xmlDoc) {
 		inputFile += xmlDoc;
 		int brojHTMLa = new File(htmlFile).listFiles().length + 1;
-		htmlFile = htmlFile + "/interesovanje_html" + brojHTMLa + ".html";
+		htmlFile = htmlFile + "/interesovanje" + brojHTMLa + ".html";
 		int brojPDFa = new File(outputFile).listFiles().length + 1;
 		outputFile = outputFile + "/interesovanje" + brojPDFa + ".pdf";
 		
@@ -84,8 +84,8 @@ public class InterestTransformer {
 		
 		System.out.println("Izgenerisan HTML i PDF.");
 		inputFile = "data/xml/";
-		htmlFile = "gen/html/interesovanje/";
-		outputFile = "gen/pdf/interesovanje";
+		htmlFile = "gen/html/interesovanja";
+		outputFile = "gen/pdf/interesovanja";
 	}
  
     public void generatePDF(String filePath) throws IOException, DocumentException {

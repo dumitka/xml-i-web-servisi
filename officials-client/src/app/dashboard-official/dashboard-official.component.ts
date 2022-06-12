@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard-official',
@@ -9,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class DashboardOfficialComponent implements OnInit {
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService, private http: HttpClient,) { }
 
   ngOnInit(): void {
   }
@@ -27,7 +29,16 @@ export class DashboardOfficialComponent implements OnInit {
     this.router.navigate(["/"])
   }
 
+  generisi() {
+    alert("Uslo");
+    this.http.get("http://localhost:8081/api/xhtml/")
+    .pipe(map((data) => {},)).subscribe(data => {
+      alert("Uspesno generisanje HTML-ova i PDF-ova!");
+    });
+  }
+
   imunizacija(){
     this.router.navigate(["/immunisation"])
+
   }
 }

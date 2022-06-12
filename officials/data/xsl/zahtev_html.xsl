@@ -4,7 +4,7 @@
     xmlns:t="http://www.baklavice.com/tipovi" version="2.0">
 
     <xsl:template match="/">
-        <html>
+        <html style="width:1519">
             <head>
                 <title>Zahtev za zeleni sertifikat</title>
                 <meta charset="UTF-8"/>
@@ -39,7 +39,7 @@
             		<br/>
             		Име и презиме: 
             		<xsl:value-of select="b:Zahtev/b:Podaci_o_podnosiocu/t:Ime"/>
-            		<img src="../../data/pictures/prazan_prostor.png" width="5" height="12"/>
+            		<img src="../../../data/pictures/prazan_prostor.png" width="5" height="12"/>
             		<xsl:value-of select="b:Zahtev/b:Podaci_o_podnosiocu/t:Prezime"/>
             		<br/>
             		Датум рођења: <xsl:value-of select="b:Zahtev/b:Podaci_o_podnosiocu/t:Datum_rodjenja"/>
@@ -63,10 +63,10 @@
             		<br/>
             		дана <xsl:value-of select="b:Zahtev/b:Datum_podnosenja_zahteva"/> године
             		<br/>
-            		<img src="../../data/pictures/prazan_prostor.png" width="800" height="12"/>
+            		<img src="../../../data/pictures/prazan_prostor.png" width="800" height="12"/>
             		_______________________________
             		<br/>
-            		<img src="../../data/pictures/prazan_prostor.png" width="950" height="12"/>
+            		<img src="../../../data/pictures/prazan_prostor.png" width="950" height="12"/>
             		<span style="font-size:10">Потпис</span>
             	</p>
             </body>

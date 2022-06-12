@@ -4,7 +4,7 @@
     xmlns:t="http://www.baklavice.com/tipovi" version="2.0">
 
     <xsl:template match="/">
-        <html>
+        <html style="width:1519">
             <head>
                 <title>Izvestaj o imunizaciji</title>
                 <meta charset="UTF-8"/>
@@ -44,7 +44,7 @@
             </head>
             <body>
             	<p style="text-align:center; font-size:20; color:d3d3d3;">
-            		<img src="../../data/pictures/grb_ijzs.jpg" class="levo" alt="Grb Instituta za javno zdravlje Srbije"/>
+            		<img src="../../../data/pictures/grb_ijzs.jpg" class="levo" alt="Grb Instituta za javno zdravlje Srbije"/>
 
             		<br/>
             		<br/>
@@ -79,9 +79,9 @@
             	<p style="color:d3d3d3;font-size:14;">
             		<span class="boldovano" style="font-size:18"> 
             			Име и презиме: 
-            			<img src="../../data/pictures/prazan_prostor.png" width="5" height="12"/>
+            			<img src="../../../data/pictures/prazan_prostor.png" width="5" height="12"/>
             			<xsl:value-of select="b:Potvrda/b:Info_korisnika/t:Ime"/>
-            			<img src="../../data/pictures/prazan_prostor.png" width="5" height="12"/>
+            			<img src="../../../data/pictures/prazan_prostor.png" width="5" height="12"/>
             			<xsl:value-of select="b:Potvrda/b:Info_korisnika/t:Prezime"/>
             		</span>
             		<br/>
@@ -145,7 +145,7 @@
             		Zdravstvena ustanova / Medical institution
             	</p>
             	<p style="color:d3d3d3;font-size:14">
-            		<img src="../../data/pictures/primer_qrk.jpg" class="desno" alt="QR kod"/>
+            		<img src="../../../data/pictures/primer_qrk.jpg" class="desno" alt="QR kod"/>
             		<br/><br/><br/><br/><br/><br/>
             		<br/><br/><br/>
             		<span class="boldovano" style="font-size:18">Ова потврда важи без потписа и печата</span>
