@@ -51,10 +51,6 @@ public class VaccineInfoRepository {
     	return infos;
     }
     
-	
-//    public void saveInterest(String text, String docUri) throws Exception {
-//		existManager.storeFromText(collectionUri, docUri + ".xml", text);
-//	}
     
   //kreiraj novu(za db runner npr)
     public void save(VaccineInfo vaccineInfo) throws Exception {

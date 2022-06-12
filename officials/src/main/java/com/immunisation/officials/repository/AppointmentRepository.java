@@ -37,10 +37,8 @@ public class AppointmentRepository {
 	}
 	
 
-	//search po tome da li je rezervisan
-//	[tip~=posta]
+	//search 
 	public Appointment[] searchByRezervisanFalse() throws Exception {
-//		String query = "[rezervisan=false]";
 		
 		String queryPart = "for $x in collection() ";
 		String wherePart = "where $x//*:rezervisan='false'" 
@@ -50,10 +48,10 @@ public class AppointmentRepository {
 		String[] xmls = existManager.retrieve(collectionUri, queryPart + wherePart);
 		
 		Appointment[] appointments = new Appointment[xmls.length];
-//		System.out.println("______+++++++++++++++++++++++++++++++++_________EVO SEARCH U REPO");
+
 		int i = 0;
 		for (String xml : xmls) {
-//			System.out.println("__________________XML ZA NEREZERVISANI TERMIN_______\n" + xml);
+
 			appointments[i] = createAppointmentFromString(xml);
 			i++;
 		}

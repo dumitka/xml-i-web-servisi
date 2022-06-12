@@ -73,24 +73,14 @@ public class InterestController {
 //		Sputnik-V
 		
 		ResponseEntity<VaccinationDate> vaccinationDate = null;
-		System.out.println("____________________________________EVO SAD SMO POSLALI MEJL VERIFIKACIJE< IDEMO DA TRAZIMO TERMIN");
+
 		//potrazi termin
 		try {
 			String uri = "http://localhost:8081/api/vaccinfo/zakazivanje/" + getVaccineName(interestObj);
-			System.out.println("____________________________________EVO URI" + uri);
+
 			
-			//////
-//			RestTemplate restTemplate = new RestTemplate();
-//			HttpHeaders headers = new HttpHeaders();
-////			headers.setAccept(Collections.singletonList(MediaType.APPLICATION_XML_VALUE));
-//			headers.add("Accept", MediaType.APPLICATION_XML_VALUE);
-//			
-//			HttpEntity<VaccinationDate> entity = new HttpEntity<VaccinationDate>(headers);
-			
-			///////
-//			new RestTemplate().exchange(uri, HttpMethod.GET, )
 			vaccinationDate = new RestTemplate().getForEntity(uri,VaccinationDate.class, params);
-			System.out.println("___________________________________ZAVRSEN REQ ZA OFFICIALS");
+
 		}
 		catch (Exception ex) {
 			ex.printStackTrace();
@@ -99,18 +89,16 @@ public class InterestController {
 		
 		//ako ga nadjes, salji mejl, ako ne, nista
 		if(vaccinationDate.getBody() != null) {
-			System.out.println("_______________________________________________" + vaccinationDate.getBody());
+
 			MailPackage mp2 = emailService.sendVaccinationDate(vaccinationDate.getBody(), interestObj.getContact().getEmail(), interestObj.getVaccinationData().getTownshipOfInstitution());
 			try {
-				System.out.println("SAD SMO ZNACI DOBILI TERMIN PA KREIRALI MEJL, EVO POZIV KA MEJL SERVISU");
+
 			     ResponseEntity<Object> mailResponse = new RestTemplate().postForEntity("http://localhost:8084/api/mail", mp2, Object.class, params);
-			     System.out.println("___________________________GOTOV POZIV KA MEJL SERVISU");
 			}
 			catch (Exception ex) {
 			    throw new Exception("Mail Not working");
 			}
 		}
-		System.out.println("_____________________________IZGLEDA NISMO NASLI TERMIN??");
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
