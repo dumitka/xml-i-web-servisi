@@ -1,4 +1,4 @@
-package com.immunisation.officials.model.report;
+package com.immunisation.officials.xhtml;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,21 +23,21 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
 
-public class PDFTransformer {
+public class ConfirmationTransformer {
 	private static DocumentBuilderFactory documentFactory;
 	private static TransformerFactory transformerFactory;
 	
 	private static String inputFile = "data/xml/";
-	private static final String XSL_HTML_FILE = "data/xsl/izvestaj_o_imunizaciji_html.xsl";
-	private static final String XSL_PDF_FILE = "data/xsl/izvestaj_o_imunizaciji_pdf.xsl";
-	private static String htmlFile = "gen/html";
-	private static final String HTML_PDF_FILE = "gen/html/izvestaj_o_imunizaciji_pdf.html";
-	private static String outputFile = "gen/pdf";
+	private static final String XSL_HTML_FILE = "data/xsl/potvrda_o_vakcinaciji_html.xsl";
+	private static final String XSL_PDF_FILE = "data/xsl/potvrda_o_vakcinaciji_pdf.xsl";
+	private static String htmlFile = "gen/html/potvrde";
+	private static final String HTML_PDF_FILE = "gen/html/potvrda_o_vakcinaciji_pdf.html";
+	private static String outputFile = "gen/pdf/potvrde";
 	
 	// *** za demonstraciju iz main-a
-	public static final String INPUT_FILE = "data/xml/Izvestaj_o_imunizaciji.xml";
-	public static final String HTML_FILE = "gen/html/izvestaj_o_imunizaciji_html.html";
-	public static final String OUTPUT_FILE = "gen/pdf/izvestaj_o_imunizaciji.pdf";
+	public static final String INPUT_FILE = "data/xml/Potvrda_o_vakcinaciji.xml";
+	public static final String HTML_FILE = "gen/html/potvrda_o_vakcinaciji_html.html";
+	public static final String OUTPUT_FILE = "gen/pdf/potvrda_o_vakcinaciji.pdf";
 
 	static {
 		/* Inicijalizacija DOM fabrike */
@@ -50,14 +50,14 @@ public class PDFTransformer {
 		transformerFactory = TransformerFactory.newInstance();
 	}
 	
-	// potreban parametara "Izvestaj_o_imunizaciji.xml"
+	// potreban parametara "Potvrda_o_vakcinaciji.xml"
 	// *** static zbog main-a
 	public static void generateXHTML(String xmlDoc) {
 		inputFile += xmlDoc;
-		int brojHTMLa = new File(htmlFile).listFiles().length - 4;
-		htmlFile = htmlFile + "/izvestaj_o_imunizaciji_html" + brojHTMLa + ".html";
-		int brojPDFa = new File(outputFile).listFiles().length;
-		outputFile = outputFile + "/izvestaj_o_imunizaciji" + brojPDFa + ".pdf";
+		int brojHTMLa = new File(htmlFile).listFiles().length + 1;
+		htmlFile = htmlFile + "/potvrda_o_vakcinaciji" + brojHTMLa + ".html";
+		int brojPDFa = new File(outputFile).listFiles().length + 1;
+		outputFile = outputFile + "/potvrda_o_vakcinaciji" + brojPDFa + ".pdf";
 		
 		System.out.println("Generisanje XHTML-a u toku...");
     	
@@ -67,7 +67,7 @@ public class PDFTransformer {
 			System.out.println("[INFO] A new directory is created: " + pdfFile.getParentFile().getAbsolutePath() + ".");
 			pdfFile.getParentFile().mkdir();
 		}
-		PDFTransformer pdfTransformer = new PDFTransformer();
+		ConfirmationTransformer pdfTransformer = new ConfirmationTransformer();
 		try {
 			pdfTransformer.generateHTML(inputFile, htmlFile);
 			pdfTransformer.generatePDF(outputFile);
@@ -83,9 +83,9 @@ public class PDFTransformer {
 		}
 		
 		System.out.println("Izgenerisan HTML i PDF.");
-		htmlFile = "gen/html";
 		inputFile = "data/xml/";
-		outputFile = "gen/pdf";
+		htmlFile = "gen/html/potvrde";
+		outputFile = "gen/pdf/potvrde";
 	}
  
     public void generatePDF(String filePath) throws IOException, DocumentException {
@@ -146,7 +146,7 @@ public class PDFTransformer {
     }
     
     public static void main(String[] args) throws IOException, DocumentException {
-    	System.out.println("[INFO] " + PDFTransformer.class.getSimpleName());
+    	System.out.println("[INFO] " + ConfirmationTransformer.class.getSimpleName());
     	
     	// Creates parent directory if necessary
     	File pdfFile = new File(OUTPUT_FILE);
@@ -154,7 +154,7 @@ public class PDFTransformer {
 			System.out.println("[INFO] A new directory is created: " + pdfFile.getParentFile().getAbsolutePath() + ".");
 			pdfFile.getParentFile().mkdir();
 		}
-		PDFTransformer pdfTransformer = new PDFTransformer();
+		ConfirmationTransformer pdfTransformer = new ConfirmationTransformer();
 		pdfTransformer.generateHTML(INPUT_FILE, HTML_FILE);
 		pdfTransformer.generatePDF(OUTPUT_FILE);
 		
@@ -162,6 +162,6 @@ public class PDFTransformer {
 		System.out.println("[INFO] End.");
 
 		//System.out.println("--------------------------------------------------------");
-		//generateXHTML("Izvestaj_o_imunizaciji.xml");
+		//generateXHTML("Potvrda_o_vakcinaciji.xml");
     }
 }

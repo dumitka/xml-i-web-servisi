@@ -4,7 +4,7 @@
     xmlns:t="http://www.baklavice.com/tipovi" version="2.0">
 
     <xsl:template match="/">
-        <html>
+        <html style="width:1519">
             <head>
                 <title>Digitalni sertifikat</title>
                 <meta charset="UTF-8"/>
@@ -12,8 +12,8 @@
             </head>
             <body>
             	<p style="text-align:center;">
-            		<img src="../../data/pictures/grb_rs.png" class="levo" alt="Grb Srbije"/>
-            		<img src="../../data/pictures/primer_qrk.jpg" class="desno" alt="QR kod"/>
+            		<img src="../../../data/pictures/grb_rs.png" class="levo" alt="Grb Srbije"/>
+            		<img src="../../../data/pictures/primer_qrk.jpg" class="desno" alt="QR kod"/>
             			
             		<br/>
             		<br/>
@@ -36,15 +36,15 @@
             		REPUBLIC OF SERBIA<br/>
             		<br/>
 	            	<span class="boldovano">Број сертификата /</span>
-	            	<img src="../../data/pictures/prazan_prostor.png" width="590" height="12"/>
+	            	<img src="../../../data/pictures/prazan_prostor.png" width="590" height="12"/>
 	            	<span class="boldovano">Датум и време издавања сертификата /</span>
 	            	<br/>
 	            	<span class="boldovano">Certificate ID: </span>
-	            	<img src="../../data/pictures/prazan_prostor.png" width="90" height="12"/>
+	            	<img src="../../../data/pictures/prazan_prostor.png" width="90" height="12"/>
 	            	<xsl:value-of select="b:Sertifikat/b:Info_sertifikat/b:Broj_sertifikata"/>
-	            	<img src="../../data/pictures/prazan_prostor.png" width="500" height="12"/>
+	            	<img src="../../../data/pictures/prazan_prostor.png" width="500" height="12"/>
 	            	<span class="boldovano">Certificate issuing date and time: </span>
-	            	<img src="../../data/pictures/prazan_prostor.png" width="90" height="12"/>
+	            	<img src="../../../data/pictures/prazan_prostor.png" width="90" height="12"/>
 	            	<xsl:value-of select="b:Sertifikat/b:Info_sertifikat/b:Datum_izdavanja"/>
 	            	<br/>
 	            </p>
@@ -53,7 +53,7 @@
                         <td><span class="boldovano">Име и презиме / Name and surname:</span></td>
                         <td>
                         	<xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Ime"/>
-                        	<img src="../../data/pictures/prazan_prostor.png" width="5" height="12"/>
+                        	<img src="../../../data/pictures/prazan_prostor.png" width="5" height="12"/>
 	            			<xsl:value-of select="b:Sertifikat/b:Info_korisnika/t:Prezime"/>
                         </td>
                     </tr>
@@ -75,7 +75,7 @@
                     </tr>
 				</table>
             	<br/>
-            	<img src="../../data/pictures/linija.png" width="100%"/>
+            	<img src="../../../data/pictures/linija.png" width="100%"/>
             	<br/>
             	
             	<table style="width: 95%; align:center; text-align:left">
@@ -123,7 +123,7 @@
             	</table>
             	
             	<p>
-	            	<img src="../../data/pictures/linija.png" width="100%"/>
+	            	<img src="../../../data/pictures/linija.png" width="100%"/>
 	            	<br/>
             	</p> 
             	<table style="width: 95%; align:center;text-align:left">
@@ -214,7 +214,7 @@
             	</p> 
             	<div width="100%" >
 	            	<div style="width:600;float:left;">
-	            		<img src="../../data/pictures/grb_ijzs.jpg" class="levo"/>
+	            		<img src="../../../data/pictures/grb_ijzs.jpg" class="levo"/>
 	            		<br/>
 	            		<span class="boldovano">Сертификат издаје:</span><br/>
 	            		Институт за јавно здравље Србије<br/>
@@ -224,7 +224,7 @@
 	            		"Dr Milan Jovanović Batut"<br/>
 	            	</div>
 	            	<div style="width:600;float:right;font-size:17">
-	            		<img src="../../data/pictures/grb_rs.png" class="levo"/>
+	            		<img src="../../../data/pictures/grb_rs.png" class="levo"/>
 	            		<br/><br/><br/>
 	            		РЕПУБЛИКА СРБИЈА<br/>
 	            		Влада Републике Србије<br/>

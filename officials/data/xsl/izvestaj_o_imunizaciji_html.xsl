@@ -3,7 +3,7 @@
     xmlns:b="http://www.baklavice.com/izvestaj" version="2.0">
 
     <xsl:template match="/">
-        <html>
+        <html style="width:1519">
             <head>
                 <title>Izvestaj o imunizaciji</title>
                 <meta charset="UTF-8"/>
@@ -16,7 +16,6 @@
 					    font-size: 18;
 					    margin-left:150;
 					}
-					
 					
 					.boldovano {
 					    font-weight: bold;
@@ -68,10 +67,10 @@
            		<br/>
             	<p>
            			Извештај издат <xsl:value-of select="b:Izvestaj/b:Datum_izdavanja"/>
-           			<img src="../../data/pictures/prazan_prostor.png" width="400" height="12"/>
+           			<img src="../../../data/pictures/prazan_prostor.png" width="400" height="12"/>
            			_______________________________________
            			<br/>
-           			<img src="../../data/pictures/prazan_prostor.png" width="800" height="12"/>
+           			<img src="../../../data/pictures/prazan_prostor.png" width="800" height="12"/>
            			<span style="font-size:14">Потпис</span>
            		</p>
             </body>
