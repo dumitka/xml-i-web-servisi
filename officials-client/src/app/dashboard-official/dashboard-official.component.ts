@@ -30,7 +30,6 @@ export class DashboardOfficialComponent implements OnInit {
   }
 
   generisi() {
-    alert("Uslo");
     this.http.get("http://localhost:8081/api/xhtml/")
     .pipe(map((data) => {},)).subscribe(data => {
       alert("Uspesno generisanje HTML-ova i PDF-ova!");
