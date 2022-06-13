@@ -47,6 +47,17 @@ export class ConsentServiceService {
   }
 
 
+  addConfirm(data){
+    console.log("SERVIS");
+    console.log(data);
+    let confirm = this.getConfirmation(data);
+
+    console.log(confirm)
+
+    return this.http.post(this.URL +  "/confirm", confirm, {headers: Main.HEADERS}).pipe(map((data) => {
+      console.log("USPEHH")
+    }, catchError(this.errorHandler)));
+  }
   
 
   errorHandler(error: HttpErrorResponse) {
@@ -131,4 +142,41 @@ export class ConsentServiceService {
     return doc
   }
 
+
+  getConfirmation(raw){
+    let doc = `<?xml version="1.0" encoding="UTF-8"?>
+    <Potvrda 
+        xmlns="http://www.baklavice.com/potvrda"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.baklavice.com/potvrda Potvrda_o_vakcinaciji.xsd"
+        xmlns:tipovi="http://www.baklavice.com/tipovi"
+        xmlns:pred="http://www.baklavice.com/rdf/predikati/"
+        vocab="http://www.baklavice.com/rdf/predikati/"
+        about="http://www.baklavice.com/rdf/potvrda/00">
+        <Sifra_potvrde>00</Sifra_potvrde>
+        <Info_korisnika>
+            <tipovi:Drzavljanstvo>${raw.Deo_za_pacijenta.Licni_podaci.Drzavljanstvo}</tipovi:Drzavljanstvo>
+            <tipovi:Boraviste>${raw.Deo_za_pacijenta.Licni_podaci.Boraviste}</tipovi:Boraviste>
+            <tipovi:Ime property="pred:ime" datatype="xsi:string">${raw.Deo_za_pacijenta.Licni_podaci.Ime}</tipovi:Ime>
+            <tipovi:Prezime property="pred:prezime" datatype="xsi:string">${raw.Deo_za_pacijenta.Licni_podaci.Prezime}</tipovi:Prezime>
+            <tipovi:Pol>${raw.Deo_za_pacijenta.Licni_podaci.Pol}</tipovi:Pol>
+            <tipovi:Datum_rodjenja property="pred:datum_rodjenja" datatype="xs:date">${raw.Deo_za_pacijenta.Licni_podaci.Datum_rodjenja}</tipovi:Datum_rodjenja>
+            <tipovi:JMBG>${raw.Deo_za_pacijenta.Licni_podaci.Broj_pasosa}</tipovi:JMBG>
+        </Info_korisnika>
+        <Doze_vakcine>
+            <Doza Broj_doze="1">
+                <Datum_davanja>${raw.datumV1}</Datum_davanja>
+                <Serija>${raw.serija1}</Serija>
+            </Doza>
+            <Doza Broj_doze="2">
+                <Datum_davanja>${raw.datumV2}</Datum_davanja>
+                <Serija>${raw.serija2}</Serija>
+            </Doza>
+        </Doze_vakcine>
+        <Naziv_vakcine>${raw.nazivVak}</Naziv_vakcine>
+        <Datum_izdavanja property="pred:datum_izdavanja" datatype="xsi:date">${raw.datumIzd}</Datum_izdavanja>
+        <QR_kod property="pred:qr_kod" datatype="xsi:string">URL do QR koda</QR_kod>
+    </Potvrda>
+    `
+  }
 }

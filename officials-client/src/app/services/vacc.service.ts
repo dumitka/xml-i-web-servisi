@@ -47,6 +47,19 @@ export class VaccService {
     }, catchError(this.errorHandler)));
   }
 
+
+  update(data){
+    const builder = new xml2js.Builder({rootName: 'vaccdto'});
+    let obj = builder.buildObject(data);
+
+    return this.http.put(Main.PATH + "api/vaccinfo/update", obj,  {headers: Main.HEADERS})
+    .pipe(map((data) => {
+      
+      console.log("HEJEJ uspeli update kolicine")
+
+    }, catchError(this.errorHandler)));
+  }
+
   errorHandler(error: HttpErrorResponse) {
     return throwError(error);
   }

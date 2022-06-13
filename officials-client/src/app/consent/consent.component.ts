@@ -4,7 +4,7 @@ import { AuthService } from '../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConsentServiceService } from '../services/consent-service.service'
-
+import { VaccService } from '../services/vacc.service';
 @Component({
   selector: 'app-consent',
   templateUrl: './consent.component.html',
@@ -19,7 +19,8 @@ export class ConsentComponent implements OnInit {
   RESPONSE_OK: number = 0;
   RESPONSE_ERROR: number = -1;
 
-  constructor(private router: Router, private authService: AuthService, private fb: FormBuilder, private snackBar: MatSnackBar, private service:ConsentServiceService) {
+  constructor(private router: Router, private authService: AuthService, private fb: FormBuilder, private snackBar: MatSnackBar,
+     private service:ConsentServiceService, private vaccService: VaccService) {
     this.consent = history.state.data.conset;
     this.createForm();
 
@@ -96,17 +97,43 @@ export class ConsentComponent implements OnInit {
   
     
     
-    this.service.dodaj(this.consent).subscribe(
-      data => {
-        this.openSnackBar("Uspešno ažurirana količina!", this.RESPONSE_OK);
-        this.router.navigate(["/dashboardOfficial"])
-        
-      },
-      error => {
-        console.log(error.error)
-        this.openSnackBar(error.error, this.RESPONSE_ERROR);
-      }
-    )
+   
+
+
+    if(this.consentForm.value.naziv_vakcine3 != ""){
+      this.vaccService.dodajNove({name: this.consentForm.value.naziv_vakcine3, kolicina: 1}).subscribe(
+        data => {
+          this.openSnackBar("Uspešno ažurirana količina!", this.RESPONSE_OK);
+        },
+        error => {
+          console.log(error.error)
+          this.openSnackBar(error.error, this.RESPONSE_ERROR);
+        }
+      )
+    }else if(this.consentForm.value.naziv_vakcine2 != ""){
+      this.vaccService.dodajNove({name: this.consentForm.value.naziv_vakcine2, kolicina: 1}).subscribe(
+        data => {
+          this.openSnackBar("Uspešno ažurirana količina!", this.RESPONSE_OK);
+
+        },
+        error => {
+          console.log(error.error)
+          this.openSnackBar(error.error, this.RESPONSE_ERROR);
+        }
+      )
+    }else if(this.consentForm.value.naziv_vakcine1 != ""){
+      this.vaccService.dodajNove({name: this.consentForm.value.naziv_vakcine1, kolicina: 1}).subscribe(
+        data => {
+          this.openSnackBar("Uspešno ažurirana količina!", this.RESPONSE_OK);
+        },
+        error => {
+          console.log(error.error)
+          this.openSnackBar(error.error, this.RESPONSE_ERROR);
+        }
+      )
+    }
+
+    
     
   }
 

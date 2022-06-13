@@ -50,4 +50,19 @@ public class ConsentController {
 	}
 	
 	
+	@PostMapping(value="/confirm", consumes = MediaType.APPLICATION_XML_VALUE)
+	public ResponseEntity<Object> confirm(@RequestBody String confirm) {
+		try {
+			service.saveConfirmFromString(confirm);
+			System.out.println("TACA");
+			System.out.println(confirm);
+		}catch(Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>("Error while saving Interest", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	
 }
