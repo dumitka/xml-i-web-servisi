@@ -19,6 +19,7 @@ public class ConsentRepository {
 	
 	private String collectionUri = "/db/eUprava/FinishedConsets";
 	private String patientCollectionUri = "/db/eUprava/PacientConsents";
+	private String collectionConfUri = "/db/eUprava/VaccConfirmations";
 
     @Autowired
     private ExistManager existManager;
@@ -37,6 +38,11 @@ public class ConsentRepository {
     public void saveRequest(String text, String docUri) throws Exception {
 		existManager.storeFromText(collectionUri, docUri + ".xml", text);
 	}
+    
+    public void saveConfirm(String text, String docUri) throws Exception {
+		existManager.storeFromText(collectionConfUri, docUri + ".xml", text);
+	}
+	
 	
     
     

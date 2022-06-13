@@ -88,5 +88,17 @@ public class VaccineController {
 		}
 	}
 	
+	@PutMapping(value="/update", consumes = MediaType.APPLICATION_XML_VALUE)
+	public ResponseEntity<Object> update(@RequestBody VaccineDto dto) {
+		try {
+			service.smanjiRezervisaneZaJedan(dto.getName());
+			return new ResponseEntity<>(HttpStatus.OK);
+		}catch(Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>("Error while adding new vacc", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	
 
 }

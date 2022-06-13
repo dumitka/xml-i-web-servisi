@@ -15,6 +15,7 @@ import { AppointmentsComponent } from './appointments/appointments.component';
 import { ImmunisationComponent } from './immunisation/immunisation.component';
 import { ConsentComponent } from './consent/consent.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { ConsentComponent } from './consent/consent.component';
     AppointmentsComponent,
     ImmunisationComponent,
     ConsentComponent,
+    
   ],
   imports: [
     BrowserModule,
